@@ -14,4 +14,37 @@
 **REST Assured**  
 * https://github.com/jayway/rest-assured  
 * http://www.jayway.com/?s=restassured  
+* 
+
+package second;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class ClassB {
+	public static void main(String[] args) {
+		String input = "djm";
+		String[] collection = { "django_migrations.py", "django_admin_log.py", "main_generator.py", "migrations.py",
+				"api_user.doc", "user_group.doc", "accounts.txt" };
+
+		
+		String patt = String.join(".*", input.split("(?!^)"));
+
+		Pattern pattern = Pattern.compile(patt);
+		
+		for (int i = 0; i < collection.length; i++) {
+			Matcher matcher = pattern.matcher(collection[i]);
+			// check all occurance
+			while (matcher.find()) {
+				System.out.print("Start index: " + matcher.start());
+				System.out.print(" End index: " + matcher.end() + " ");
+				System.out.println(matcher.group());
+			}
+			
+		}
+
+		
+	}
+}
+
 
