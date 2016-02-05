@@ -1,0 +1,12 @@
+http://stackoverflow.com/questions/1832908/how-to-connect-to-remote-oracle-db-with-pl-sql-developer
+
+
+MYDB =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 123.45.67.89)(PORT = 1521))
+    (CONNECT_DATA = (SID = TEST)(SERVER = DEDICATED))
+  )
+
+
+
+http://www.sql.ru/forum/734626/sintaksis-tnsnames-ora
