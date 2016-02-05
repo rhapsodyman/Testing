@@ -10,3 +10,6 @@ MYDB =
 
 
 http://www.sql.ru/forum/734626/sintaksis-tnsnames-ora
+
+
+http://o7planning.org/web/fe/default/en/document/20948/guide-to-installing-and-configuring-pl-sql-developer
