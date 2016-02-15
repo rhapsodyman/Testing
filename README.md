@@ -16,3 +16,6 @@
 * http://www.jayway.com/?s=restassured  
 * 
 
+http://www.guigarage.com/javafx-training-tutorials/
+https://dzone.com/storage/assets/439403-rc219-javafx.pdf
+http://code.makery.ch/library/javafx-8-tutorial/part1/
