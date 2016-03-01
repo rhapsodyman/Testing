@@ -1,0 +1,12 @@
+#borderPane { 
+    
+    -fx-background-color: red;
+}
+#stackPane {
+    -fx-border-width: 2px;
+    -fx-border-color: red;
+
+    /* didn't work */
+   -fx-hgap: 100%;
+   -fx-vgap: 100%;
+}
