@@ -67,3 +67,40 @@ http://s000.tinyupload.com/?file_id=08355813971966643926
 
 
 http://www.baeldung.com/jackson-serialize-enums
+
+
+
+public static void main(String[] args) throws IOException {
+		/*
+		 * Collection files = FileUtils.listFiles(new File("D:\\abc"), new
+		 * RegexFileFilter("^(.*?)"), DirectoryFileFilter.DIRECTORY);
+		 * 
+		 * System.out.println(files.toString()); for (Object file : files) {
+		 * File fileObj = (File) file;
+		 * System.out.println(fileObj.getCanonicalPath());
+		 * System.out.println(fileObj.getName()); }
+		 */
+
+		List<String> files = printFnames("D:\\abc", new ArrayList<String>());
+
+		for (String string : files) {
+			System.out.println(string);
+
+		}
+
+	}
+
+	public static List<String> printFnames(String sDir, List<String> files) {
+		File[] faFiles = new File(sDir).listFiles();
+		for (File file : faFiles) {
+
+			if (file.isDirectory()) {
+				printFnames(file.getAbsolutePath(), files);
+			} else {
+				if (file.getName().matches("^(.*?)")) {
+					files.add(file.getAbsolutePath());
+				}
+			}
+		}
+		return files;
+	}
