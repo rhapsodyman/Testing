@@ -64,3 +64,6 @@ http://s000.tinyupload.com/?file_id=08355813971966643926
             <version>${jackson-1-version}</version>
         </dependency>
 
+
+
+http://www.baeldung.com/jackson-serialize-enums
