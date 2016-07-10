@@ -63,23 +63,6 @@ http://s000.tinyupload.com/?file_id=08355813971966643926
             <artifactId>jackson-core-asl</artifactId>
             <version>${jackson-1-version}</version>
         </dependency>
-        
-        
-        
-Failure analysis
-1. Cause of failures - extra spaces in excel sheets - need to modify data provider to trim 'meta'
-Many tests invoke web services - for example AuthAmp (account switcher),
-RetailRTBP (trading scripts) even before performing any Ui interactions. So their functionality is critical. 
-So, while testing account switcher all tests were failing when AuthAmp was down in ste06.
-Practically all helpers classes and templates use static functions that 
-may modify static variables, which may cause failures in multi threaded tests.
-The way we can mitigate their impact is to use ThreadLocal variables that wrap 
-the static variables, or remove all static keywords from templates and 
-create a new instance of class in each test method.
-
-Trading tests may have problems with symbol selection tool - 
-for example it did not return stortable symbols in ste06 - so the tests were failing
-
 
 
 http://www.baeldung.com/jackson-serialize-enums
