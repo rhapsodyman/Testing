@@ -103,3 +103,31 @@ public static void main(String[] args) throws IOException {
 		}
 		return files;
 	}
+
+
+
+static <A, B> Map<B, B> reduce(Map<A, A> original, Function<A, B> f) {
+		Map<B,B> newMap = new HashMap<B,B>();
+
+		original.forEach( (k,v) ->
+		{
+			newMap.put(f.apply(k), f.apply(v));
+		});
+
+		return newMap;
+	}
+
+
+	static <K, V, K1, V1> Map<K1, V1> reduceMap(Map<K, V> original, Function<K, K1> forKey, Function<V, V1> forValue) {
+		Map<K1,V1> newMap = new HashMap<K1,V1>();
+
+		original.forEach( (k,v) ->
+		{
+			newMap.put(forKey.apply(k), forValue.apply(v));
+		});
+
+		return newMap;
+	}
+
+
+System.out.println(reduceMap(values, StringUtils::trim, StringUtils::trim));
