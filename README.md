@@ -131,3 +131,8 @@ static <A, B> Map<B, B> reduce(Map<A, A> original, Function<A, B> f) {
 
 
 System.out.println(reduceMap(values, StringUtils::trim, StringUtils::trim));
+
+
+
+
+https://gist.github.com/miglen/5590986
