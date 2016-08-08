@@ -133,6 +133,13 @@ static <A, B> Map<B, B> reduce(Map<A, A> original, Function<A, B> f) {
 System.out.println(reduceMap(values, StringUtils::trim, StringUtils::trim));
 
 
+Scripts are kept in /etc/init.d, and links to them are made in the directories 
+/etc/rc0.d, /etc/rc1.d, and so on
+The /etc/inittabfile tells initwhat to do at each run level.
+
+Red Hat supplies a chkconfigcommand to help you manage services. This command adds or removes startup scripts from the system, manages the run levels at 
+which they operate, and lists the run levels for which a script is currently configured. See the man page for usage information for this simple and handy tool.
+
 
 
 https://gist.github.com/miglen/5590986
