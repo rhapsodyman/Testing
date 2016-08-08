@@ -136,3 +136,4 @@ System.out.println(reduceMap(values, StringUtils::trim, StringUtils::trim));
 
 
 https://gist.github.com/miglen/5590986
+http://www.davidghedini.com/pg/entry/install_tomcat_7_on_centos
