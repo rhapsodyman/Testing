@@ -144,3 +144,8 @@ which they operate, and lists the run levels for which a script is currently con
 
 https://gist.github.com/miglen/5590986
 http://www.davidghedini.com/pg/entry/install_tomcat_7_on_centos
+
+
+https://mprabhat.me/2012/07/02/creating-a-fix-initiator-using-quickfixj/
+http://kavy.iteye.com/blog/2242463
+https://github.com/quickfix-j/quickfixj/blob/master/quickfixj-examples/banzai/src/main/resources/quickfix/examples/banzai/banzai.cfg
