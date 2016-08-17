@@ -157,10 +157,5 @@ Build a project and copy the jar - in Tomcat webapps dir/localMavenRepository (k
 add this code to the dependent project pom.xml
 
 
-<repositories>
-		<repository>
-			<id>repository</id>
-			<url>http://localhost:8080/localMavenRepository</url>
-		</repository>
-	</repositories>
+<repositories> 	<repository>  <id>repository</id> <url>http://localhost:8080/localMavenRepository</url> </repository> </repositories>
 
