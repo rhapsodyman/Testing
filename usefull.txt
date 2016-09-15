@@ -149,3 +149,6 @@ add this code to the dependent project pom.xml
 		}
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
+	
+	
+	http://ricostacruz.com/cheatsheets/sh.html#ifs
