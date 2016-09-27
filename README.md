@@ -21,4 +21,4 @@ https://dzone.com/storage/assets/439403-rc219-javafx.pdf
 http://code.makery.ch/library/javafx-8-tutorial/part1/
 
 
-
+http://stackoverflow.com/questions/12401991/h2-database-multiple-connections
