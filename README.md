@@ -22,3 +22,5 @@ http://code.makery.ch/library/javafx-8-tutorial/part1/
 
 
 http://stackoverflow.com/questions/12401991/h2-database-multiple-connections
+
+http://www.sevenforums.com/software/321552-not-valid-win32-application.html
