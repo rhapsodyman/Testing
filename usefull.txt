@@ -152,3 +152,441 @@ add this code to the dependent project pom.xml
 	
 	
 	http://ricostacruz.com/cheatsheets/sh.html#ifs
+	
+	
+	
+	var TransformComponent = React.createClass({
+	
+	addValueToList: function(map, key, value) {
+    //if the list is already created for the "key", then uses it
+    //else creates new list for the "key" to store multiple values in it.
+    map[key] = map[key] || [];
+    map[key].push(value);
+	},
+	
+	 render: function() {  
+		var data =  this.props.data;
+		var map = {};
+		var testSets = [];
+		
+		var dataLength = data.length;
+		for (var i = 0; i < dataLength; i++) {
+			var run = data[i];
+			
+			this.addValueToList(map, run.testSet, run);
+			
+			if(!testSets.includes(run.testSet)){
+				testSets.push(run.testSet);
+			}
+		}
+		return (<Main map={map} testSets={testSets}/>)
+	 }
+  });
+
+
+var Main = React.createClass({
+     getInitialState: function() {
+    return {activeIndex : 0};
+  },
+  
+ 	testSetSelectCallBack: function(index) {
+		console.log("From parent  " + index);
+		this.setState({activeIndex: index});
+	},
+
+	    render : function(){
+	
+    return (
+		<div className="container">
+      <div className="row">
+        <div className="col-md-4">
+          <h3>Test Sets</h3>
+		  
+		 <TestSetsBlock testSets={this.props.testSets} map={this.props.map} itemSelect={this.testSetSelectCallBack}/>
+		
+        </div>
+        <div className="col-md-8">
+		  <TestCasesBlock testCases={this.props.map[this.props.testSets[this.state.activeIndex]]}/>
+        </div>
+      </div>
+    </div>
+	 )
+}});    
+
+
+
+
+var FiltersAndStats = React.createClass({
+	onButtonClick: function(event) {
+		console.log("inside on button click");
+		console.log(event.currentTarget.dataset.id);
+		this.props.onFilterChange(event.currentTarget.dataset.id);
+	},
+	
+	 render: function() {
+	var testCases = this.props.testCases;
+	
+	var passed = 0;
+	var skipped = 0;
+	var failed = 0;
+	
+	testCases.forEach(function(testCase) {
+	switch (testCase.status) {
+	  case "PASS":
+		passed++;
+		break;
+	  case "FAIL":
+		failed++;
+		break;
+	  case "SKIP":
+		skipped++;
+		break;
+	  default:
+		console.log("Invalid status");
+	}
+	});
+	
+	var all = passed + failed + skipped;
+	var passPer = passed/all*100;
+	var failPer = failed/all*100;
+	var skipPer = skipped/all*100;
+	
+	
+	return(<div>
+		<div className="btn-group">
+            <a href="#" className="btn btn-success" data-id="PASS" onClick={ this.onButtonClick }>Passed</a>
+            <a href="#" className="btn btn-danger" data-id="FAIL" onClick={ this.onButtonClick }>Failed</a>
+            <a href="#" className="btn btn-warning" data-id="SKIP" onClick={ this.onButtonClick }>Skipped</a>
+			<a href="#" className="btn btn-info" data-id="ALL" onClick={ this.onButtonClick}>All</a>
+          </div>
+          <div className="form-group">
+            <label>Filter</label>
+            <input type="text" className="form-control"></input>
+          </div>
+		  
+		  <h4 className="stats-title">Statistics</h4>
+		
+		<label>
+		<span className="pull-right">{passPer + ' % (' + passed + ')'}</span>PASS</label>
+		<div className="progress progress-xxs">
+		<div className="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style={{width : passPer + '%'}}></div>
+		</div>
+		
+		<label>
+		<span className="pull-right">{failPer + ' % (' + failed + ')'}</span>FAIL</label>
+		<div className="progress progress-xxs">
+		<div className="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style={{width : failPer + '%'}}></div>
+		</div>
+		
+		<label>
+		<span className="pull-right">{skipPer + ' % (' + skipped + ')'}</span>SKIP</label>
+		<div className="progress progress-xxs">
+		<div className="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style={{width : skipPer + '%'}}></div>
+		</div>
+		</div>
+	 );
+	 }
+  });
+
+
+
+
+
+
+var TestCase = React.createClass({
+	 render: function() {
+		return(
+		<div className="row">
+            <div className="col-md-10">
+              <p>{this.props.testCase.testCase}</p>
+            </div>
+            <div className="col-md-2">
+              <p>{this.props.testCase.status}</p>
+            </div>
+          </div>
+	 );
+	 }
+  });
+
+
+
+var TestCasesBlock = React.createClass( {
+	 getInitialState: function(){
+		console.log("inside init state");
+		return {filter: "ALL"};
+		
+	},
+	
+	onFilterChangeCallback: function(filter){
+		console.log("inside of filter change callback");
+		console.log(filter);
+		this.setState( { filter: filter } );	
+	},
+	
+  render: function () {
+	  var testCases = this.props.testCases;
+	  var filtered = [];
+	  
+	  console.log("inside rended");
+	  console.log(this.state.filter);
+	  var filter = this.state.filter;
+	  
+	  if(filter != 'ALL'){
+		  testCases.forEach(function(testCase) {
+			  if(testCase.status == filter)
+				  filtered.push(testCase);
+		});
+		  
+	  }
+	  else filtered = testCases;
+	  
+    if ( filtered ) {
+      var toRender = filtered.map( function ( testCase, index ) {
+
+        return (
+        <TestCase testCase={ testCase } key={ index } />
+        );
+      }, this );
+    }
+	
+	    return (<div>
+	      <h3>Test Cases Block</h3>
+		  <FiltersAndStats testCases={this.props.testCases} onFilterChange={this.onFilterChangeCallback}/>
+
+		{ toRender }
+         </div>);
+  }
+} );
+
+
+var TestSetsBlock = React.createClass( {
+  getInitialState: function () {
+    return {
+      selectedItem: -1
+    };
+  },
+  onItemClick: function ( event ) {
+    this.setState( {
+      selectedItem: event.currentTarget.dataset.id
+    } );
+    this.props.itemSelect( event.currentTarget.dataset.id );
+  },
+  render: function () {
+    var testSets = this.props.testSets;
+    if ( testSets ) {
+      var toRender = testSets.map( function ( testSet, index ) {
+        var style_cl = "list-group-item ";
+        style_cl += this.state.selectedItem == index ? "on" : "off";
+
+        return (
+        <li
+            className={ style_cl }
+            onClick={ this.onItemClick }
+            data-id={ index }
+            key={ index }>
+          <span className="badge">{ this.props.map[ testSet ].length }</span>
+          { testSet }
+        </li>
+        );
+      }, this );
+    }
+
+    return (<ul className="list-group">
+              { toRender }
+            </ul>);
+  }
+} );
+
+
+
+
+
+var data = [{
+	testCase: "Test case 1",
+	iteration: 1,
+	testSet: "Test set 1",
+	status: "PASS",
+		
+	steps: [
+	{
+		message: "Message 1",
+		timestamp: "123455",
+		logger : "Logger 1"
+	},
+	{
+		message: "Message 1",
+		timestamp: "2334",
+		logger : "Logger 2"
+	},
+	{
+		message: "Message 3",
+		timestamp: "1234556",
+		logger : "Logger 3"
+	}
+	]
+},
+
+{
+	testCase: "Test case 2",
+	iteration: 1,
+	testSet: "Test set 1",
+	status: "FAIL",
+		
+	steps: [
+	{
+		message: "Message 1",
+		timestamp: "123455",
+		logger : "Logger 1"
+	},
+	{
+		message: "Message 1",
+		timestamp: "2334",
+		logger : "Logger 2"
+	},
+	{
+		message: "Message 3",
+		timestamp: "1234556",
+		logger : "Logger 3"
+	}
+	]
+},
+
+
+{
+	testCase: "Test case 3",
+	iteration: 1,
+	testSet: "Test set 3",
+	status: "PASS",
+		
+	steps: [
+	{
+		message: "Message 1",
+		timestamp: "123455",
+		logger : "Logger 1"
+	},
+	{
+		message: "Message 1",
+		timestamp: "2334",
+		logger : "Logger 2"
+	},
+	{
+		message: "Message 3",
+		timestamp: "1234556",
+		logger : "Logger 3"
+	}
+	]
+},
+
+{
+	testCase: "Test case 4",
+	iteration: 1,
+	testSet: "Test set 3",
+	status: "PASS",
+		
+	steps: [
+	{
+		message: "Message 1",
+		timestamp: "123455",
+		logger : "Logger 1"
+	},
+	{
+		message: "Message 1",
+		timestamp: "2334",
+		logger : "Logger 2"
+	},
+	{
+		message: "Message 3",
+		timestamp: "1234556",
+		logger : "Logger 3"
+	}
+	]
+}
+];
+
+
+
+function getDataAsMap(){
+	
+}
+	
+ReactDOM.render(
+  <TransformComponent data = {data} />, document.getElementById('App')
+);
+
+
+
+
+
+.centered-text {
+    text-align:center
+}
+
+li.on {
+	background-color: lightblue;
+}
+
+li.off {
+	
+}
+
+
+label {
+    display: block;
+}
+.stats-title{
+    font-size: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 30px;
+    padding: 10px 0;
+}
+.progress.progress-xxs {
+    height: 3px;
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-glyphicons.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css" />
+  </head>
+  
+  <body>
+    <div class="container">
+      <div class="btn-group">
+      </div>
+      <div class="page-header">
+        <h3>Execution report</h3>
+      </div>
+    </div>
+   
+     <div id="App"> 
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+    <script type="text/babel" src="build/script-react.js"></script>
+
+  </body>
+
+</html>
+
+
+
+
+
