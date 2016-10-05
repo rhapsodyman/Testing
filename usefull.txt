@@ -1,4 +1,5 @@
 https://www.bootstrapcdn.com/bootswatch/
+https://cdnjs.com/libraries/react-router
 
 <properties>
 		<jackson-2-version>2.7.0</jackson-2-version>
