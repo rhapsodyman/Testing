@@ -1,5 +1,4 @@
-
-http://s000.tinyupload.com/?file_id=08355813971966643926
+https://www.bootstrapcdn.com/bootswatch/
 
 <properties>
 		<jackson-2-version>2.7.0</jackson-2-version>
