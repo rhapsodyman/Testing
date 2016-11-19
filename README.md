@@ -27,3 +27,8 @@ http://www.sevenforums.com/software/321552-not-valid-win32-application.html
 
 https://interface31.ru/tech_it/
 http://www.guru99.com/handling-cookies-selenium-webdriver.html
+
+**Selenium Cheatsheet**  
+* http://scraping.pro/res/xpath-cheat/xpath_css_dom_ref.pdf
+* http://scraping.pro/res/xpath-cheat/xpath_css_dom_recipes.pdf
+* http://ricostacruz.com/cheatsheets/xpath.html#prefixes
