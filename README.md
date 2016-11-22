@@ -32,3 +32,4 @@ http://www.guru99.com/handling-cookies-selenium-webdriver.html
 * http://scraping.pro/res/xpath-cheat/xpath_css_dom_ref.pdf
 * http://scraping.pro/res/xpath-cheat/xpath_css_dom_recipes.pdf
 * http://ricostacruz.com/cheatsheets/xpath.html#prefixes
+http://internetka.in.ua/selenium-driver-element-visibility/
