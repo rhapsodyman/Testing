@@ -15,22 +15,19 @@
 * https://github.com/jayway/rest-assured  
 * http://www.jayway.com/?s=restassured  
 
+**JAVA FX** 
+* http://www.guigarage.com/javafx-training-tutorials/
+* https://dzone.com/storage/assets/439403-rc219-javafx.pdf
+* http://code.makery.ch/library/javafx-8-tutorial/part1/
 
-http://www.guigarage.com/javafx-training-tutorials/
-https://dzone.com/storage/assets/439403-rc219-javafx.pdf
-http://code.makery.ch/library/javafx-8-tutorial/part1/
+**H2 database**
+* http://stackoverflow.com/questions/12401991/h2-database-multiple-connections
 
-
-http://stackoverflow.com/questions/12401991/h2-database-multiple-connections
-
-http://www.sevenforums.com/software/321552-not-valid-win32-application.html
-
-https://interface31.ru/tech_it/
-http://www.guru99.com/handling-cookies-selenium-webdriver.html
-
-**Selenium Cheatsheet**  
+**Selenium**  
 * http://scraping.pro/res/xpath-cheat/xpath_css_dom_ref.pdf
 * http://scraping.pro/res/xpath-cheat/xpath_css_dom_recipes.pdf
 * http://ricostacruz.com/cheatsheets/xpath.html#prefixes
-http://internetka.in.ua/selenium-driver-element-visibility/
-http://seleniumsimplified.com/2012/08/fluentwait-with-webelement/
+* http://internetka.in.ua/selenium-driver-element-visibility/
+* http://seleniumsimplified.com/2012/08/fluentwait-with-webelement
+* https://interface31.ru/tech_it/
+* http://www.guru99.com/handling-cookies-selenium-webdriver.html
