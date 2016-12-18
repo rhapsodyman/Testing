@@ -1,0 +1,52 @@
+All WebDriverException are RuntimeException (so we don't see that WebDriver or WebElement methods throw any of them)
+
+When we use PageFactory.initElements(driver, this)
+
+DefaultFieldDecorator - used to decorate all the fields of the class (using ElementLocatorFactory locators)
+DefaultElementLocatorFactory - for producing ElementLocators
+LocatingElementHandler - is a proxy for WebElement and it uses ElementLocators to find the element
+
+Using Yandex, when for example List<ListenedItem> listened is in the POM,
+it initializes a proxy for the list.
+Only when some method of that list is invoked - it looks by the given xpath.
+Then for each of the found web elements it creates a ListenedItem instance
+and initializes its internal elements with the proxies.
+
+
+HtmlElementLocatorFactory has a default timeout of 5 seconds
+return Integer.getInteger("webdriver.timeouts.implicitlywait", 5);
+but it can be changed if 
+we will set a webdriver.timeouts.implicitlywait System property
+
+
+
+also WebElementNamedProxyHandler has a DEFAULT_TIMEOUT = 5;
+
+
+HtmlElementLocatorFactory is used to locate ALL the variables inside a HtmlElement
+
+
+
+
+
+
+
+
+public class LastFmPage {
+
+	@FindBy(xpath = "//section[@id='recent-tracks-section']//table[contains(@class,'chartlist')]//tr[contains(@class, 'js-link')]")
+	public List<ListenedItem> listened;
+
+	public LastFmPage(WebDriver driver) {
+		PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
+	}
+
+	static class ListenedItem extends HtmlElement {
+
+		@FindBy(xpath = ".//span[@class='chartlist-artists']/a")
+		public Link artist;
+
+		public ListenedItem() {
+		};
+	}
+}
