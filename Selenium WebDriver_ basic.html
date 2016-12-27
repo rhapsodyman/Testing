@@ -1,0 +1,1170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0053)http://internetka.in.ua/selenium-basic-authorization/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU"><!--BEGIN head--><head profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>Selenium WebDriver: basic авторизация — Блог вебразработчика</title>
+
+	<!-- Meta Tags -->
+	
+	<meta name="generator" content="WordPress">
+	<meta name="old_google-site-verification" content="EdcWNCs7L5K40Kxj_zGCkto7DlQbGWqW49B7ETSGFkU">
+	<meta name="google-site-verification" content="70uNMZ0P_oOkJzZQs2keAeiBqvZF8dUJFQZ48WjGvJ4">
+	<meta name="yandex-verification" content="7f94b47108e6e6bc">
+	<meta name="4a0212e13352a84c229680c97695e7ac" content="">
+        <!-- Favicon -->
+        <link href="http://internetka.in.ua/favicon.ico" rel="icon" type="image/x-icon">
+        <link href="http://internetka.in.ua/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/style.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/print.css" type="text/css" media="print">
+  
+
+  <!-- Custom Stylesheets -->
+  
+         
+   <style type="text/css"> 
+  ul.slides li.slide {
+display:block !important; }
+</style>    
+
+   
+   
+    
+	<!-- Theme Hook -->
+    
+  
+	     
+
+       
+
+
+<link rel="alternate" type="application/rss+xml" title="Блог вебразработчика » Лента" href="http://internetka.in.ua/feed/">
+<link rel="alternate" type="application/rss+xml" title="Блог вебразработчика » Лента комментариев" href="http://internetka.in.ua/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Блог вебразработчика » Лента комментариев к «Selenium WebDriver: basic авторизация»" href="http://internetka.in.ua/selenium-basic-authorization/feed/">
+		<script src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/cb=gapi.loaded_1" async=""></script><script src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/cb=gapi.loaded_0" async=""></script><script id="twitter-wjs" async="" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/widgets.js.Без названия"></script><script type="text/javascript" async="" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/watch.js.Без названия"></script><script type="text/javascript" async="" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/aci.js.Без названия"></script><script type="text/javascript" async="" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/ga.js.Без названия"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/internetka.in.ua\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.4"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/wp-emoji-release.min.js.Без названия" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="googlefont-css" href="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="cptch_stylesheet-css" href="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="cptch_desktop_style-css" href="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/desktop_style.css" type="text/css" media="all">
+<meta property="vk:app_id" content="3016133">
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/jquery.js.Без названия"></script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/jquery-migrate.min.js.Без названия"></script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/tipsy.js.Без названия"></script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/fields.js.Без названия"></script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/supersubs.js.Без названия"></script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/superfish.js.Без названия"></script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/buttons.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var vkapi = {"wpurl":"http:\/\/internetka.in.ua"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/callback.js.Без названия"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var cptch_vars = {"nonce":"bbea54683f","ajaxurl":"http:\/\/internetka.in.ua\/wp-admin\/admin-ajax.php","enlarge":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/front_end_script.js.Без названия"></script>
+<link rel="https://api.w.org/" href="http://internetka.in.ua/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://internetka.in.ua/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://internetka.in.ua/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="BrowserMob Proxy + Selenium: автоматизация сбора данных о производительности" href="http://internetka.in.ua/browsermobproxy-selenium-perfomance/">
+<link rel="next" title="Видеозапись выполнения тестов Selenium" href="http://internetka.in.ua/selenium-screen-recordering/">
+
+<link rel="canonical" href="http://internetka.in.ua/selenium-basic-authorization/">
+<link rel="shortlink" href="http://internetka.in.ua/?p=3204">
+<link rel="alternate" type="application/json+oembed" href="http://internetka.in.ua/wp-json/oembed/1.0/embed?url=http%3A%2F%2Finternetka.in.ua%2Fselenium-basic-authorization%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://internetka.in.ua/wp-json/oembed/1.0/embed?url=http%3A%2F%2Finternetka.in.ua%2Fselenium-basic-authorization%2F&amp;format=xml">
+	
+<!-- START: Syntax Highlighter ComPress -->
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/shCore.js.Без названия"></script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/shAutoloader.js.Без названия"></script>
+<link type="text/css" rel="stylesheet" href="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/shCoreDefault.css">
+<!-- END: Syntax Highlighter ComPress -->
+
+  
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33444601-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> 
+
+<!--END head-->  
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/api_min.js.Без названия"></script><script type="text/javascript" charset="utf-8" async="" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/button.3943c052be33b5e812dac6838df9cb3d.js.Без названия"></script><style type="text/css">.mrc__translayer {background: rgba(255,255,255,0.7); position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 999999; display: none}
+.mrc__translayer:before {background: url(//my1.imgsmail.ru/mail/ru/images/my/compass/static/progress/preloader_grayonwhite.gif) no-repeat center center; bottom: 0; content: ""; display: block; left: 0; margin: auto; position: absolute; right: 0; top: 0; height: 12px; width: 64px;}
+.mrc__translayer_on iframe {box-shadow: 0 2px 5px rgba(0,0,0,0.35); visibility: hidden;}.mrc__translayer_on {background-image:none;}</style><script src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/share.php"></script></head>
+
+
+
+<!--BEGIN body-->
+<body class="single single-post postid-3204 single-format-standard">
+
+
+<div id="top"></div>
+
+
+	<!--BEGIN .header-->
+		<div class="header" style="margin: 0 auto;">
+    
+	<!--BEGIN .container-->
+	<div class="container" style="margin-bottom:0px;">
+  
+  
+  <div class="radial-effect"></div>
+  
+  
+  
+  <!-- AD Space 1 -->
+  
+  
+  
+                            
+  
+  
+  
+    
+      
+     
+      
+     
+     
+          
+     
+      
+     
+     
+       
+			<div id="logo"><span></span><a href="http://internetka.in.ua/">Блог вебразработчика</a></div>
+      
+      
+	<!--END .container-->
+		</div>
+    
+    		<!--END .header-->
+		</div>
+    
+  
+  <div class="menu-container">
+          	
+	<div class="menu-back">
+  
+  
+
+  
+  <!--BEGIN .container-menu-->
+  <div class="container nacked-menu" style="margin:0 auto;padding-bottom:10px;position:relative;z-index:99;">
+
+        
+   <div class="menu-header">
+
+     
+     
+     <div class="menu-%d0%bc%d0%b5%d0%bd%d1%8e-%d1%81-rss-container"><ul id="menu-%d0%bc%d0%b5%d0%bd%d1%8e-%d1%81-rss" class="nav sf-js-enabled"><li id="menu-item-1840" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1840"><a title="На главную" href="http://internetka.in.ua/">ГЛАВНАЯ</a></li>
+<li id="menu-item-1887" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1887"><a title="RSS подписка" href="http://internetka.in.ua/rss-sub/"><img src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/020_7166.png" alt="" title="" width="12" height="12"> ПОДПИСКА</a></li>
+</ul></div>      
+       
+          
+          </div> 
+       
+              
+       
+       
+       
+       </div>
+
+
+        <!--BEGIN header-content.php -->
+        
+           
+         
+        <!--END header-content.php -->
+        
+        
+             
+     <!-- AD Space 2 -->
+  
+  
+     
+      
+      
+      </div> 
+       
+             	<!--BEGIN .content-->
+	<div class="content Tatyanasingular single s-category-selenium s-tag-autoit s-tag-selenium-webdriver s-author-none windows chrome ch">  
+  
+ 
+
+
+       	<!--BEGIN .container-->
+	<div class="container" style="margin:0px auto;">
+  
+   
+
+
+		<!--BEGIN #content-->
+		<div id="content">
+    
+    
+    
+
+
+	
+<!--B4E4DC92849098F2652D3F44F5CD0CFF-->
+
+
+    
+    
+      
+
+
+
+			<!--BEGIN #primary .hfeed-->
+			<div id="primary" class="hfeed">
+      
+
+     
+ 
+ <!---------------------- 
+ ---- attachment begin
+ ----------------------->  
+
+
+  
+ 
+                                 
+                  
+
+				<!--BEGIN .hentry-->
+				<div id="post-3204" class="post-3204 post type-post status-publish format-standard has-post-thumbnail hentry category-selenium tag-autoit tag-selenium-webdriver p publish first-post cat tag">
+					
+
+
+
+            <h1 class="entry-title">Selenium WebDriver: basic авторизация</h1>
+        
+        
+					<!--BEGIN .entry-meta .entry-header-->
+					<div class="entry-meta entry-header">
+          <a href="http://internetka.in.ua/selenium-basic-authorization/"><span class="published">Окт25<br><strong>2013</strong></span></a>
+ 
+                     
+          <span class="comment-count"><a href="http://internetka.in.ua/selenium-basic-authorization/#comments">7 комментариев</a></span>
+                   
+          
+          <span class="author vcard">
+          
+                    
+          
+
+          Написал <strong><a class="url fn" href="http://internetka.in.ua/author/tatyana/" title="View all posts by Tatyana">Tatyana</a></strong></span>
+						
+						
+            				    					<!--END .entry-meta .entry-header-->
+                    </div>                       
+                    
+         <!-- AD Space 7 -->
+  
+  
+                         
+      
+			<!--BEGIN .entry-content .article-->
+					<div class="entry-content article">
+						<p><img class="alignleft size-thumbnail wp-image-270" alt="Selenium Driver" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/big-logo_normal-150x150.png" width="150" height="150" srcset="http://internetka.in.ua/wp-content/uploads/2012/07/big-logo_normal-150x150.png 150w, http://internetka.in.ua/wp-content/uploads/2012/07/big-logo_normal-100x100.png 100w" sizes="(max-width: 150px) 100vw, 150px"> <strong>Basic авторизация</strong> это самый простой способ ограничения доступа к веб-приложениям и документам, предусмотренный стандартом протокола HTTP. При попытке обращения к таким ресурсам браузер формирует диалоговое окно, в котором предлагается ввести свой логин и пароль, после чего запрос выполняется повторно с предоставлением серверу данных для идентификации.</p>
+<p>На сегодняшний день количество сайтов использующих basic авторизацию не так уж и велико, чаще это веб-приложения, используемые для административных или корпоративных целей.<br>
+Основная проблема при тестировании таких приложений это нативные диалоговые окна, при появлении которых, также как и алертов, дальнейшее управление браузером с помощью Selenium становится просто невозможным.</p>
+<pre><strong><span style="color: #CC0033;">Deprecated</span></strong> Одним из способов избежать появления диалогового окна может быть 
+использование специального URL формата <code>http://username:password@example.com/</code> 
+для передачи учетных данных. Эта конструкция все еще поддерживается некоторыми 
+браузерами, однако такое решение является официально устаревшим и иногда может 
+отрицательно влиять на корректное выполнение дальнейших запросов на странице. 
+Поэтому я настоятельно рекомендую не использовать такой подход для тестирования.</pre>
+<h6>BrowserMob Proxy</h6>
+<p>При использовании basic аутентификации имя пользователя и пароль включаются в состав веб-запроса в стандартный HTTP заголовок «Authorization». Из этого можно заключить, что для успешного прохождения авторизации достаточно изменить HTTP заголовок перед отправкой на сервер. Сам Selenium не умеет манипулировать отправляемыми запросами, но для этих целей отлично подойдет прокси-сервер, в частности BrowserMob Proxy в силу простоты его подключения. Об интеграции и использовании BrowserMob с Selenium WebDriver можно почитать в предыдущей <a href="http://internetka.in.ua/browsermobproxy-selenium-perfomance/" title="BrowserMob Proxy + Selenium: автоматизация сбора данных о производительности">статье</a>. В случае basic авторизации <code>net.lightbody.bmp.proxy.ProxyServer</code> предоставляет метод для ее автоматического выполнения:</p>
+<div><div id="highlighter_447475" class="syntaxhighlighter nogutter  java"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">server.autoBasicAuthorization(</code><code class="java string">"example.com"</code><code class="java plain">, </code><code class="java string">"username"</code><code class="java plain">, </code><code class="java string">"password"</code><code class="java plain">); </code></div></div></td></tr></tbody></table></div></div>
+<p>Важно то, что первый аргумент autoBasicAuthorization это не URL, а именно доменное имя. Он не должен содержать <code>http://</code> или других частей URL. Для того, чтобы использовать учетные данные для любого домена нужно оставить первый параметр пустым.</p>
+<div><div id="highlighter_357209" class="syntaxhighlighter nogutter  java"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">server.autoBasicAuthorization(</code><code class="java string">""</code><code class="java plain">, </code><code class="java string">"username"</code><code class="java plain">, </code><code class="java string">"password"</code><code class="java plain">); </code></div></div></td></tr></tbody></table></div></div>
+<p>Пример автоматической basic-аутентификации с BrowserMob Proxy:</p>
+<div><div id="highlighter_231980" class="syntaxhighlighter nogutter  java"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java keyword">import</code> <code class="java plain">net.lightbody.bmp.proxy.ProxyServer;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="java keyword">import</code> <code class="java plain">org.junit.After;</code></div><div class="line number4 index3 alt1"><code class="java keyword">import</code> <code class="java plain">org.junit.Before;</code></div><div class="line number5 index4 alt2"><code class="java keyword">import</code> <code class="java plain">org.junit.Test;</code></div><div class="line number6 index5 alt1"><code class="java keyword">import</code> <code class="java plain">org.openqa.selenium.By;</code></div><div class="line number7 index6 alt2"><code class="java keyword">import</code> <code class="java plain">org.openqa.selenium.Proxy;</code></div><div class="line number8 index7 alt1"><code class="java keyword">import</code> <code class="java plain">org.openqa.selenium.WebDriver;</code></div><div class="line number9 index8 alt2"><code class="java keyword">import</code> <code class="java plain">org.openqa.selenium.firefox.FirefoxDriver;</code></div><div class="line number10 index9 alt1"><code class="java keyword">import</code> <code class="java plain">org.openqa.selenium.remote.CapabilityType;</code></div><div class="line number11 index10 alt2"><code class="java keyword">import</code> <code class="java plain">org.openqa.selenium.remote.DesiredCapabilities;</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="java keyword">public</code> <code class="java keyword">class</code> <code class="java plain">ProxyServerBasicAutorizationTest {</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java plain">ProxyServer server;</code></div><div class="line number16 index15 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java plain">WebDriver driver;</code></div><div class="line number17 index16 alt2">&nbsp;</div><div class="line number18 index17 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Before</code></div><div class="line number19 index18 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">startProxy() </code><code class="java keyword">throws</code> <code class="java plain">Exception {</code></div><div class="line number20 index19 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">server = </code><code class="java keyword">new</code> <code class="java plain">ProxyServer(</code><code class="java value">4444</code><code class="java plain">);</code></div><div class="line number21 index20 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">server.start();</code></div><div class="line number22 index21 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">server.autoBasicAuthorization(</code><code class="java string">""</code><code class="java plain">, </code><code class="java string">"username"</code><code class="java plain">, </code><code class="java string">"password"</code><code class="java plain">);</code></div><div class="line number23 index22 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Proxy proxy = server.seleniumProxy();</code></div><div class="line number24 index23 alt1">&nbsp;</div><div class="line number25 index24 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">DesiredCapabilities capabilities = </code><code class="java keyword">new</code> <code class="java plain">DesiredCapabilities();</code></div><div class="line number26 index25 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">capabilities.setCapability(CapabilityType.PROXY, proxy);</code></div><div class="line number27 index26 alt2">&nbsp;</div><div class="line number28 index27 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">driver = </code><code class="java keyword">new</code> <code class="java plain">FirefoxDriver(capabilities);</code></div><div class="line number29 index28 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number30 index29 alt1">&nbsp;</div><div class="line number31 index30 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Test</code></div><div class="line number32 index31 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">testAccessProtectedSite() </code><code class="java keyword">throws</code> <code class="java plain">Exception {</code></div><div class="line number33 index32 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">driver.get(</code><code class="java string">"https://example.com"</code><code class="java plain">);</code></div><div class="line number34 index33 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">driver.findElement(By.className(</code><code class="java string">"sign-out"</code><code class="java plain">));</code></div><div class="line number35 index34 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number36 index35 alt1">&nbsp;</div><div class="line number37 index36 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@After</code></div><div class="line number38 index37 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">stopProxyServer() </code><code class="java keyword">throws</code> <code class="java plain">Exception {</code></div><div class="line number39 index38 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">driver.quit();</code></div><div class="line number40 index39 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">server.stop();</code></div><div class="line number41 index40 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number42 index41 alt1"><code class="java plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>И напоследок ложка дегтя, BrowserMob Proxy работает только с basic-аутентификацией и не предоставляет методов для работы с другими протоколами (Kerberos, NTLM и др.).</p>
+<h6>AutoIt</h6>
+<p>Для автоматизации прохождения basic-авторизации можно также использовать AutoIt: нужно перехватить диалоговое окно, ввести учетные данные и подтвердить ввод. Казалось бы ничего сложного, но каждый браузер для авторизации формирует окна разных классов: Firefox использует свои диалоговые окна, IE — класс диалоговых окон Windows, а Chrome и вовсе не создает отдельного окна для ввода. В этом можно убедиться используя утилиту AutoIt Window Info. В единичном случае, например, для Firefox скрипт AutoIt может выглядеть следующим образом:</p>
+<div><div id="highlighter_429862" class="syntaxhighlighter nogutter  vb"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="vb keyword">Local</code> <code class="vb variable">$classForBasicAuthWindow</code> <code class="vb plain">= </code><code class="vb string">"[CLASS:MozillaDialogClass]"</code><code class="vb plain">;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="vb comments">;ожидание появления окна 10 секунд</code></div><div class="line number4 index3 alt1"><code class="vb plain">WinWait(</code><code class="vb variable">$classForBasicAuthWindow</code><code class="vb plain">, </code><code class="vb string">""</code><code class="vb plain">, 10)</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="vb keyword">If</code> <code class="vb plain">WinExists(</code><code class="vb variable">$classForBasicAuthWindow</code><code class="vb plain">) </code><code class="vb keyword">Then</code></div><div class="line number7 index6 alt2"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb plain">WinActivate(</code><code class="vb variable">$classForBasicAuthWindow</code><code class="vb plain">)</code></div><div class="line number8 index7 alt1"><code class="vb spaces">&nbsp;</code>&nbsp;</div><div class="line number9 index8 alt2"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb comments">;имя пользователя</code></div><div class="line number10 index9 alt1"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb plain">Send(</code><code class="vb variable">$CmdLine</code><code class="vb plain">[1] &amp; </code><code class="vb string">"{TAB}"</code><code class="vb plain">); </code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb comments">;пароль</code></div><div class="line number13 index12 alt2"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb plain">Send(</code><code class="vb variable">$CmdLine</code><code class="vb plain">[2] &amp; </code><code class="vb string">"{ENTER}"</code><code class="vb plain">); </code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="vb keyword">EndIf</code></div></div></td></tr></tbody></table></div></div>
+<p>Файл .au3 необходимо переконвертировать в .exe для дальнейшего использования в ходе выполнения теста. Сделать это можно с помощью Aut2exe:<br>
+<img src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/autoit-converter.png" alt="AutoIt Script to EXE Converter" width="597" height="421" class="aligncenter size-full wp-image-3209" srcset="http://internetka.in.ua/wp-content/uploads/2013/10/autoit-converter.png 597w, http://internetka.in.ua/wp-content/uploads/2013/10/autoit-converter-300x211.png 300w" sizes="(max-width: 597px) 100vw, 597px"></p>
+<p>В случае с авторизацией процесс AutoIt нужно запускать до открытия страницы драйвером, чтобы появившееся окно не заблокировало выполнение теста:</p>
+<div><div id="highlighter_601405" class="syntaxhighlighter nogutter  java"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java keyword">public</code> <code class="java keyword">class</code> <code class="java plain">AutoItBasicAutorizationTest {</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java keyword">final</code> <code class="java plain">String username = </code><code class="java string">"username"</code><code class="java plain">;</code></div><div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java keyword">final</code> <code class="java plain">String password = </code><code class="java string">"password"</code><code class="java plain">;</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Test</code></div><div class="line number7 index6 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">testBasicAuthenticationFirefox() </code><code class="java keyword">throws</code> <code class="java plain">Exception {</code></div><div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">WebDriver driver = </code><code class="java keyword">new</code> <code class="java plain">FirefoxDriver();</code></div><div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">File autoIt = </code><code class="java keyword">new</code> <code class="java plain">File(</code><code class="java string">"src/test/resources/auth.exe"</code><code class="java plain">);</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// запуск exe с передачей учетных данных</code></div><div class="line number12 index11 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// в качестве параметра</code></div><div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Process p = Runtime.getRuntime().exec(</code></div><div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">autoIt.getAbsolutePath() + </code><code class="java string">" "</code></div><div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">+ username + </code><code class="java string">" "</code> <code class="java plain">+ password);</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">driver.get(</code><code class="java string">"https://example.com"</code><code class="java plain">);</code></div><div class="line number18 index17 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">driver.findElement(By.className(</code><code class="java string">"sign-out"</code><code class="java plain">));</code></div><div class="line number19 index18 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">driver.quit();</code></div><div class="line number20 index19 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number21 index20 alt2"><code class="java plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>Если есть необходимость тестировать во всех браузерах используя один скрипт AutoIt, то его можно расширить требуемыми условиями:</p>
+<div><div id="highlighter_658545" class="syntaxhighlighter nogutter  vb"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="vb variable">$timeoutSec</code> <code class="vb plain">= 10;</code></div><div class="line number2 index1 alt1"><code class="vb variable">$lookingSec</code> <code class="vb plain">= 0;</code></div><div class="line number3 index2 alt2"><code class="vb keyword">While</code> <code class="vb variable">$lookingSec</code> <code class="vb plain">&lt; </code><code class="vb variable">$timeoutSec</code></div><div class="line number4 index3 alt1"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb comments">;Firefox or InternetExplorer or Chrome</code></div><div class="line number5 index4 alt2"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb keyword">If</code> <code class="vb plain">WinExists(</code><code class="vb string">"[CLASS:MozillaDialogClass]"</code><code class="vb plain">) _</code></div><div class="line number6 index5 alt1"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb keyword">Or</code> <code class="vb plain">WinExists(</code><code class="vb string">"[TITLE:Windows Security; CLASS:#32770]"</code><code class="vb plain">) _</code></div><div class="line number7 index6 alt2"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb keyword">Or</code> <code class="vb plain">WinExists(</code><code class="vb string">"[CLASS:Chrome_WidgetWin_1]"</code><code class="vb plain">, _</code></div><div class="line number8 index7 alt1"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb string">"Authentication Required"</code><code class="vb plain">) </code><code class="vb keyword">Then</code></div><div class="line number9 index8 alt2"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb comments">;вводим учетные данные</code></div><div class="line number10 index9 alt1"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb comments">;имя пользователя</code></div><div class="line number11 index10 alt2"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb plain">Send(</code><code class="vb variable">$CmdLine</code><code class="vb plain">[1] &amp; </code><code class="vb string">"{TAB}"</code><code class="vb plain">); </code></div><div class="line number12 index11 alt1"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb comments">;пароль</code></div><div class="line number13 index12 alt2"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb plain">Send(</code><code class="vb variable">$CmdLine</code><code class="vb plain">[2] &amp; </code><code class="vb string">"{ENTER}"</code><code class="vb plain">); </code></div><div class="line number14 index13 alt1"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb keyword">Exit</code><code class="vb plain">;</code></div><div class="line number15 index14 alt2"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb keyword">EndIf</code></div><div class="line number16 index15 alt1"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb keyword">sleep</code><code class="vb plain">(1000)</code></div><div class="line number17 index16 alt2"><code class="vb spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="vb variable">$lookingSec</code> <code class="vb plain">+= 1;</code></div><div class="line number18 index17 alt1"><code class="vb keyword">WEnd</code></div></div></td></tr></tbody></table></div></div>
+<p>Приведенные выше заголовки и классы окон могут отличаться в зависимости от версий браузеров и их настроек, проверить и получить Ваши текущие данные можно используя AutoIt Window Info.</p>
+<!--noindex--><div style="clear:both;"><ul class="nostyle" style="float:right">
+			<li>
+				<div style="max-width:60px">
+			    <span style="position: relative; left: 0; top: 0; margin: 0; padding: 0; visibility: visible;"><iframe frameborder="0" id="3130055" name="3130055" scrolling="no" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/share_button.html" allowtransparency="true" style="width: 100%; height: 20px;"></iframe></span><a target="_blank" class="mrc__plugin_uber_like_button" style="display: none" href="http://internetka.in.ua/selenium-basic-authorization/http%3A%2F%2Finternetka.in.ua%2Fselenium-basic-authorization%2F" data-mrc-config="{&#39;nt&#39; : &#39;1&#39;, &#39;cm&#39; : &#39;1&#39;, &#39;sz&#39; : &#39;20&#39;, &#39;st&#39; : &#39;1&#39;, &#39;tp&#39; : &#39;mm&#39;}" type="uber_like_button">
+			    	Нравится
+			    	</a>
+			    </div>
+			</li>
+			<li>
+                <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1482834908968" name="I0_1482834908968" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div>
+			</li>
+			<li>
+                <div>
+                    <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/tweet_button.3748f7cda49448f6c6f7854238570ba0.ru.html" style="position: static; visibility: visible; width: 78px; height: 20px;" data-url="http://internetka.in.ua/selenium-basic-authorization/"></iframe>
+                </div>
+			</li><li><div class="vkapishare" id="vkapi_share_3204_740964958"><table cellspacing="0" cellpadding="0" style="position: relative; cursor: pointer; width: auto; line-height: normal; border: 0; direction: ltr;" id="vkshare0" onmouseover="VK.Share.change(1, 0);" onmouseout="VK.Share.change(0, 0);" onmousedown="VK.Share.change(2, 0);" onmouseup="VK.Share.change(1, 0);"><tbody><tr style="line-height: normal;"><td style="vertical-align: middle;font: 400 12px Arial, Helvetica, sans-serif;letter-spacing: 0.1px;text-shadow: none;"><a href="http://vk.com/share.php?url=http%3A%2F%2Finternetka.in.ua%2Fselenium-basic-authorization%2F" onmouseup="this._btn=event.button;this.blur();" onclick="return VK.Share.click(0, this);" style="border: 0;display: block;box-sizing: content-box;background: #6287AE;-webkit-transition: background 200ms linear;transition: background 200ms linear;-webkit-border-radius: 2px 0px 0px 2px;-moz-border-radius: 2px 0px 0px 2px;border-radius: 2px 0px 0px 2px;padding: 2px 6px 4px;"><div style="background-size: 19px 59px;background-image: url(&#39;//vk.com/images/icons/like_widget.png&#39;);height: 8px;width: 14px;margin: 4px 0 3px;"></div></a></td><td style="vertical-align: middle;font: 400 12px Arial, Helvetica, sans-serif;letter-spacing: 0.1px;text-shadow: none;"><a href="http://vk.com/share.php?url=http%3A%2F%2Finternetka.in.ua%2Fselenium-basic-authorization%2F" onmouseup="this._btn=event.button;this.blur();" onclick="return VK.Share.click(0, this);" style="color: #FFF;text-decoration: none;border: 0;background: #6287AE;-webkit-transition: background 200ms linear;transition: background 200ms linear;-webkit-border-radius: 0px 2px 2px 0px;-moz-border-radius: 0px 2px 2px 0px;border-radius: 0px 2px 2px 0px;font: 400 12px Arial, Helvetica, sans-serif;letter-spacing: 0.1px;text-shadow: none;line-height: 16px;display:block;padding: 2px 6px 4px 0;height: 15px;">Поделиться</a></td><td style="vertical-align: middle;font: 400 12px Arial, Helvetica, sans-serif;letter-spacing: 0.1px;text-shadow: none;"><a href="http://vk.com/share.php?url=http%3A%2F%2Finternetka.in.ua%2Fselenium-basic-authorization%2F" onmouseup="this._btn=event.button;this.blur();" onclick="return VK.Share.click(0, this);" style="text-decoration: none;font: 400 12px Arial, Helvetica, sans-serif;letter-spacing: 0.1px;text-shadow: none;line-height: 15px;-webkit-font-smoothing: subpixel-antialiased;display: none"><div style="background-size: 19px 59px;background-image: url(&#39;//vk.com/images/icons/like_widget.png&#39;);;background-position: 0 -49px;margin: 5px 0 0 4px;width: 5px; height: 10px;position: absolute; z-index:100;"></div><div id="vkshare_cnt0" style="border: 1px solid #adbdcc;background: #FFF;font-size:11px;padding: 2px 5px;margin-left: 8px;color: #55677d;z-index: 99;box-sizing: content-box;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;">0</div></a></td></tr></tbody></table></div></li>
+			<script type="text/javascript">
+				<!--
+				jQuery(document).on('vkapi_vkshare', function () {
+					document.getElementById('vkapi_share_3204_740964958').innerHTML = VK.Share.button(
+						{
+							url: 'http://internetka.in.ua/selenium-basic-authorization/',
+							title: 'Selenium WebDriver: basic авторизация',
+							description: ' Basic авторизация это самый простой способ ограничения доступа к веб-приложениям и документам, предусмотренный стандартом протокола HTTP. ',
+							image: 'http://internetka.in.ua/wp-content/uploads/2012/07/big-logo_normal-150x150.png'
+						},
+						{
+							type: 'round',
+							text: 'Поделиться'
+						}
+					);
+				});
+				-->
+			</script></ul></div><br style="clear:both;"><!--/noindex-->            					<!--END .entry-content .article-->
+					
+          <div style="clear:both;"></div>
+          </div>
+          
+          
+          
+         <!-- AD Space 8 -->
+  
+                 
+
+						<!--BEGIN .entry-meta .entry-footer-->
+                    <div class="entry-meta entry-footer">
+                    	                    	<span class="entry-categories"><strong>Опубликовано в</strong> <a href="http://internetka.in.ua/category/testing/selenium/" rel="category tag">Selenium</a></span>
+                      <span class="meta-sep">-</span>						                                                <span class="entry-tags"><strong>Помечено</strong> <a href="http://internetka.in.ua/tag/autoit/" rel="tag">AutoIt</a>, <a href="http://internetka.in.ua/tag/selenium-webdriver/" rel="tag">Selenium WebDriver</a></span>
+                        					<!--END .entry-meta .entry-footer-->
+                    </div>
+                    
+                    
+                                   
+                    <!-- Auto Discovery Trackbacks
+					<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="http://internetka.in.ua/selenium-basic-authorization/"
+    dc:identifier="http://internetka.in.ua/selenium-basic-authorization/"
+    dc:title="Selenium WebDriver: basic авторизация"
+    trackback:ping="http://internetka.in.ua/selenium-basic-authorization/trackback/" />
+</rdf:RDF>					-->
+				<!--END .hentry-->
+				</div>
+        
+          <div class="share-this">
+          <strong>Рассказать всем</strong>
+          <a rel="nofollow" target="_blank" class="share-twitter" href="http://twitter.com/intent/tweet?status=Selenium%20WebDriver:%20basic%20%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F+%C2%BB+http://tinyurl.com/l2plyzc">Twitter</a>
+          <a rel="nofollow" target="_blank" class="share-facebook" href="http://www.facebook.com/sharer/sharer.php?u=http://internetka.in.ua/selenium-basic-authorization/&amp;t=Selenium%20WebDriver:%20basic%20%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">Facebook</a>
+          <a rel="nofollow" target="_blank" class="share-delicious" href="http://del.icio.us/post?url=http://internetka.in.ua/selenium-basic-authorization/&amp;title=Selenium%20WebDriver:%20basic%20%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">Delicious</a>
+          <a rel="nofollow" target="_blank" class="share-stumble" href="http://www.stumbleupon.com/submit?url=http://internetka.in.ua/selenium-basic-authorization/&amp;title=Selenium%20WebDriver:%20basic%20%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">StumbleUpon</a>
+          <a rel="nofollow" target="_blank" class="share-email" href="http://www.addtoany.com/email?linkurl=http://internetka.in.ua/selenium-basic-authorization/&amp;linkname=Selenium%20WebDriver:%20basic%20%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">E-Mail</a>
+          <a rel="nofollow" class="tipsytext" style="position:relative;top:3px;left:8px;" target="_blank" href="http://www.addtoany.com/share_save#url=http://internetka.in.ua/selenium-basic-authorization/&amp;linkname=Selenium WebDriver: basic авторизация" original-title="Больше настроек"><img src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/share-more.png"></a>
+          </div>
+        
+        
+        
+        
+  
+
+       
+                       
+				<!--BEGIN .navigation-links-->
+<div class="navigation-links single-page-navigation" style="clear:both;">
+	<div class="nav-previous"><a href="http://internetka.in.ua/browsermobproxy-selenium-perfomance/" rel="prev">← BrowserMob Proxy + Selenium: автоматизация сбора данных о производительности</a></div>
+	<div class="nav-next"><a href="http://internetka.in.ua/selenium-screen-recordering/" rel="next">Видеозапись выполнения тестов Selenium →</a></div>
+<!--END .navigation-links-->
+</div>
+<div style="clear:both;"></div>
+
+        
+           
+
+				
+<div id="comments">   
+<!--BEGIN #comments-->
+
+    
+	<span class="comments-title-back"><h3 class="comment-title"><span class="comment-title-meta">7 комментариев</span></h3>    <span class="comment-feed-link"><a class="tipsytext follow-replies" href="http://internetka.in.ua/selenium-basic-authorization/feed/" original-title="Follow replies"></a></span></span> 
+    <!--BEGIN .comment-list-->
+    <ol class="comment-list">
+		    
+    <!--BEING .comment-->
+	<li class="comment first-comment reader reader-Денис" id="comment-2446">
+    	<!--BEGIN .comment-author-->
+<div class="comment-author vcard">
+<img class="avatar gravatar gravatar-60" alt="Денис&#39;s Gravatar" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/948efc861f75930b0456b00d240c4937" width="60" height="60"> <cite class="commenter fn n">Денис</cite>
+<!--END .comment-author-->
+</div>
+<!--BEGIN .comment-meta-->
+<div class="comment-meta">
+<span class="comment-date">26.10.2013</span>
+ at <span class="comment-date">20:11</span>
+ | <span class="comment-permalink"><a rel="bookmark" title="Permalink to this comment" href="http://internetka.in.ua/selenium-basic-authorization/#comment-2446">Permalink</a></span>
+ 
+<!--END .comment-meta-->
+</div>
+
+<!--BEGIN .comment-content-->
+<div class="comment-content">
+<p>Привет!</p>
+<p>Прошу помочь решить проблемку. Ищу элементы на странице, их находит, но все свойства элемента выдают исключение:</p>
+<p>+		Location	«((new System.Collections.Generic.Mscorlib_CollectionDebugView(elements)).Items[1]).Location» запустило исключение типа «OpenQA.Selenium.StaleElementReferenceException»	System.Drawing.Point {OpenQA.Selenium.StaleElementReferenceException}</p>
+<p>При повторном поиске (отлавливаю экспшен и рекурсивно вызываю эту же функцию) элементы находит и их содержимое правильное.</p>
+<p>Пожалуйста, подскажите как решить проблему. Спасибо большое!</p>
+
+<!--END .comment-content-->
+</div>
+<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="http://internetka.in.ua/selenium-basic-authorization/?replytocom=2446#respond" onclick="return addComment.moveForm( &quot;comment-2446&quot;, &quot;2446&quot;, &quot;respond&quot;, &quot;3204&quot; )" aria-label="Комментарий к записи Денис">Reply</a></div>	<ul class="children">
+    
+    <!--BEING .comment-->
+	<li class="comment administrator administrator-Tatyana entry-author entry-author-Tatyana" id="comment-2448">
+    	<!--BEGIN .comment-author-->
+<div class="comment-author vcard">
+<img class="avatar gravatar gravatar-60" alt="Tatyana&#39;s Gravatar" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/e28c6920254d7ec110aae19edca4084f" width="60" height="60"> <cite class="commenter fn n">Tatyana</cite>
+<!--END .comment-author-->
+</div>
+<!--BEGIN .comment-meta-->
+<div class="comment-meta">
+<span class="comment-date">28.10.2013</span>
+ at <span class="comment-date">08:35</span>
+ | <span class="comment-permalink"><a rel="bookmark" title="Permalink to this comment" href="http://internetka.in.ua/selenium-basic-authorization/#comment-2448">Permalink</a></span>
+ 
+<!--END .comment-meta-->
+</div>
+
+<!--BEGIN .comment-content-->
+<div class="comment-content">
+<p>Добрый день<br>
+Скорее всего исключение возникает потому, что Вы не дожидаетесь полной загрузки страницы перед обращением к элементам. <a href="http://internetka.in.ua/selenium-driver-exceptions/" title="Selenium Driver Exceptions: StaleElementReferenceException" target="_blank" rel="nofollow">StaleElementReferenceException</a> в основном происходит, когда страница еще загружается, ее содержимое меняется, а Вы в это время пытаетесь получить доступ к расположению элемента, которое уже успело измениться с момента его поиска. Поэтому все отрабатывает нормально при повторном обращении: обработка ошибки и повторный поиск дают странице время полностью загрузиться.</p>
+<p>Вероятно, следует добавить ожидание полной загрузки страницы перед поиском элементов.</p>
+
+<!--END .comment-content-->
+</div>
+<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="http://internetka.in.ua/selenium-basic-authorization/?replytocom=2448#respond" onclick="return addComment.moveForm( &quot;comment-2448&quot;, &quot;2448&quot;, &quot;respond&quot;, &quot;3204&quot; )" aria-label="Комментарий к записи Tatyana">Reply</a></div>	<!--END .comment-->
+</li>
+</ul><!-- .children -->
+<!--END .comment-->
+</li>
+    
+    <!--BEING .comment-->
+	<li class="comment reader reader-vitaliy" id="comment-2513">
+    	<!--BEGIN .comment-author-->
+<div class="comment-author vcard">
+<img class="avatar gravatar gravatar-60" alt="Vitaliy&#39;s Gravatar" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/053136ee629134dda370d89d5a19dede" width="60" height="60"> <cite class="commenter fn n">Vitaliy</cite>
+<!--END .comment-author-->
+</div>
+<!--BEGIN .comment-meta-->
+<div class="comment-meta">
+<span class="comment-date">13.01.2014</span>
+ at <span class="comment-date">14:00</span>
+ | <span class="comment-permalink"><a rel="bookmark" title="Permalink to this comment" href="http://internetka.in.ua/selenium-basic-authorization/#comment-2513">Permalink</a></span>
+ 
+<!--END .comment-meta-->
+</div>
+
+<!--BEGIN .comment-content-->
+<div class="comment-content">
+<p>Подскажите пожалуйста, а можно ли передавать куки в capabilities и как это сделать ?</p>
+
+<!--END .comment-content-->
+</div>
+<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="http://internetka.in.ua/selenium-basic-authorization/?replytocom=2513#respond" onclick="return addComment.moveForm( &quot;comment-2513&quot;, &quot;2513&quot;, &quot;respond&quot;, &quot;3204&quot; )" aria-label="Комментарий к записи Vitaliy">Reply</a></div>	<ul class="children">
+    
+    <!--BEING .comment-->
+	<li class="comment administrator administrator-Tatyana entry-author entry-author-Tatyana" id="comment-2515">
+    	<!--BEGIN .comment-author-->
+<div class="comment-author vcard">
+<img class="avatar gravatar gravatar-60" alt="Tatyana&#39;s Gravatar" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/e28c6920254d7ec110aae19edca4084f" width="60" height="60"> <cite class="commenter fn n">Tatyana</cite>
+<!--END .comment-author-->
+</div>
+<!--BEGIN .comment-meta-->
+<div class="comment-meta">
+<span class="comment-date">13.01.2014</span>
+ at <span class="comment-date">14:41</span>
+ | <span class="comment-permalink"><a rel="bookmark" title="Permalink to this comment" href="http://internetka.in.ua/selenium-basic-authorization/#comment-2515">Permalink</a></span>
+ 
+<!--END .comment-meta-->
+</div>
+
+<!--BEGIN .comment-content-->
+<div class="comment-content">
+<p>Работа с куками происходит не через capabilities. Для этого используется <code>org.openqa.selenium.Cookie</code></p>
+<pre brush:java="">driver.manage().addCookie(cookie)</pre>
+
+<!--END .comment-content-->
+</div>
+<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="http://internetka.in.ua/selenium-basic-authorization/?replytocom=2515#respond" onclick="return addComment.moveForm( &quot;comment-2515&quot;, &quot;2515&quot;, &quot;respond&quot;, &quot;3204&quot; )" aria-label="Комментарий к записи Tatyana">Reply</a></div>	<!--END .comment-->
+</li>
+</ul><!-- .children -->
+<!--END .comment-->
+</li>
+    
+    <!--BEING .comment-->
+	<li class="comment reader reader-vitaliy" id="comment-2514">
+    	<!--BEGIN .comment-author-->
+<div class="comment-author vcard">
+<img class="avatar gravatar gravatar-60" alt="Vitaliy&#39;s Gravatar" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/053136ee629134dda370d89d5a19dede" width="60" height="60"> <cite class="commenter fn n">Vitaliy</cite>
+<!--END .comment-author-->
+</div>
+<!--BEGIN .comment-meta-->
+<div class="comment-meta">
+<span class="comment-date">13.01.2014</span>
+ at <span class="comment-date">14:11</span>
+ | <span class="comment-permalink"><a rel="bookmark" title="Permalink to this comment" href="http://internetka.in.ua/selenium-basic-authorization/#comment-2514">Permalink</a></span>
+ 
+<!--END .comment-meta-->
+</div>
+
+<!--BEGIN .comment-content-->
+<div class="comment-content">
+<p>В общем мне необходимо, чтоб первый же запрос шел с куками, а не подхватывал их потом, потому что страница авторизации не открывается если я использую BrowserMob Proxy.</p>
+
+<!--END .comment-content-->
+</div>
+<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="http://internetka.in.ua/selenium-basic-authorization/?replytocom=2514#respond" onclick="return addComment.moveForm( &quot;comment-2514&quot;, &quot;2514&quot;, &quot;respond&quot;, &quot;3204&quot; )" aria-label="Комментарий к записи Vitaliy">Reply</a></div>	<ul class="children">
+    
+    <!--BEING .comment-->
+	<li class="comment administrator administrator-Tatyana entry-author entry-author-Tatyana" id="comment-2516">
+    	<!--BEGIN .comment-author-->
+<div class="comment-author vcard">
+<img class="avatar gravatar gravatar-60" alt="Tatyana&#39;s Gravatar" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/e28c6920254d7ec110aae19edca4084f" width="60" height="60"> <cite class="commenter fn n">Tatyana</cite>
+<!--END .comment-author-->
+</div>
+<!--BEGIN .comment-meta-->
+<div class="comment-meta">
+<span class="comment-date">13.01.2014</span>
+ at <span class="comment-date">14:45</span>
+ | <span class="comment-permalink"><a rel="bookmark" title="Permalink to this comment" href="http://internetka.in.ua/selenium-basic-authorization/#comment-2516">Permalink</a></span>
+ 
+<!--END .comment-meta-->
+</div>
+
+<!--BEGIN .comment-content-->
+<div class="comment-content">
+<p>Что значит «не подхватывал их потом»? Как Вы передаете куки в Selenium?<br>
+Попробуйте обратится к несуществующей странице на сайте, установить куки для этого домена, а после уже обращаться к требуемой странице.</p>
+
+<!--END .comment-content-->
+</div>
+<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="http://internetka.in.ua/selenium-basic-authorization/?replytocom=2516#respond" onclick="return addComment.moveForm( &quot;comment-2516&quot;, &quot;2516&quot;, &quot;respond&quot;, &quot;3204&quot; )" aria-label="Комментарий к записи Tatyana">Reply</a></div>	<ul class="children">
+    
+    <!--BEING .comment-->
+	<li class="comment reader reader-vitalik" id="comment-2518">
+    	<!--BEGIN .comment-author-->
+<div class="comment-author vcard">
+<img class="avatar gravatar gravatar-60" alt="Vitalik&#39;s Gravatar" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/053136ee629134dda370d89d5a19dede" width="60" height="60"> <cite class="commenter fn n">Vitalik</cite>
+<!--END .comment-author-->
+</div>
+<!--BEGIN .comment-meta-->
+<div class="comment-meta">
+<span class="comment-date">13.01.2014</span>
+ at <span class="comment-date">16:03</span>
+ | <span class="comment-permalink"><a rel="bookmark" title="Permalink to this comment" href="http://internetka.in.ua/selenium-basic-authorization/#comment-2518">Permalink</a></span>
+ 
+<!--END .comment-meta-->
+</div>
+
+<!--BEGIN .comment-content-->
+<div class="comment-content">
+<p>Страничка логинки и сайт — в разных доменах, но «Попробуйте обратится к несуществующей странице на сайте» помогло.<br>
+Большое спасибо! <img draggable="false" class="emoji" alt="🙂" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/1f642.png"></p>
+
+<!--END .comment-content-->
+</div>
+<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="http://internetka.in.ua/selenium-basic-authorization/?replytocom=2518#respond" onclick="return addComment.moveForm( &quot;comment-2518&quot;, &quot;2518&quot;, &quot;respond&quot;, &quot;3204&quot; )" aria-label="Комментарий к записи Vitalik">Reply</a></div>	<!--END .comment-->
+</li>
+</ul><!-- .children -->
+<!--END .comment-->
+</li>
+</ul><!-- .children -->
+<!--END .comment-->
+</li>
+    <!--END .comment-list-->
+    </ol>
+
+
+<!--END #comments-->   
+
+</div>
+
+<!--BEGIN #respond-->
+
+
+    
+    
+  
+    <!--BEGIN #comment-form-->
+
+<div style="clear:both;"></div>        
+
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Добавить комментарий <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://internetka.in.ua/selenium-basic-authorization/#respond" style="display:none;">Отменить ответ</a></small></h3>				<form action="http://internetka.in.ua/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+					<p class="comment-notes"><span id="email-notes">Ваш e-mail не будет опубликован.</span> Обязательные поля помечены <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Комментарий</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Имя <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"></p>
+<p class="comment-form-email"><label for="email">E-mail <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true" required="required"></p>
+<p class="comment-form-url"><label for="url">Сайт</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"></p>
+<p class="cptch_block"><br><span class="cptch_wrap">
+				<label class="cptch_label" for="cptch_input">
+					<span class="cptch_span"><input id="cptch_input" class="cptch_input" type="text" autocomplete="off" name="cptch_number" value="" maxlength="2" size="2" aria-required="true" required="required" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;"></span>
+					<span class="cptch_span">&nbsp;+&nbsp;</span>
+					<span class="cptch_span">3</span>
+					<span class="cptch_span">&nbsp;=&nbsp;</span>
+					<span class="cptch_span">двенадцать</span>
+					<input type="hidden" name="cptch_result" value="8ak=">
+					<input type="hidden" name="cptch_time" value="1482834907">
+					<input type="hidden" value="Version: 4.1.7">
+				</label><span class="cptch_reload_button_wrap hide-if-no-js">
+					<noscript>
+						&lt;style type="text/css"&gt;
+							.hide-if-no-js {
+								display: none !important;
+							}
+						&lt;/style&gt;
+					</noscript>
+					<span class="cptch_reload_button dashicons dashicons-update"></span>
+				</span></span></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Отправить комментарий"> <input type="hidden" name="comment_post_ID" value="3204" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>				</form>
+					</div><!-- #respond -->
+		    <!--END #comment-form-->
+   
+    
+
+<!--END #respond-->
+
+
+
+                
+				
+ <!---------------------- 
+ ---- single post end
+ -----------------------> 
+
+
+ <!---------------------- 
+ ---- home/date/category/tag/search/author begin
+ ----------------------->         
+      
+      
+
+			<!--END #primary .hfeed-->
+			</div>
+      
+      
+
+        <!--BEGIN #secondary .aside-->
+        <div id="secondary" class="aside">
+        
+      
+      
+  <!-- AD Space 3 -->
+  
+  
+     
+        
+        
+        
+					<div id="recent-posts-2" class="widget widget_recent_entries"><div class="widget-content">		<div style="position:relative;top:-10px;"><div class="widget-title-background"></div><h3 class="widget-title">Свежие записи</h3></div>		<ul>
+					<li>
+				<a href="http://internetka.in.ua/webdriver-ssl-untrusted-certificate/">WebDriver и SSL Untrusted certificate</a>
+						</li>
+					<li>
+				<a href="http://internetka.in.ua/selenium-screen-recordering/">Видеозапись выполнения тестов Selenium</a>
+						</li>
+					<li>
+				<a href="http://internetka.in.ua/selenium-basic-authorization/">Selenium WebDriver: basic авторизация</a>
+						</li>
+					<li>
+				<a href="http://internetka.in.ua/browsermobproxy-selenium-perfomance/">BrowserMob Proxy + Selenium: автоматизация сбора данных о производительности</a>
+						</li>
+					<li>
+				<a href="http://internetka.in.ua/hibernate-user-type-part2/">Hibernate 4: UserType пользовательский тип данных (часть 2)</a>
+						</li>
+				</ul>
+		</div></div>		<div id="search-2" class="widget widget_search"><div class="widget-content"><div style="position:relative;top:-10px;"><div class="widget-title-background"></div><h3 class="widget-title">Поиск</h3></div><!--BEGIN #searchform-->
+       <form action="http://internetka.in.ua/" method="get" class="searchform">
+       
+         <div id="search-text-box">
+  
+  <label class="searchfield" id="search_label" for="search-text"><span>Введите запрос</span><input id="search-text" type="text" tabindex="1" name="s" value="" class="search"></label> 
+  
+  </div>
+  
+           <div id="search-button-box">
+      
+	<button id="search-button" tabindex="2" type="submit" class="search-btn"><img src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/search.png" height="24px"></button>
+  
+  </div>
+  
+  
+
+  
+  
+    
+</form>
+
+<div style="clear:both;"></div>
+
+<!--END #searchform--></div></div><div id="categories-2" class="widget widget_categories"><div class="widget-content"><div style="position:relative;top:-10px;"><div class="widget-title-background"></div><h3 class="widget-title">Рубрики</h3></div>		<ul>
+	<li class="cat-item cat-item-50"><a href="http://internetka.in.ua/category/hibernate-orm/">Hibernate ORM</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://internetka.in.ua/category/seo/" title="Продвижение сайтов в поисковый системах, SEO вопросы.">SEO</a>
+</li>
+	<li class="cat-item cat-item-62"><a href="http://internetka.in.ua/category/raznoe/">Разное</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://internetka.in.ua/category/testing/" title="Автоматизированое тестирование сайтов и всё что с ним связано">Тестирование</a>
+<ul class="children">
+	<li class="cat-item cat-item-58"><a href="http://internetka.in.ua/category/testing/junit/">JUnit</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="http://internetka.in.ua/category/testing/selenium/">Selenium</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="http://internetka.in.ua/category/testing/thucydides/">Thucydides</a>
+</li>
+</ul>
+</li>
+		</ul>
+</div></div><div id="tag_cloud-2" class="widget widget_tag_cloud"><div class="widget-content"><div style="position:relative;top:-10px;"><div class="widget-title-background"></div><h3 class="widget-title">Метки</h3></div><div class="tagcloud"><a href="http://internetka.in.ua/tag/actions/" class="tag-link-39 tag-link-position-1" title="3 записи" style="font-size: 11.021582733813pt;">Actions</a>
+<a href="http://internetka.in.ua/tag/ajax/" class="tag-link-22 tag-link-position-2" title="3 записи" style="font-size: 11.021582733813pt;">AJAX</a>
+<a href="http://internetka.in.ua/tag/alert/" class="tag-link-45 tag-link-position-3" title="2 записи" style="font-size: 9.8129496402878pt;">Alert</a>
+<a href="http://internetka.in.ua/tag/autoit/" class="tag-link-54 tag-link-position-4" title="2 записи" style="font-size: 9.8129496402878pt;">AutoIt</a>
+<a href="http://internetka.in.ua/tag/chromedriver/" class="tag-link-47 tag-link-position-5" title="5 записей" style="font-size: 12.834532374101pt;">ChromeDriver</a>
+<a href="http://internetka.in.ua/tag/exceptions/" class="tag-link-41 tag-link-position-6" title="5 записей" style="font-size: 12.834532374101pt;">Exceptions</a>
+<a href="http://internetka.in.ua/tag/expectedconditions/" class="tag-link-25 tag-link-position-7" title="4 записи" style="font-size: 12.028776978417pt;">ExpectedConditions</a>
+<a href="http://internetka.in.ua/tag/findelement/" class="tag-link-27 tag-link-position-8" title="4 записи" style="font-size: 12.028776978417pt;">FindElement</a>
+<a href="http://internetka.in.ua/tag/firefoxdriver/" class="tag-link-15 tag-link-position-9" title="6 записей" style="font-size: 13.539568345324pt;">FirefoxDriver</a>
+<a href="http://internetka.in.ua/tag/hibernate/" class="tag-link-51 tag-link-position-10" title="12 записей" style="font-size: 16.158273381295pt;">Hibernate</a>
+<a href="http://internetka.in.ua/tag/internetexplorerdriver/" class="tag-link-16 tag-link-position-11" title="4 записи" style="font-size: 12.028776978417pt;">InternetExplorerDriver</a>
+<a href="http://internetka.in.ua/tag/java/" class="tag-link-14 tag-link-position-12" title="3 записи" style="font-size: 11.021582733813pt;">Java</a>
+<a href="http://internetka.in.ua/tag/javascript/" class="tag-link-29 tag-link-position-13" title="7 записей" style="font-size: 14.043165467626pt;">Javascript</a>
+<a href="http://internetka.in.ua/tag/jenkins/" class="tag-link-56 tag-link-position-14" title="2 записи" style="font-size: 9.8129496402878pt;">Jenkins</a>
+<a href="http://internetka.in.ua/tag/junit4/" class="tag-link-18 tag-link-position-15" title="8 записей" style="font-size: 14.546762589928pt;">JUnit4</a>
+<a href="http://internetka.in.ua/tag/maven/" class="tag-link-5 tag-link-position-16" title="3 записи" style="font-size: 11.021582733813pt;">Maven</a>
+<a href="http://internetka.in.ua/tag/pagefactory/" class="tag-link-49 tag-link-position-17" title="4 записи" style="font-size: 12.028776978417pt;">PageFactory</a>
+<a href="http://internetka.in.ua/tag/page-object/" class="tag-link-46 tag-link-position-18" title="4 записи" style="font-size: 12.028776978417pt;">Page Object</a>
+<a href="http://internetka.in.ua/tag/remotewebdriver/" class="tag-link-44 tag-link-position-19" title="5 записей" style="font-size: 12.834532374101pt;">RemoteWebDriver</a>
+<a href="http://internetka.in.ua/tag/select/" class="tag-link-40 tag-link-position-20" title="2 записи" style="font-size: 9.8129496402878pt;">Select</a>
+<a href="http://internetka.in.ua/tag/selenium-ide/" class="tag-link-42 tag-link-position-21" title="1 запись" style="font-size: 8pt;">Selenium IDE</a>
+<a href="http://internetka.in.ua/tag/selenium-server/" class="tag-link-43 tag-link-position-22" title="2 записи" style="font-size: 9.8129496402878pt;">Selenium Server</a>
+<a href="http://internetka.in.ua/tag/selenium-webdriver/" class="tag-link-36 tag-link-position-23" title="48 записей" style="font-size: 22pt;">Selenium WebDriver</a>
+<a href="http://internetka.in.ua/tag/switchto/" class="tag-link-30 tag-link-position-24" title="5 записей" style="font-size: 12.834532374101pt;">switchTo</a>
+<a href="http://internetka.in.ua/tag/thucydides/" class="tag-link-61 tag-link-position-25" title="8 записей" style="font-size: 14.546762589928pt;">Thucydides</a>
+<a href="http://internetka.in.ua/tag/webrriverwait/" class="tag-link-23 tag-link-position-26" title="3 записи" style="font-size: 11.021582733813pt;">WebDriverWait</a>
+<a href="http://internetka.in.ua/tag/xpath/" class="tag-link-31 tag-link-position-27" title="6 записей" style="font-size: 13.539568345324pt;">XPath</a>
+<a href="http://internetka.in.ua/tag/%d0%b0%d0%b2%d1%82%d0%be%d0%bc%d0%b0%d1%82%d0%b8%d0%b7%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%bd%d0%be%d0%b5-%d1%82%d0%b5%d1%81%d1%82%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5/" class="tag-link-6 tag-link-position-28" title="5 записей" style="font-size: 12.834532374101pt;">Автоматизированное тестирование</a>
+<a href="http://internetka.in.ua/tag/%d0%b1%d0%b0%d0%b7%d0%b0-%d0%b4%d0%b0%d0%bd%d0%bd%d1%8b%d1%85/" class="tag-link-28 tag-link-position-29" title="1 запись" style="font-size: 8pt;">база данных</a>
+<a href="http://internetka.in.ua/tag/%d0%b7%d0%b0%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%be%d0%ba-%d0%b2-%d1%81%d0%b5%d1%82%d0%b8/" class="tag-link-33 tag-link-position-30" title="1 запись" style="font-size: 8pt;">заработок в сети</a>
+<a href="http://internetka.in.ua/tag/%d1%81%d0%b5%d1%82%d1%8c-%d0%b8%d0%bd%d1%82%d0%b5%d1%80%d0%bd%d0%b5%d1%82/" class="tag-link-8 tag-link-position-31" title="1 запись" style="font-size: 8pt;">сеть Интернет</a>
+<a href="http://internetka.in.ua/tag/%d1%81%d0%ba%d0%be%d1%80%d0%be%d1%81%d1%82%d1%8c-%d0%bf%d1%80%d0%be%d0%b4%d0%b2%d0%b8%d0%b6%d0%b5%d0%bd%d0%b8%d1%8f-%d1%81%d0%b0%d0%b9%d1%82%d0%b0/" class="tag-link-11 tag-link-position-32" title="1 запись" style="font-size: 8pt;">скорость продвижения сайта</a>
+<a href="http://internetka.in.ua/tag/%d1%81%d1%82%d0%b0%d1%82%d0%b5%d0%b9%d0%bd%d0%be%d0%b5-%d0%bf%d1%80%d0%be%d0%b4%d0%b2%d0%b8%d0%b6%d0%b5%d0%bd%d0%b8%d0%b5/" class="tag-link-35 tag-link-position-33" title="2 записи" style="font-size: 9.8129496402878pt;">статейное продвижение</a>
+<a href="http://internetka.in.ua/tag/%d1%83%d1%81%d0%bb%d1%83%d0%b3%d0%b8-%d0%bf%d1%80%d0%be%d0%b4%d0%b2%d0%b8%d0%b6%d0%b5%d0%bd%d0%b8%d1%8f/" class="tag-link-12 tag-link-position-34" title="2 записи" style="font-size: 9.8129496402878pt;">услуги продвижения</a></div>
+</div></div>		<!--END #secondary .aside-->
+    
+    
+      <!-- AD Space 4 -->
+  
+  
+     
+    
+    	<div id="reclama" class="widget widget_recent_entries">
+		<div class="widget-content">
+			<div style="position:relative;top:-10px;">
+				<div class="widget-title-background"></div>
+				<h3 class="widget-title">Реклама</h3>
+			</div>
+		 
+<!-- SAPE Links -->
+
+<script type="text/javascript">
+<!--
+var _acic={dataProvider:10};(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="//www.acint.net/aci.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()
+//-->
+</script><style type="text/css"> .block_links * { background:transparent none repeat scroll 0 0 !important; border:medium none !important; clear:none !important; clip:rect(auto, auto, auto, auto) !important; font-size:100% !important; font-style:normal !important; font-variant:normal !important; font-weight:normal !important; height:auto !important; letter-spacing:normal !important; line-height:normal !important; margin:0 !important; overflow:visible !important; padding:0 !important; position:static !important; text-align:left !important; text-decoration:none !important; text-indent:0 !important; text-transform:none !important; vertical-align:baseline !important; visibility:visible !important; white-space:normal !important; width:auto; word-spacing:normal !important; z-index:auto !important; cursor: pointer!important; word-wrap: break-word!important; } .block_links li { display:list-item !important; list-style-image:none !important; list-style-position:outside !important; list-style-type:none !important; display: inline; } .block_links li DIV { padding:0.5em !important; } .block_links DIV, .block_links TABLE { padding: 5px !important; } .block_links { width: 280px!important; font-family: Verdana!important; font-size: 10px!important; border: 0px solid #DDDDDD!important; background-color: #FFFFFF!important; padding:5px!important; position: relative!important; display:block!important; } .block_links_icnt, .block_links_icnt * { text-align: left!important; } .block_links_text, .block_links_text A, .block_links_text A:hover { color: #000000!important; font-size: 10px!important; text-decoration: none!important; } .block_links_url { color: #1260b3!important; font-size: 9px!important; text-decoration: none!important; } .block_links_header, .block_links_header A { color: #4AA4D8!important; font-size: 11px!important; font-weight: bold!important; text-decoration: underline!important; } .block_links_sign { color: #999999!important; font-size: 8px!important; text-align: left!important; text-decoration: none!important; } .block_links_clear { clear:both!important; } .block_links TABLE { width: 100%!important; border: 0px!important; } </style><div class="block_links"> <ul> <li class="block_links_icnt"><div> <span onclick="window.open(&#39;http://sex-paradise.com.ua/&#39;, &#39;_blank&#39;); return false;"><p class="block_links_header"> Секс шоп </p> <p class="block_links_text"> <a href="http://sex-paradise.com.ua/" target="_blank">секс шоп</a> </p><p class="block_links_url"> sex-paradise.com.ua </p></span> </div></li> </ul></div>
+<!-- LINKFEED Links -->
+
+
+
+		</div>
+	</div>
+	<br>
+
+
+
+<div style="display:none">
+Donec in mi a arcu cursus commodo non ut metus. Nunc id eros ut augue consequat tempus ut non ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer pretium, erat sit amet scelerisque euismod, purus lectus convallis dui, eget imperdiet sapien est ut magna. Nullam elementum, tortor vitae pulvinar mattis, orci neque porta tortor, a feugiat nisi lacus quis diam. Ut gravida augue id est rutrum elementum. Mauris eget felis dolor. Phasellus ante ante, porttitor sit amet lobortis ut, suscipit id neque. Fusce hendrerit dolor nec odio eleifend in auctor enim cursus. Nullam fermentum pretium risus, in hendrerit nulla cursus sit amet. Fusce eu tempus elit. Ut tortor velit, aliquam in ornare vel, feugiat sed nibh. Donec fringilla est id odio lacinia vulputate. Donec nulla urna, congue sit amet pretium non, dictum at orci. Fusce neque sem, fermentum eu tempus nec, mattis venenatis sem. Proin scelerisque velit tristique urna mattis adipiscing.
+
+Proin mattis faucibus facilisis. Integer non lacus ac ligula accumsan convallis quis molestie erat. Curabitur imperdiet vestibulum vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris lacus ligula, hendrerit eget suscipit in, sollicitudin nec dui. Suspendisse euismod, lorem pretium gravida rhoncus, enim quam facilisis orci, nec volutpat nisi dolor id lacus. Proin dolor arcu, rutrum eget hendrerit vel, pharetra id elit. Nullam porta euismod suscipit. Pellentesque malesuada consequat sem, et auctor magna aliquam gravida. Nullam blandit dignissim iaculis. Suspendisse non diam nec augue scelerisque iaculis. Nam id dui sed lorem vulputate rhoncus eget eu tellus. In sit amet nisi nunc. Fusce sed aliquet sem. Aliquam sit amet metus metus.	
+</div>
+
+<div style="display:none">
+Donec in mi a arcu cursus commodo non ut metus. Nunc id eros ut augue consequat tempus ut non ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer pretium, erat sit amet scelerisque euismod, purus lectus convallis dui, eget imperdiet sapien est ut magna. Nullam elementum, tortor vitae pulvinar mattis, orci neque porta tortor, a feugiat nisi lacus quis diam. Ut gravida augue id est rutrum elementum. Mauris eget felis dolor. Phasellus ante ante, porttitor sit amet lobortis ut, suscipit id neque. Fusce hendrerit dolor nec odio eleifend in auctor enim cursus. Nullam fermentum pretium risus, in hendrerit nulla cursus sit amet. Fusce eu tempus elit. Ut tortor velit, aliquam in ornare vel, feugiat sed nibh. Donec fringilla est id odio lacinia vulputate. Donec nulla urna, congue sit amet pretium non, dictum at orci. Fusce neque sem, fermentum eu tempus nec, mattis venenatis sem. Proin scelerisque velit tristique urna mattis adipiscing.
+
+Proin mattis faucibus facilisis. Integer non lacus ac ligula accumsan convallis quis molestie erat. Curabitur imperdiet vestibulum vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris lacus ligula, hendrerit eget suscipit in, sollicitudin nec dui. Suspendisse euismod, lorem pretium gravida rhoncus, enim quam facilisis orci, nec volutpat nisi dolor id lacus. Proin dolor arcu, rutrum eget hendrerit vel, pharetra id elit. Nullam porta euismod suscipit. Pellentesque malesuada consequat sem, et auctor magna aliquam gravida. Nullam blandit dignissim iaculis. Suspendisse non diam nec augue scelerisque iaculis. Nam id dui sed lorem vulputate rhoncus eget eu tellus. In sit amet nisi nunc. Fusce sed aliquet sem. Aliquam sit amet metus metus.	
+</div>
+<div style="display:none">
+Donec in mi a arcu cursus commodo non ut metus. Nunc id eros ut augue consequat tempus ut non ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer pretium, erat sit amet scelerisque euismod, purus lectus convallis dui, eget imperdiet sapien est ut magna. Nullam elementum, tortor vitae pulvinar mattis, orci neque porta tortor, a feugiat nisi lacus quis diam. Ut gravida augue id est rutrum elementum. Mauris eget felis dolor. Phasellus ante ante, porttitor sit amet lobortis ut, suscipit id neque. Fusce hendrerit dolor nec odio eleifend in auctor enim cursus. Nullam fermentum pretium risus, in hendrerit nulla cursus sit amet. Fusce eu tempus elit. Ut tortor velit, aliquam in ornare vel, feugiat sed nibh. Donec fringilla est id odio lacinia vulputate. Donec nulla urna, congue sit amet pretium non, dictum at orci. Fusce neque sem, fermentum eu tempus nec, mattis venenatis sem. Proin scelerisque velit tristique urna mattis adipiscing.
+
+Proin mattis faucibus facilisis. Integer non lacus ac ligula accumsan convallis quis molestie erat. Curabitur imperdiet vestibulum vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris lacus ligula, hendrerit eget suscipit in, sollicitudin nec dui. Suspendisse euismod, lorem pretium gravida rhoncus, enim quam facilisis orci, nec volutpat nisi dolor id lacus. Proin dolor arcu, rutrum eget hendrerit vel, pharetra id elit. Nullam porta euismod suscipit. Pellentesque malesuada consequat sem, et auctor magna aliquam gravida. Nullam blandit dignissim iaculis. Suspendisse non diam nec augue scelerisque iaculis. Nam id dui sed lorem vulputate rhoncus eget eu tellus. In sit amet nisi nunc. Fusce sed aliquet sem. Aliquam sit amet metus metus.	
+</div>
+<div style="display:none">
+Donec in mi a arcu cursus commodo non ut metus. Nunc id eros ut augue consequat tempus ut non ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer pretium, erat sit amet scelerisque euismod, purus lectus convallis dui, eget imperdiet sapien est ut magna. Nullam elementum, tortor vitae pulvinar mattis, orci neque porta tortor, a feugiat nisi lacus quis diam. Ut gravida augue id est rutrum elementum. Mauris eget felis dolor. Phasellus ante ante, porttitor sit amet lobortis ut, suscipit id neque. Fusce hendrerit dolor nec odio eleifend in auctor enim cursus. Nullam fermentum pretium risus, in hendrerit nulla cursus sit amet. Fusce eu tempus elit. Ut tortor velit, aliquam in ornare vel, feugiat sed nibh. Donec fringilla est id odio lacinia vulputate. Donec nulla urna, congue sit amet pretium non, dictum at orci. Fusce neque sem, fermentum eu tempus nec, mattis venenatis sem. Proin scelerisque velit tristique urna mattis adipiscing.
+
+Proin mattis faucibus facilisis. Integer non lacus ac ligula accumsan convallis quis molestie erat. Curabitur imperdiet vestibulum vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris lacus ligula, hendrerit eget suscipit in, sollicitudin nec dui. Suspendisse euismod, lorem pretium gravida rhoncus, enim quam facilisis orci, nec volutpat nisi dolor id lacus. Proin dolor arcu, rutrum eget hendrerit vel, pharetra id elit. Nullam porta euismod suscipit. Pellentesque malesuada consequat sem, et auctor magna aliquam gravida. Nullam blandit dignissim iaculis. Suspendisse non diam nec augue scelerisque iaculis. Nam id dui sed lorem vulputate rhoncus eget eu tellus. In sit amet nisi nunc. Fusce sed aliquet sem. Aliquam sit amet metus metus.	
+</div>
+		</div>  
+    
+		<!--END #content-->
+		</div>
+
+<br>
+    	<!--END .container-->
+	</div> 
+  
+
+      	<!--END .content-->
+	</div> 
+  
+     <!--BEGIN .content-bottom--> 
+  <div class="content-bottom">
+  
+       	<!--END .content-bottom-->
+  </div>
+			
+		<!--BEGIN .footer-->
+		<div class="footer">
+    
+    <div class="footer-top"></div>
+    
+    <div class="radial-effect" style="height:100px;"></div>
+    
+  
+   	<!--BEGIN .container-->
+	<div class="container" style="margin-bottom:0;position:relative;">    
+  
+  
+           <!-- AD Space 9 -->
+  
+  
+     
+
+
+  
+
+<div style="clear:both;"></div> 
+  
+     
+
+
+ 
+
+  
+  <!-- Theme Hook -->
+      
+      
+
+<script type="text/javascript" charset="utf-8">
+var $jx = jQuery.noConflict();
+  $jx("div.post").mouseover(function() {
+    $jx(this).find("span.edit-post").css('visibility', 'visible');
+  }).mouseout(function(){
+    $jx(this).find("span.edit-post").css('visibility', 'hidden');
+  });
+  
+    $jx("div.type-page").mouseover(function() {
+    $jx(this).find("span.edit-page").css('visibility', 'visible');
+  }).mouseout(function(){
+    $jx(this).find("span.edit-page").css('visibility', 'hidden');
+  });
+  
+      $jx("div.type-attachment").mouseover(function() {
+    $jx(this).find("span.edit-post").css('visibility', 'visible');
+  }).mouseout(function(){
+    $jx(this).find("span.edit-post").css('visibility', 'hidden');
+  });
+  
+  $jx("li.comment").mouseover(function() {
+    $jx(this).find("span.edit-comment").css('visibility', 'visible');
+  }).mouseout(function(){
+    $jx(this).find("span.edit-comment").css('visibility', 'hidden');
+  });
+</script> 
+
+<script type="text/javascript" charset="utf-8">
+var $j = jQuery.noConflict();
+  $j(document).ready(function(){  
+    $j('.tipsytext').tipsy({gravity:'n',fade:true,offset:0,opacity:1});
+   });
+   </script> 
+
+  
+	
+<p id="copyright" style="margin-top:20px;"><span class="credits" style="float:right;"></span> <a href="http://internetka.in.ua/">Блог вебразработчика</a><br><small>Функциональное тестирование и продвижение сайтов</small></p> 
+   
+          	<!--END .container-->  
+	</div> 
+
+ <div style="text-align: center">
+
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t52.10;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров и"+
+" посетителей за 24 часа' "+
+"border='0' width='88' height='31'><\/a>")
+//--></script><a href="http://www.liveinternet.ru/click" target="_blank"><img src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/hit" alt="" title="LiveInternet: показано число просмотров и посетителей за 24 часа" border="0" width="88" height="31"></a><!--/LiveInternet-->
+
+<!-- Yandex.Metrika informer -->
+<a href="http://metrika.yandex.ru/stat/?id=16058857&amp;from=informer" target="_blank" rel="nofollow"><img src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/3_1_FFFFFFFF_EFEFEFFF_0_pageviews" style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:16058857,type:0,lang:&#39;ru&#39;});return false}catch(e){}"></a>
+<!-- /Yandex.Metrika informer -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter16058857 = new Ya.Metrika({id:16058857, enableAll: true, webvisor:true});
+        } catch(e) {}
+    });
+    
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>&lt;div&gt;&lt;img src="//mc.yandex.ru/watch/16058857" style="position:absolute; left:-9999px;" alt="" /&gt;&lt;/div&gt;</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- begin of Top100 code -->
+<script id="top100Counter" type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/top100.jcn"></script><a href="https://top100.rambler.ru/home?id=2833912" target="_blank"><img src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/saved_resource" title="Rambler&#39;s Top100" alt="Rambler&#39;s Top100" border="0"></a>
+<noscript>
+&lt;a href="http://top100.rambler.ru/navi/2833912/"&gt;
+&lt;img src="http://counter.rambler.ru/top100.cnt?2833912" alt="Rambler's Top100" border="0" /&gt;
+&lt;/a&gt;
+
+</noscript>
+<!-- end of Top100 code -->
+
+		</div>
+		<!--END .footer-->
+		</div>
+
+<!--END body-->  
+
+
+
+    
+   
+
+<div id="vkapi_body">		<div id="vk_share_transport"><script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/share.js.Без названия" async=""></script></div>
+		<script type="text/javascript">
+			setTimeout(function () {
+				var el = document.createElement("script");
+				el.type = "text/javascript";
+				el.src = "https://vk.com/js/api/share.js";
+				el.async = true;
+				document.getElementById("vk_share_transport").appendChild(el);
+			}, 0);
+
+			window.stManager = {};
+			window.stManager.done = function (type) {
+				if (type === 'api/share.js') {
+					jQuery(document).trigger('vkapi_vkshare');
+				} else {
+					console.log(type);
+				}
+			}
+		</script>
+					<div id="vk_api_transport" style="position: absolute; top: -10000px;"><script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/openapi.js.Без названия" async=""></script></div>
+			<script type="text/javascript">
+				jQuery(function () {
+					window.vkAsyncInit = function () {
+						VK.init({
+							apiId: 3016133
+						});
+						if (typeof onChangePlusVK !== 'undefined')
+							VK.Observer.subscribe('widgets.comments.new_comment', onChangePlusVK);
+						if (typeof onChangeMinusVK !== 'undefined')
+							VK.Observer.subscribe('widgets.comments.delete_comment', onChangeMinusVK);
+						if (!window.vkapi_vk) {
+							window.vkapi_vk = true;
+							jQuery(document).trigger('vkapi_vk');
+						}
+					};
+
+					var el = document.createElement("script");
+					el.type = "text/javascript";
+					el.src = "https://vk.com/js/api/openapi.js";
+					el.async = true;
+					document.getElementById("vk_api_transport").appendChild(el);
+				});
+			</script>
+				<div id="gp_plusone_transport"><script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/plusone.js.Без названия" async="" gapi_processed="true"></script></div>
+		<script type="text/javascript">
+			setTimeout(function () {
+				var el = document.createElement("script");
+				el.type = "text/javascript";
+				el.src = "https://apis.google.com/js/plusone.js";
+				el.async = true;
+				document.getElementById("gp_plusone_transport").appendChild(el);
+			}, 0);
+		</script>
+				<script type="text/javascript">
+			!function (d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (!d.getElementById(id)) {
+					js = d.createElement(s);
+					js.id = id;
+					js.async = true;
+					js.src = "//platform.twitter.com/widgets.js";
+					fjs.parentNode.insertBefore(js, fjs);
+				}
+			}(document, "script", "twitter-wjs");
+		</script>
+				<script src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/loader.js.Без названия" type="text/javascript" charset="UTF-8" async="async">
+		</script>
+		</div>	
+<!-- START: Syntax Highlighter ComPress -->
+<script type="text/javascript">
+    SyntaxHighlighter.autoloader(
+        'applescript			http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushAppleScript.js',
+        'actionscript3 as3		http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushAS3.js',
+        'bash shell				http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushBash.js',
+        'coldfusion cf			http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushColdFusion.js',
+        'cpp c					http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushCpp.js',
+        'c# c-sharp csharp		http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushCSharp.js',
+        'css					http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushCss.js',
+        'delphi pascal pas		http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushDelphi.js',
+        'diff patch			    http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushDiff.js',
+        'erl erlang				http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushErlang.js',
+        'groovy					http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushGroovy.js',
+        'java					http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushJava.js',
+        'jfx javafx				http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushJavaFX.js',
+        'js jscript javascript	http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushJScript.js',
+        'perl pl				http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushPerl.js',
+        'php					http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushPhp.js',
+        'text plain				http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushPlain.js',
+        'powershell ps          http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushPowerShell.js',
+        'py python				http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushPython.js',
+        'ruby rails ror rb		http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushRuby.js',
+        'sass scss              http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushSass.js',
+        'scala					http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushScala.js',
+        'sql					http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushSql.js',
+        'vb vbnet				http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushVb.js',
+        'xml xhtml xslt html	http://internetka.in.ua/wp-content/plugins/syntax-highlighter-compress/scripts/shBrushXml.js'
+    );
+    SyntaxHighlighter.defaults['auto-links'] = false;             SyntaxHighlighter.defaults['gutter'] = false;     SyntaxHighlighter.defaults['toolbar'] = false;     SyntaxHighlighter.defaults['tab-size'] = 4;
+    SyntaxHighlighter.all();
+</script>
+<!-- END: Syntax Highlighter ComPress -->
+
+	<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/hoverIntent.min.js.Без названия"></script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/comment-reply.min.js.Без названия"></script>
+<script type="text/javascript" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/wp-embed.min.js.Без названия"></script>
+		<style type="text/css">
+			ul.nostyle,
+			ul.nostyle li {
+				list-style: none;
+				background: none;
+			}
+
+			ul.nostyle li {
+				height: 20px;
+				line-height: 20px;
+				padding: 5px;
+				margin: 0;
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			ul.nostyle li:before,
+			ul.nostyle li:after {
+				content: none !important;
+			}
+
+			ul.nostyle a {
+				border: none !important;
+			}
+
+			ul.nostyle li div table {
+				margin: 0;
+				padding: 0;
+			}
+
+			.vkapishare {
+				padding: 0 3px 0 0;
+			}
+
+			.vkapishare td,
+			.vkapishare tr {
+				border: 0 !important;
+				padding: 0 !important;
+				margin: 0 !important;
+				vertical-align: top !important;
+			}
+
+			ul.nostyle iframe {
+				max-width: none !important;
+			}
+
+			[id^=___plusone_] {
+				vertical-align: top !important;
+			}
+
+			.fb_iframe_widget {
+				width: 100%;
+			}
+		</style>
+		 
+
+
+
+
+
+<!--END html(kthxbye)-->
+</div><iframe src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/saved_resource.html" style="width:1px;height:1px;display:none;" frameborder="0" width="0" height="0"></iframe><iframe name="oauth2relay243382617" id="oauth2relay243382617" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><script aria-hidden="true" type="application/x-lastpass" id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{(function() { for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }})()}catch(e){}</script><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./Selenium WebDriver_ basic авторизация — Блог вебразработчика_files/saved_resource(1).html"></iframe></body></html>
