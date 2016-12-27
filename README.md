@@ -31,3 +31,9 @@
 * http://seleniumsimplified.com/2012/08/fluentwait-with-webelement
 * https://interface31.ru/tech_it/
 * http://www.guru99.com/handling-cookies-selenium-webdriver.html
+
+
+**Selenium GRID**  
+* https://github.com/groupon/Selenium-Grid-Extras
+* https://github.com/SeleniumHQ/selenium/wiki/Grid2
+* http://stackoverflow.com/questions/29013534/selenium-grid-with-chrome-driver-webdriverexception-the-path-to-the-driver-exe
