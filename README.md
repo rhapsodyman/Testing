@@ -38,5 +38,5 @@
 * https://github.com/SeleniumHQ/selenium/wiki/Grid2
 * http://stackoverflow.com/questions/29013534/selenium-grid-with-chrome-driver-webdriverexception-the-path-to-the-driver-exe
 
-**Selenium Proxy
+**Selenium Proxy**
 * https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/2047
