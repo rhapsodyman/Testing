@@ -199,4 +199,92 @@ add this code to the dependent project pom.xml
 	}
 }
 
+
+
+
+
+
+Управлять прокси-сервером можно напрямую через Java интерфейс или через REST API. В этой статье мы будем рассматривать только интересующий нас Java интерфейс. Для того, чтобы подключить BrowserMob в проект нужно скачать библиотеку и добавить ее в проект, либо добавить соответствующую зависимость в pom.xml, если вы используете Maven:
+
+<dependency>
+    <groupId>net.lightbody.bmp</groupId>
+    <artifactId>browsermob-proxy</artifactId>
+    <version>2.0-beta-8</version>
+    <scope>test</scope>
+</dependency>
+Если у Вас уже имеется подключенная в проект библиотека Selenium, то лучше исключить использование Selenium API, встроенного в BrowserMob. Но при этом учитывайте возможные несоответствия версий Selemium и BrowserMob:
+
+<dependency>
+    <groupId>net.lightbody.bmp</groupId>
+    <artifactId>browsermob-proxy</artifactId>
+    <version>2.0-beta-8</version>
+    <scope>test</scope>
+    <exclusions>
+        <exclusion>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
+
+
+
+
+
+
+BrowserMob Proxy
+
+При использовании basic аутентификации имя пользователя и пароль включаются в состав веб-запроса в стандартный HTTP заголовок «Authorization». Из этого можно заключить, что для успешного прохождения авторизации достаточно изменить HTTP заголовок перед отправкой на сервер. Сам Selenium не умеет манипулировать отправляемыми запросами, но для этих целей отлично подойдет прокси-сервер, в частности BrowserMob Proxy в силу простоты его подключения. Об интеграции и использовании BrowserMob с Selenium WebDriver можно почитать в предыдущей статье. В случае basic авторизации net.lightbody.bmp.proxy.ProxyServer предоставляет метод для ее автоматического выполнения:
+
+server.autoBasicAuthorization("example.com", "username", "password"); 
+Важно то, что первый аргумент autoBasicAuthorization это не URL, а именно доменное имя. Он не должен содержать http:// или других частей URL. Для того, чтобы использовать учетные данные для любого домена нужно оставить первый параметр пустым.
+
+server.autoBasicAuthorization("", "username", "password"); 
+Пример автоматической basic-аутентификации с BrowserMob Proxy:
+
+import net.lightbody.bmp.proxy.ProxyServer;
+ 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Proxy;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+ 
+public class ProxyServerBasicAutorizationTest {
+ 
+    private ProxyServer server;
+    private WebDriver driver;
+ 
+    @Before
+    public void startProxy() throws Exception {
+        server = new ProxyServer(4444);
+        server.start();
+        server.autoBasicAuthorization("", "username", "password");
+        Proxy proxy = server.seleniumProxy();
+ 
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(CapabilityType.PROXY, proxy);
+ 
+        driver = new FirefoxDriver(capabilities);
+    }
+ 
+    @Test
+    public void testAccessProtectedSite() throws Exception {
+        driver.get("https://example.com");
+        driver.findElement(By.className("sign-out"));
+    }
+ 
+    @After
+    public void stopProxyServer() throws Exception {
+        driver.quit();
+        server.stop();
+    }
+}
+И напоследок ложка дегтя, BrowserMob Proxy работает только с basic-аутентификацией и не предоставляет методов для работы с другими протоколами (Kerberos, NTLM и др.).
+
 	
