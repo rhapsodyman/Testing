@@ -1,3 +1,48 @@
+
+	// with SimpleDateFormat
+		// 1. if we don't specify time it will be 00:00:00
+		// 2. if we don't specify date it will be Jan 01 1970
+		
+		String date = "01:45 PM";
+		
+		SimpleDateFormat simple = new SimpleDateFormat("h:mm a");
+		System.out.println(simple.parse(date));
+		
+		
+		DateTimeFormatter form = DateTimeFormatter.ofPattern("h:mm a");
+		//LocalDateTime dateTime = LocalDateTime.parse(date, form);
+		
+		LocalTime localTime = LocalTime.parse(date, form);	
+		System.out.println(localTime);
+		
+		String date2 = "2:24p";
+		date2 = date2.replace("p", " PM").replace("a", " AM");
+		localTime = LocalTime.parse(date2, form);	
+		System.out.println(localTime);
+		
+		LocalDateTime finalDate = LocalDateTime.of(LocalDate.now(), localTime);
+		System.out.println(finalDate);
+		
+		LocalDateTime plusDays = finalDate.plusDays(2);
+		System.out.println(finalDate.compareTo(plusDays));
+		
+		if 01 PM - can use both hh and h
+		if 1 PM - use h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://www.bootstrapcdn.com/bootswatch/
 https://cdnjs.com/libraries/react-router
 
