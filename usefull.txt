@@ -1,9 +1,8 @@
-
 	// with SimpleDateFormat
 		// 1. if we don't specify time it will be 00:00:00
 		// 2. if we don't specify date it will be Jan 01 1970
 		
-		String date = "01:45 PM";
+		String date = "1:45 PM";
 		
 		SimpleDateFormat simple = new SimpleDateFormat("h:mm a");
 		System.out.println(simple.parse(date));
@@ -26,16 +25,27 @@
 		LocalDateTime plusDays = finalDate.plusDays(2);
 		System.out.println(finalDate.compareTo(plusDays));
 		
-		if 01 PM - can use both hh and h
-		if 1 PM - use h
-
-
-
-
-
-
-
-
+		
+		
+		// ==================================
+		String original = "2017/02/15";
+		DateTimeFormatter newOne = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		LocalDate newDate = LocalDate.parse(original, newOne);
+		System.out.println(newDate);
+		
+		SimpleDateFormat newSimple = new SimpleDateFormat("yyyy/MM/dd");
+		System.out.println(newSimple.parse(original));
+		
+		
+		//LocalDateTime time = LocalDate.parse("2017/02/15", newOne).atStartOfDay();
+		
+		
+		// ==================================
+		Calendar cal = new GregorianCalendar();
+		
+		date = date + " " + cal.get(Calendar.YEAR) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.DAY_OF_MONTH);
+		System.out.println(date);
+		System.out.println(new SimpleDateFormat("h:mm a yyyy/MM/dd").parse(date));
 
 
 
