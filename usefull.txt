@@ -343,3 +343,203 @@ public class ProxyServerBasicAutorizationTest {
 И напоследок ложка дегтя, BrowserMob Proxy работает только с basic-аутентификацией и не предоставляет методов для работы с другими протоколами (Kerberos, NTLM и др.).
 
 	
+	
+	
+	
+	
+	
+	package operation;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.net.URL;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public abstract class AbstractOperation<REQ, RESP> {
+
+	static {
+		TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+			public X509Certificate[] getAcceptedIssuers() {
+				return null;
+			}
+
+			@Override
+			public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
+				// Not implemented
+			}
+
+			@Override
+			public void checkServerTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
+				// Not implemented
+			}
+		} };
+
+		try {
+			SSLContext sc = SSLContext.getInstance("TLS");
+
+			sc.init(null, trustAllCerts, new java.security.SecureRandom());
+
+			HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+		} catch (KeyManagementException e) {
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public abstract RESP invoke(REQ request) throws Exception;
+	public abstract String getUrl();
+	public abstract Map<String, String> getHeaders();
+
+	public Map<String, String> headers;
+	public REQ request;
+	public RESP response;
+
+	public void setRequest(REQ request) {
+		this.request = request;
+	}
+
+	public RESP sendGet() throws Exception {
+
+		URL obj = new URL(getUrl());
+		HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+
+		con.setRequestMethod("GET");
+		for (Entry<String, String> header : getHeaders().entrySet()) {
+			con.setRequestProperty(header.getKey(), header.getValue());
+		}
+
+		int responseCode = con.getResponseCode();
+
+		if (responseCode == HttpsURLConnection.HTTP_OK) {
+			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			ObjectMapper mapper = new ObjectMapper();
+			this.response = (RESP) mapper.readValue(response.toString(), getResponseType());
+			return this.response;
+
+		}
+
+		return null;
+	}
+
+
+	private RESP sendPost(REQ body) throws Exception {
+
+		URL obj = new URL(getUrl());
+		HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+
+		con.setRequestMethod("POST");
+		con.setDoOutput(true);
+		for (Entry<String, String> header : getHeaders().entrySet()) {
+			con.setRequestProperty(header.getKey(), header.getValue());
+		}
+
+		DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+		wr.writeBytes(new ObjectMapper().writeValueAsString(body));
+		wr.flush();
+		wr.close();
+
+		int responseCode = con.getResponseCode();
+
+		if (responseCode == HttpsURLConnection.HTTP_OK || responseCode == HttpsURLConnection.HTTP_CREATED) {
+			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			ObjectMapper mapper = new ObjectMapper();
+			this.response = (RESP) mapper.readValue(response.toString(), getResponseType());
+			return this.response;
+		}
+		return null;
+
+	}
+
+
+	public Class<?> getRequestType() {
+		Type t = getClass().getGenericSuperclass();
+		ParameterizedType p = (ParameterizedType) t;
+		return (Class<?>) p.getActualTypeArguments()[0];
+	}
+
+	public Class<?> getResponseType() {
+		Type t = getClass().getGenericSuperclass();
+		ParameterizedType p = (ParameterizedType) t;
+		return (Class<?>) p.getActualTypeArguments()[1];
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+package operation;
+
+import java.util.Map;
+
+public class AuthOperation extends AbstractOperation<String, String> {
+
+	public String name;
+	
+	@Override
+	public String invoke(String request) throws Exception {
+		return sendGet();
+	}
+	
+	@Override
+	public String getUrl() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getHeaders() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AuthOperation(String name) {
+		this.name = name;
+	}
+
+	public static void main(String[] args) throws Exception {
+		AuthOperation auth = new AuthOperation("Andrei");
+		auth.invoke("dfsd");
+	}
+
+}
+
