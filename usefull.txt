@@ -1,3 +1,33 @@
+public class Tester {
+	public static void main(String[] args) {
+
+		LocalDateTime ofInstant = LocalDateTime.ofInstant(Instant.now(), ZoneId.of("America/New_York")); // ZoneId.of(ZoneId.SHORT_IDS.get("EST")));
+		System.out.println(ofInstant);
+
+		DateTimeFormatter pattern = DateTimeFormatter.ofPattern("'Some time' yyyy-MM-dd h-mm-ss a");
+
+		LocalDateTime parse = LocalDateTime.parse("Some time 2017-04-16 8-25-46 AM", pattern); // AM/PM
+																								// should
+																								// be
+																								// upper
+		System.out.println(parse);
+
+		// Duration.between(ofInstant, parse).
+
+		System.out.println(ChronoUnit.MINUTES.between(parse, ofInstant));
+		System.out.println(Duration.between(parse, ofInstant).getSeconds());
+
+		
+		System.out.println(Instant.now().toEpochMilli());
+		System.out.println(ZonedDateTime.of(LocalDateTime.now(), ZoneId.of("America/New_York")).toInstant().toEpochMilli());  // time in future
+		
+		
+	}
+}
+
+
+===========================================================================
+	
 	// with SimpleDateFormat
 		// 1. if we don't specify time it will be 00:00:00
 		// 2. if we don't specify date it will be Jan 01 1970
