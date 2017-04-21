@@ -1,3 +1,5 @@
+http://websystique.com/spring-boot/spring-boot-rest-api-example/
+
 public class Tester {
 	public static void main(String[] args) {
 
