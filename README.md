@@ -43,5 +43,11 @@
 * https://www.browserstack.com/local-testing
 * http://www.softwareishard.com/har/viewer/
 
+**Vaadin**
+* https://spring.io/guides/gs/crud-with-vaadin/
+* https://vaadin.com/blog/-/blogs/building-a-web-ui-for-mysql-databases-in-plain-java-
+* https://vaadin.com/docs/-/part/framework/datamodel/datamodel-providers.html#datamodel.dataproviders
+* https://github.com/Legioth/AllAboutGridWebinar/blob/master/src/main/java/org/vaadin/allaboutgrid/OrderUtil.java
+
 
 https://jsfiddle.net/ykv4L6n8/3/
