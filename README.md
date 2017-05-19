@@ -31,6 +31,7 @@
 * http://seleniumsimplified.com/2012/08/fluentwait-with-webelement
 * https://interface31.ru/tech_it/
 * http://www.guru99.com/handling-cookies-selenium-webdriver.html
+* http://stackoverflow.com/questions/19669786/check-if-element-is-visible-in-dom
 
 
 **Selenium GRID**  
