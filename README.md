@@ -32,6 +32,7 @@
 * https://interface31.ru/tech_it/
 * http://www.guru99.com/handling-cookies-selenium-webdriver.html
 * http://stackoverflow.com/questions/19669786/check-if-element-is-visible-in-dom
+* https://gist.github.com/smutnyleszek/809a69dd05e1d5f12d01
 
 
 **Selenium GRID**  
