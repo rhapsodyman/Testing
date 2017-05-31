@@ -1,4 +1,5 @@
 \d{1,3}(,\d{3})*
+^([1-9]\d{0,2}|0)([,]\d{3})*$
 
 http://websystique.com/spring-boot/spring-boot-rest-api-example/
 
