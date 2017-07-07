@@ -54,5 +54,9 @@
 **HttpClient**
 * http://www.baeldung.com/httpclient-connection-management
 
+**Git**
+* http://www.vogella.com/tutorials/EclipseGit/article.html
+* http://rogerdudler.github.io/git-guide/
+
 
 https://jsfiddle.net/ykv4L6n8/3/
