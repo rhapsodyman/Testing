@@ -57,6 +57,7 @@
 **Git**
 * http://www.vogella.com/tutorials/EclipseGit/article.html
 * http://rogerdudler.github.io/git-guide/
+* https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
 
 
 https://jsfiddle.net/ykv4L6n8/3/
