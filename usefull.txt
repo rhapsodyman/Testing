@@ -1,3 +1,20 @@
+	UPDATE
+
+I thought I'd update this to show how you'd actually use this in practice.
+
+Update your local repo from the remote (but don't merge):
+
+git fetch
+After downloading the updates, let's see the differences:
+
+git diff master origin/master
+If you're happy with those updates, then merge:
+
+git pull
+	
+	
+	
+	
 	private static final List<String> inProcess = new ArrayList<>();
 	
 	
