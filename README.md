@@ -59,5 +59,8 @@
 * http://rogerdudler.github.io/git-guide/
 * https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
 
+**SQL**
+* http://www.r-5.org/files/books/computers/languages/sql/style/Bill_Karwin-SQL_Antipatterns-EN.pdf
+
 
 https://jsfiddle.net/ykv4L6n8/3/
