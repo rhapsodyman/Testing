@@ -30,6 +30,9 @@ JOIN Comments c ON (ct.comment_id = c.parent_id)
 )
 SELECT * FROM CommentTree WHERE bug_id = 1234;
 
+
+also https://stackoverflow.com/questions/764497/flatten-adjacency-list-hierarchy-to-a-list-of-all-paths
+
 	
 	private static final List<String> inProcess = new ArrayList<>();
 	
