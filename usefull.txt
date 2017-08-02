@@ -31,6 +31,86 @@ JOIN Comments c ON (ct.comment_id = c.parent_id)
 SELECT * FROM CommentTree WHERE bug_id = 1234;
 
 
+
+================================================
+
+
+--Sql Server 2014 Express Edition
+--Batches are separated by 'go'
+
+select @@version as 'sql server version'
+
+CREATE TABLE Comments
+( comment_id INT PRIMARY KEY,
+  parent_id INT,
+  context VARCHAR(50) NOT NULL
+  
+);
+go
+
+INSERT INTO Comments VALUES (1, NULL, 'First Comment');
+INSERT INTO Comments VALUES (2, 1, 'Second Comment');
+INSERT INTO Comments VALUES (3, 2 ,'Third Comment');
+INSERT INTO Comments VALUES (4, 1, 'Forth Comment');
+
+go
+
+
+SELECT c1.*, c2.*, c3.*
+FROM Comments c1 -- 1st level
+LEFT OUTER JOIN Comments c2
+ON c2.parent_id = c1.comment_id -- 2nd level
+LEFT OUTER JOIN Comments c3
+ON c3.parent_id = c2.comment_id
+
+go
+
+
+
+============================
+
+
+--Sql Server 2014 Express Edition
+--Batches are separated by 'go'
+
+select @@version as 'sql server version'
+
+CREATE TABLE Directories
+( dir_id INT PRIMARY KEY,
+  parent_id INT,
+  name VARCHAR(8000) NOT NULL
+  
+);
+go
+
+INSERT INTO Directories VALUES (1, NULL, 'Root');
+INSERT INTO Directories VALUES (2, 1, 'Second Dir');
+INSERT INTO Directories VALUES (3, 2 ,'Third Dir');
+INSERT INTO Directories VALUES (4, 1, 'Forth Dir');
+
+go
+
+
+WITH DirTree
+(dir_id, parent_id, name, depth, path)
+AS (
+SELECT *, 0 AS depth, name as path FROM Directories
+WHERE parent_id IS NULL
+UNION ALL
+SELECT d.*, dt.depth+1 AS depth,  CAST(dt.path + '/' + d.name AS VARCHAR(8000)) FROM DirTree dt
+JOIN Directories d ON (dt.dir_id = d.parent_id)
+)
+select * from DirTree
+
+go
+
+==============================================
+
+
+
+
+
+
 also https://stackoverflow.com/questions/764497/flatten-adjacency-list-hierarchy-to-a-list-of-all-paths
 
 	
