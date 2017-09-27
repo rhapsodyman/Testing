@@ -65,3 +65,8 @@
 
 
 https://jsfiddle.net/ykv4L6n8/3/
+
+**Trading**
+* http://www.optiontradingpedia.com/options_debit_spreads.htm
+
+
