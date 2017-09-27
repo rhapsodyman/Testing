@@ -3,6 +3,19 @@
 I thought I'd update this to show how you'd actually use this in practice.
 
 Update your local repo from the remote (but don't merge):
+Options spreads that does the opposite of crediting your account with cash instead are known as "Credit Spreads". 
+This means that you need to pay cash to put on a debit spread while you will actually receive cash for putting on a credit spread. 
+
+Assuming QQQ is trading at $61, its Mar $61 call options are trading at $0.60 and its Mar $62 Calls are trading at $0.20. 
+
+Instead of buying only the Mar $61 call options for $0.60, you could sell to open an equal amount of Mar $62 Calls for $0.20 in order to bring the net debit of the position down to $0.40. 
+
+so, net Debit = long position premium - short position premium
+Bull Call Spread = $0.60 - $0.20 = $0.40 debit spread
+
+
+
+
 
 git fetch
 After downloading the updates, let's see the differences:
