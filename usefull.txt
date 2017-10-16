@@ -1,4 +1,61 @@
-	UPDATE
+package pdf;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
+import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
+import org.apache.pdfbox.pdmodel.interactive.form.PDField;
+import org.apache.pdfbox.pdmodel.interactive.form.PDNonTerminalField;
+
+public class FormsReader {
+	public void test() throws IOException {
+		PDDocument pdfDocument = PDDocument.load(new File("D:/form2.pdf"));
+		PDDocumentCatalog docCatalog = pdfDocument.getDocumentCatalog();
+		PDAcroForm acroForm = docCatalog.getAcroForm();
+
+		System.out.println(acroForm.getField("topmostSubform[0].Page1[0].f_1[0]").getValueAsString());
+
+		List<PDField> fields = acroForm.getFields();
+		for (PDField field : fields) {
+			list(field);
+		}
+
+	}
+
+	void list(PDField field) {
+		System.out.println(field.getFullyQualifiedName());
+		System.out.println(field.getPartialName());
+
+		if (field instanceof PDNonTerminalField) {
+			PDNonTerminalField nonTerminalField = (PDNonTerminalField) field;
+			for (PDField child : nonTerminalField.getChildren()) {
+				list(child);
+			}
+		}
+	}
+
+	public static void main(String[] args) throws IOException {
+		FormsReader formsReader = new FormsReader();
+		formsReader.test();
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+UPDATE
 
 I thought I'd update this to show how you'd actually use this in practice.
 
