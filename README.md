@@ -69,4 +69,7 @@ https://jsfiddle.net/ykv4L6n8/3/
 **Trading**
 * http://www.optiontradingpedia.com/options_debit_spreads.htm
 
+**PDF**
+* https://stackoverflow.com/questions/35669356/pdfbox-how-to-fetch-fields-of-all-kind-of-pdf-forms
+* https://www.mkyong.com/java/pdfbox-how-to-read-pdf-file-in-java/
 
