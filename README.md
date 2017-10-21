@@ -73,3 +73,5 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://stackoverflow.com/questions/35669356/pdfbox-how-to-fetch-fields-of-all-kind-of-pdf-forms
 * https://www.mkyong.com/java/pdfbox-how-to-read-pdf-file-in-java/
 
+* https://github.com/blackrosezy/gui-inspect-tool
+
