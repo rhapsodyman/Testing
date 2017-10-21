@@ -73,5 +73,10 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://stackoverflow.com/questions/35669356/pdfbox-how-to-fetch-fields-of-all-kind-of-pdf-forms
 * https://www.mkyong.com/java/pdfbox-how-to-read-pdf-file-in-java/
 
-* https://github.com/blackrosezy/gui-inspect-tool
+**Windows Testing**
+* https://github.com/blackrosezy/gui-inspect-tool - inspect tools
+* https://github.com/2gis/Winium.Desktop/wiki/Supported-Commands - winium
+* https://github.com/2gis/Winium.Desktop/wiki/Capabilities - winium
+* https://habrahabr.ru/post/331292/ - winium
+* https://www.joecolantonio.com/2014/07/02/selenium-autoit-how-to-automate-non-browser-based-functionality/ - autoit + java
 
