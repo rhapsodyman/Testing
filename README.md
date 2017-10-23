@@ -80,3 +80,8 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://habrahabr.ru/post/331292/ - winium
 * https://www.joecolantonio.com/2014/07/02/selenium-autoit-how-to-automate-non-browser-based-functionality/ - autoit + java
 
+**TestNG rerun**
+* http://toolsqa.com/selenium-webdriver/retry-failed-tests-testng/
+* https://stackoverflow.com/questions/25781098/is-there-anyway-to-rerun-a-test-class-when-it-fails
+* http://www.seleniumeasy.com/testng-tutorials/execute-only-failed-test-cases-using-iretryanalyzer
+
