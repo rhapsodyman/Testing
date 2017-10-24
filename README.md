@@ -79,6 +79,7 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://github.com/2gis/Winium.Desktop/wiki/Capabilities - winium
 * https://habrahabr.ru/post/331292/ - winium
 * https://www.joecolantonio.com/2014/07/02/selenium-autoit-how-to-automate-non-browser-based-functionality/ - autoit + java
+* https://github.com/Microsoft/WinAppDriver - win10 only
 
 **TestNG rerun**
 * http://toolsqa.com/selenium-webdriver/retry-failed-tests-testng/
