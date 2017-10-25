@@ -1,5 +1,8 @@
 # Testing
 
+**Java Testing**
+* https://github.com/atinfo/awesome-test-automation/blob/master/java-test-automation.md#web-ui-test-automation
+
 **AssertJ**  
 * http://joel-costigliola.github.io/assertj/
 
