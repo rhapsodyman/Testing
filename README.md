@@ -58,6 +58,7 @@
 * http://www.baeldung.com/httpclient-connection-management
 
 **Git**
+* https://gitmap.wordpress.com/
 * http://www.vogella.com/tutorials/EclipseGit/article.html
 * http://rogerdudler.github.io/git-guide/
 * https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
