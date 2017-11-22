@@ -91,3 +91,7 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://stackoverflow.com/questions/25781098/is-there-anyway-to-rerun-a-test-class-when-it-fails
 * http://www.seleniumeasy.com/testng-tutorials/execute-only-failed-test-cases-using-iretryanalyzer
 
+**Windows Task Schedule**
+* https://stackoverflow.com/questions/4437701/run-a-batch-file-with-windows-task-scheduler
+* https://www.howtogeek.com/138159/how-to-enable-programs-and-custom-scripts-to-run-at-boot/
+
