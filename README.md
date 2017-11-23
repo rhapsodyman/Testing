@@ -95,3 +95,9 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://stackoverflow.com/questions/4437701/run-a-batch-file-with-windows-task-scheduler
 * https://www.howtogeek.com/138159/how-to-enable-programs-and-custom-scripts-to-run-at-boot/
 
+**RDC and testing**
+* https://stackoverflow.com/questions/19441324/how-to-run-gui-tests-on-a-jenkins-windows-slave-without-remote-desktop-connectio
+* https://github.com/Microsoft/customer-scripts/blob/master/test/RDPSession/disconnect.bat
+* https://support.smartbear.com/testcomplete/docs/testing-with/running/via-rdp/keeping-computer-unlocked.html
+* https://serverfault.com/questions/482352/take-screenshot-from-server-screen-while-disconnected-from-rdp
+* http://blogs.microsoft.co.il/arnona/2016/01/03/keeping-an-active-desktop-session/
