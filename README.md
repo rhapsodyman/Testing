@@ -62,6 +62,7 @@
 * http://www.vogella.com/tutorials/EclipseGit/article.html
 * http://rogerdudler.github.io/git-guide/
 * https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
+* https://github.com/k88hudson/git-flight-rules
 
 **SQL**
 * http://www.r-5.org/files/books/computers/languages/sql/style/Bill_Karwin-SQL_Antipatterns-EN.pdf
