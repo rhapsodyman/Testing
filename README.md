@@ -103,3 +103,6 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://support.smartbear.com/testcomplete/docs/testing-with/running/via-rdp/keeping-computer-unlocked.html
 * https://serverfault.com/questions/482352/take-screenshot-from-server-screen-while-disconnected-from-rdp
 * http://blogs.microsoft.co.il/arnona/2016/01/03/keeping-an-active-desktop-session/
+
+**Auto Logon**
+* http://www.computerperformance.co.uk/windows7/windows7_auto_logon.htm
