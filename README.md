@@ -96,6 +96,7 @@ https://jsfiddle.net/ykv4L6n8/3/
 **Windows Task Schedule**
 * https://stackoverflow.com/questions/4437701/run-a-batch-file-with-windows-task-scheduler
 * https://www.howtogeek.com/138159/how-to-enable-programs-and-custom-scripts-to-run-at-boot/
+* https://social.technet.microsoft.com/Forums/Windows/en-US/464a3bb3-3bcd-47a0-ab03-f0b8910f2ed1/how-to-run-a-vbs-file-using-task-scheduler?forum=windowsserver2008r2general
 
 **RDC and testing**
 * https://stackoverflow.com/questions/19441324/how-to-run-gui-tests-on-a-jenkins-windows-slave-without-remote-desktop-connectio
@@ -106,3 +107,4 @@ https://jsfiddle.net/ykv4L6n8/3/
 
 **Auto Logon**
 * http://www.computerperformance.co.uk/windows7/windows7_auto_logon.htm
+
