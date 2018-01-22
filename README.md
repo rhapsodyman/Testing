@@ -108,3 +108,6 @@ https://jsfiddle.net/ykv4L6n8/3/
 **Auto Logon**
 * http://www.computerperformance.co.uk/windows7/windows7_auto_logon.htm
 
+**Headless Selenium**
+* https://www.guru99.com/selenium-with-htmlunit-driver-phantomjs.html
+* https://kreisfahrer.gitbooks.io/selenium-webdriver/content/selenium_grid_i_headless_brauzeri/index.html
