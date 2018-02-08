@@ -36,6 +36,8 @@
 * http://www.guru99.com/handling-cookies-selenium-webdriver.html
 * http://stackoverflow.com/questions/19669786/check-if-element-is-visible-in-dom
 * https://gist.github.com/smutnyleszek/809a69dd05e1d5f12d01
+* https://kreisfahrer.gitbooks.io/selenium-webdriver/content/otpravlenie_faila_upload.html
+* http://toolsqa.com/selenium-webdriver/how-to-download-files-using-selenium/
 
 
 **Selenium GRID**  
