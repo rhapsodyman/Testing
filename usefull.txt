@@ -1,11 +1,3 @@
-1. Issue with taking screenshots on remote machine - created a socket based server to run on remote machine
-   and take and send screenshots
-2. Issue with kikking the application - for some reason closing the app window does not always kill the window process.
-   Also if there are several windows  - it is easier to kill the windows process. Added this feature to the socket based server
-3. Issue with sending TAB/ENTER - https://github.com/2gis/Winium.Desktop/issues/160  - added required keys to the source code and built new .exe file
-
-
-
 
 
 https://github.com/groupon/Selenium-Grid-Extras/blob/master/SeleniumGridExtras/src/main/java/com/groupon/seleniumgridextras/OS.java
@@ -58,20 +50,6 @@ public class FormsReader {
 
 
 
-
-
-
-
-
-
-
-
-
-UPDATE
-
-I thought I'd update this to show how you'd actually use this in practice.
-
-Update your local repo from the remote (but don't merge):
 Options spreads that does the opposite of crediting your account with cash instead are known as "Credit Spreads". 
 This means that you need to pay cash to put on a debit spread while you will actually receive cash for putting on a credit spread. 
 
@@ -82,9 +60,11 @@ Instead of buying only the Mar $61 call options for $0.60, you could sell to ope
 so, net Debit = long position premium - short position premium
 Bull Call Spread = $0.60 - $0.20 = $0.40 debit spread
 
+===========================================================================================================================
+UPDATE
 
-
-
+I thought I'd update this to show how you'd actually use this in practice.
+Update your local repo from the remote (but don't merge):
 
 git fetch
 After downloading the updates, let's see the differences:
@@ -93,11 +73,9 @@ git diff master origin/master
 If you're happy with those updates, then merge:
 
 git pull
+===========================================================================================================================	
 	
-	
-	
-	
-	
+		
 	WITH CommentTree
 (comment_id, bug_id, parent_id, author, comment, depth)
 AS (
@@ -112,9 +90,7 @@ JOIN Comments c ON (ct.comment_id = c.parent_id)
 )
 SELECT * FROM CommentTree WHERE bug_id = 1234;
 
-
-
-================================================
+===========================================================================================================================
 
 
 --Sql Server 2014 Express Edition
@@ -147,9 +123,7 @@ ON c3.parent_id = c2.comment_id
 
 go
 
-
-
-============================
+===========================================================================================================================
 
 
 --Sql Server 2014 Express Edition
@@ -186,12 +160,7 @@ select * from DirTree
 
 go
 
-==============================================
-
-
-
-
-
+===========================================================================================================================
 
 also https://stackoverflow.com/questions/764497/flatten-adjacency-list-hierarchy-to-a-list-of-all-paths
 
@@ -247,6 +216,9 @@ also https://stackoverflow.com/questions/764497/flatten-adjacency-list-hierarchy
 		}
 	}
 
+
+===========================================================================================================================
+
 \d{1,3}(,\d{3})*
 ^([1-9]\d{0,2}|0)([,]\d{3})*$
 
@@ -280,7 +252,7 @@ public class Tester {
 }
 
 
-===========================================================================
+===========================================================================================================================
 	
 	// with SimpleDateFormat
 		// 1. if we don't specify time it will be 00:00:00
@@ -334,53 +306,7 @@ public class Tester {
 
 
 
-
-
-
-https://www.bootstrapcdn.com/bootswatch/
-https://cdnjs.com/libraries/react-router
-
-<properties>
-		<jackson-2-version>2.7.0</jackson-2-version>
-		<jackson-1-version>1.9.13</jackson-1-version>
-	</properties>
-
-	<dependencies>
-		<!-- the core, which includes Streaming API, shared low-level abstractions 
-			(but NOT data-binding) -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>${jackson-2-version}</version>
-		</dependency>
-
-		<!-- Just the annotations; use this dependency if you want to attach annotations 
-			to classes without connecting them to the code. -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-			<version>${jackson-2-version}</version>
-		</dependency>
-
-		<!-- databinding; ObjectMapper, JsonNode and related classes are here -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson-2-version}</version>
-		</dependency>
-		
-		
-		<dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>${jackson-1-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-core-asl</artifactId>
-            <version>${jackson-1-version}</version>
-        </dependency>
-
+===========================================================================================================================
 
 http://www.baeldung.com/jackson-serialize-enums
 
@@ -535,11 +461,3 @@ public class ProxyServerBasicAutorizationTest {
     }
 }
 И напоследок ложка дегтя, BrowserMob Proxy работает только с basic-аутентификацией и не предоставляет методов для работы с другими протоколами (Kerberos, NTLM и др.).
-
-	
-	
-	
-	
-
-
-
