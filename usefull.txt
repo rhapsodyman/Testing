@@ -1,4 +1,5 @@
-
+https://forums.asp.net/t/2027451.aspx?How+to+get+file+name+selected+in+input+type+file+  - get filename of input file
+https://saucelabs.com/resources/articles/best-practices-tips-selenium-file-upload - file upload
 
 https://github.com/groupon/Selenium-Grid-Extras/blob/master/SeleniumGridExtras/src/main/java/com/groupon/seleniumgridextras/OS.java
 
