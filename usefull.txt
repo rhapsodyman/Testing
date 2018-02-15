@@ -1,3 +1,10 @@
+
+ Instant instant1 = Instant.ofEpochMilli(1426349294842L);
+		 Instant instant2 = Instant.ofEpochMilli(1426359294842L);
+		 
+		 System.out.println(ChronoUnit.HOURS.between(instant1, instant2));
+
+
 https://forums.asp.net/t/2027451.aspx?How+to+get+file+name+selected+in+input+type+file+  - get filename of input file
 https://saucelabs.com/resources/articles/best-practices-tips-selenium-file-upload - file upload
 https://stackoverflow.com/questions/44738502/downloading-a-excel-file-on-selenium-grid-and-reading-it
