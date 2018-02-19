@@ -50,3 +50,31 @@ public class LastFmPage {
 		};
 	}
 }
+
+
+
+	public boolean existsPessimistic() {
+
+		Object elem = getWrappedElement();
+
+		try {
+			while (Proxy.isProxyClass(elem.getClass()) && !(elem instanceof WebDriver)) {
+				InvocationHandler invHandler = Proxy.getInvocationHandler(elem);
+				Object locator = FieldUtils.getField(invHandler.getClass(), "locator", true).get(invHandler);
+
+				FieldUtils.getField(locator.getClass(), "timeOutInSeconds", true).setInt(locator, 1);
+
+				elem = FieldUtils.getField(locator.getClass(), "searchContext", true).get(locator);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			getWrappedElement().getTagName();
+		} catch (WebDriverException e) {
+			return false;
+		}
+
+		return true;
+	}
