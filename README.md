@@ -109,6 +109,7 @@ https://jsfiddle.net/ykv4L6n8/3/
 
 **Auto Logon**
 * http://www.computerperformance.co.uk/windows7/windows7_auto_logon.htm
+* https://answers.microsoft.com/en-us/windows/forum/windows_7-security/how-to-turn-on-automatic-logon-in-windows-7/99d4fe75-3f22-499b-85fc-c7a2c4f728af
 
 **Headless Selenium**
 * https://www.guru99.com/selenium-with-htmlunit-driver-phantomjs.html
