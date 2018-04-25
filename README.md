@@ -119,3 +119,8 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://confluence.atlassian.com/doc/restoring-a-space-152036.html
 * https://community.atlassian.com/t5/Confluence-questions/I-need-to-move-all-pages-in-a-space-to-another-space/qaq-p/190157
 * https://confluence.atlassian.com/display/CONF43/Exporting+Confluence+Pages+and+Spaces+to+XML
+
+
+** Stocks Research**
+* https://www.marketvolume.com/stocks/mostvolatiletoday.asp
+* https://www.investopedia.com/articles/active-trading/100114/how-research-volatile-stocks.asp
