@@ -114,3 +114,8 @@ https://jsfiddle.net/ykv4L6n8/3/
 **Headless Selenium**
 * https://www.guru99.com/selenium-with-htmlunit-driver-phantomjs.html
 * https://kreisfahrer.gitbooks.io/selenium-webdriver/content/selenium_grid_i_headless_brauzeri/index.html
+
+**Confluence**
+* https://confluence.atlassian.com/doc/restoring-a-space-152036.html
+* https://community.atlassian.com/t5/Confluence-questions/I-need-to-move-all-pages-in-a-space-to-another-space/qaq-p/190157
+* https://confluence.atlassian.com/display/CONF43/Exporting+Confluence+Pages+and+Spaces+to+XML
