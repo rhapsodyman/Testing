@@ -1,4 +1,5 @@
 https://stackoverflow.com/questions/23568409/xlrd-python-reading-excel-file-into-dict-with-for-loops
+https://stackoverflow.com/questions/15476983/deserialize-a-json-string-to-an-object-in-python
 
 from xlrd import open_workbook
 
