@@ -1,5 +1,37 @@
 https://stackoverflow.com/questions/23568409/xlrd-python-reading-excel-file-into-dict-with-for-loops
 
+from xlrd import open_workbook
+
+book = open_workbook('D:/Doc.xlsx')
+
+print ('Number of sheets ')
+print book.nsheets
+
+sheet = book.sheet_by_index(0)
+
+dict_list = []
+
+for sheet_index in xrange(book.nsheets):
+    sheet = book.sheet_by_index(sheet_index)
+
+    sheet.cell(0, 0).
+
+    # read header values into the list
+    keys = [sheet.cell(0, col_index).value for col_index in xrange(sheet.ncols)]
+
+    for row_index in xrange(1, sheet.nrows):
+        #d = {keys[col_index]: sheet.cell(row_index, col_index).value
+        #     for col_index in xrange(sheet.ncols)}
+        d = {}
+        for col_index in xrange(sheet.ncols):
+            d[keys[col_index]] = sheet.cell(row_index, col_index).value
+        dict_list.append(d)
+
+print dict_list
+
+====================================================================================================================
+
+
 
  Instant instant1 = Instant.ofEpochMilli(1426349294842L);
 		 Instant instant2 = Instant.ofEpochMilli(1426359294842L);
