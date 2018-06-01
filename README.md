@@ -121,6 +121,9 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://confluence.atlassian.com/display/CONF43/Exporting+Confluence+Pages+and+Spaces+to+XML
 
 
-** Stocks Research**
+**Stocks Research**
 * https://www.marketvolume.com/stocks/mostvolatiletoday.asp
 * https://www.investopedia.com/articles/active-trading/100114/how-research-volatile-stocks.asp
+
+**Robot Framework**
+* https://blog.codecentric.de/en/2016/01/robot-framework-tutorial-2016-remote-server-keywords-in-java/ - remote keywords
