@@ -1,3 +1,13 @@
+need to lower the maxIdleTime = 10
+or
+
+use instead of maxIdleTime these 2 ( https://stackoverflow.com/questions/24565274/c3p0-maxidletime-is-same-as-wait-timeout-of-mysql?rq=1)
+
+need to use idleConnectionTestPeriod =  sets a limit to how long a connection will stay idle before testing it. 
+and maxIdleTimeExcessConnections = it will bring back the connectionCount back down to minPoolSize after a spike in activity
+
+
+
 https://stackoverflow.com/questions/23568409/xlrd-python-reading-excel-file-into-dict-with-for-loops
 https://stackoverflow.com/questions/15476983/deserialize-a-json-string-to-an-object-in-python
 
