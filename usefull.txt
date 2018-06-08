@@ -1,3 +1,11 @@
+For the first point, the mode argument in open() can include a '+' character which will cause the file to be created if it doesn't exist. If the directory itself doesn't exist then you'll see a FileNotFoundException. This can be handled as such:
+
+try:
+  f = open(log_file, 'a+')   # use 'a+' to append, 'w+' to truncate
+except FileNotFoundException:
+  # handle the file system issues
+
+
 need to lower the maxIdleTime = 10
 or
 
