@@ -1,3 +1,11 @@
+try:
+    with open('my_settings.dat') as file:
+        pass
+except IOError as e:
+    print "Unable to open file" #Does not exist OR no read permissions
+
+
+
 For the first point, the mode argument in open() can include a '+' character which will cause the file to be created if it doesn't exist. If the directory itself doesn't exist then you'll see a FileNotFoundException. This can be handled as such:
 
 try:
