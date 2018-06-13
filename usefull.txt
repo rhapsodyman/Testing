@@ -1,3 +1,60 @@
+import ConfigParser
+import re;
+
+
+class ConfigReader:
+
+    def __init__(self):
+
+        self.pattern = re.compile(r'(\$\{(.+?)\.(.+?)\})')
+
+        config = ConfigParser.ConfigParser()
+        config.read('config.ini')
+
+        variables = {}
+        for section in config.sections():
+            for key, value in config.items(section):
+                var = "%s.%s" % (section, key)
+                new_val = value
+
+                resolved = self.resolve_value(value, config)
+                if resolved != value:
+                    config.set(section, key, resolved)
+                    new_val = resolved
+
+                variables[var] = new_val
+        print variables
+
+    def resolve_value(self, value, config):
+
+        tmp = value
+
+        for (match, ref_sect, ref_key) in re.findall(self.pattern, value):
+            new_value = self.resolve_value(config.get(ref_sect, ref_key), config)
+
+            # next substitute it
+            tmp = tmp.replace(match, new_value)
+
+        return tmp
+
+
+if __name__ == '__main__':
+    reader = ConfigReader()
+
+
+
+[Section1]
+var1=value1
+var4=value4
+
+[Section2]
+var2=var 2 text ${Section1.var1}
+
+[Section3]
+var3=${Section2.var2}
+var5=this is some text ${Section1.var1} ${Section1.var4} ${Section2.var2}
+
+==============================================================================================================================
 https://stackoverflow.com/questions/17546016/how-can-you-zip-or-unzip-from-the-script-using-only-windows-built-in-capabiliti
 https://stackoverflow.com/questions/1855095/how-to-create-a-zip-archive-of-a-directory
 
