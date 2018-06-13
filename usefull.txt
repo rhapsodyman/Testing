@@ -1,3 +1,5 @@
+http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#extended-variable-syntax
+
 import ConfigParser
 import re;
 
