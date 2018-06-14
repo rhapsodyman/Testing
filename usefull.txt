@@ -1,3 +1,4 @@
+https://stackoverflow.com/questions/15034151/copy-directory-contents-into-a-directory-with-python
 http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#extended-variable-syntax
 
 import ConfigParser
