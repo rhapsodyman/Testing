@@ -2,6 +2,30 @@ https://stackoverflow.com/questions/15034151/copy-directory-contents-into-a-dire
 https://code.google.com/archive/p/robotframework-seleniumlibrary/wikis/UseSeleniumGRIDwithRobotFramework.wiki
 http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#extended-variable-syntax
 
+@echo off
+python -m andrei-lib.AndreiClass
+pause
+
+
+https://stackoverflow.com/questions/22241420/execution-of-python-code-with-m-option-or-not
+
+  
+  read abount virtual env
+  
+  execute command: python -m site --user-site
+  also look at requirements.txt
+  
+  https://python-packaging.readthedocs.io/en/latest/minimal.html
+    -- look here for example https://github.com/franz-see/Robotframework-Database-Library/blob/master/setup.py
+	-- https://github.com/kennethreitz/setup.py
+  
+  
+  https://stackoverflow.com/questions/16196268/where-should-i-put-my-own-python-module-so-that-it-can-be-imported
+  
+  
+
+
+====================================================================================================================================
 import ConfigParser
 import re;
 
