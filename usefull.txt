@@ -6,6 +6,12 @@ http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#ext
 python -m andrei-lib.AndreiClass
 pause
 
+================================================================================================
+https://github.com/boakley/robotframework-workbench/wiki/Getting-started
+1. python -m rwb.debugger
+2. pybot --listener rwb.socket_listener:8910 Test.robot
+================================================================================================
+
 
 https://stackoverflow.com/questions/22241420/execution-of-python-code-with-m-option-or-not
 
