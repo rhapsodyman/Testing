@@ -12,6 +12,16 @@ https://github.com/boakley/robotframework-workbench/wiki/Getting-started
 2. pybot --listener rwb.socket_listener:8910 Test.robot
 ================================================================================================
 
+1. No normal ide support
+2. Robot framework syntax is very bad - no normal loops, while loops,
+	if block cannot have several statements and so on
+3. Test will stop on the first	failed assertion
+	
+4. No normal debugger
+5. Libraries created for it and the number of answers on SO and web - tells its not widely used
+6. No built-in support for parallel execution
+7. Limited possibilities to change the framework
+8. Standard report can have some problems (if a lot of tests will be executed)
 
 https://stackoverflow.com/questions/22241420/execution-of-python-code-with-m-option-or-not
 
