@@ -6,6 +6,22 @@ http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#ext
 python -m andrei-lib.AndreiClass
 pause
 
+================================================================================================
+https://github.com/boakley/robotframework-workbench/wiki/Getting-started
+1. python -m rwb.debugger
+2. pybot --listener rwb.socket_listener:8910 Test.robot
+================================================================================================
+
+1. No normal ide support
+2. Robot framework syntax is very bad - no normal loops, while loops,
+	if block cannot have several statements and so on
+3. Test will stop on the first	failed assertion
+	
+4. No normal debugger
+5. Libraries created for it and the number of answers on SO and web - tells its not widely used
+6. No built-in support for parallel execution
+7. Limited possibilities to change the framework
+8. Standard report can have some problems (if a lot of tests will be executed)
 
 https://stackoverflow.com/questions/22241420/execution-of-python-code-with-m-option-or-not
 
@@ -26,61 +42,36 @@ https://stackoverflow.com/questions/22241420/execution-of-python-code-with-m-opt
 
 
 ====================================================================================================================================
-import ConfigParser
-import re;
-
-
-class ConfigReader:
-
-    def __init__(self):
-
-        self.pattern = re.compile(r'(\$\{(.+?)\.(.+?)\})')
-
-        config = ConfigParser.ConfigParser()
-        config.read('config.ini')
-
-        variables = {}
-        for section in config.sections():
-            for key, value in config.items(section):
-                var = "%s.%s" % (section, key)
-                new_val = value
-
-                resolved = self.resolve_value(value, config)
-                if resolved != value:
-                    config.set(section, key, resolved)
-                    new_val = resolved
-
-                variables[var] = new_val
-        print variables
-
-    def resolve_value(self, value, config):
-
-        tmp = value
-
-        for (match, ref_sect, ref_key) in re.findall(self.pattern, value):
-            new_value = self.resolve_value(config.get(ref_sect, ref_key), config)
-
-            # next substitute it
-            tmp = tmp.replace(match, new_value)
-
-        return tmp
-
+import re
 
 if __name__ == '__main__':
-    reader = ConfigReader()
 
+    with open('D:/RobotframeworkRelated/robot.txt', 'r') as f:
+        content = f.read()
+        # matches = re.findall(r'\*\*\* .*? \*\*\*.*', content, re.DOTALL | re.MULTILINE)
 
+        matches = re.split(r'(\*\*\* .*? \*\*\*.*?\r?\n)', content, re.DOTALL | re.MULTILINE)
 
-[Section1]
-var1=value1
-var4=value4
+        if matches[0] == '':
+            matches = matches[1:]
 
-[Section2]
-var2=var 2 text ${Section1.var1}
+        tc_index = -1
+        for ind in range(len(matches)):
+            if re.match(r'\*\*\* Test Cases \*\*\*', matches[ind]):
+                tc_index = ind + 1
 
-[Section3]
-var3=${Section2.var2}
-var5=this is some text ${Section1.var1} ${Section1.var4} ${Section2.var2}
+        print tc_index
+
+        tests = re.split(r'\r?\n(?=\S+?\s)', matches[tc_index])
+
+        for t in tests:
+            tname = re.search()
+
+        print  tests
+
+        # with open('write.txt', 'w') as wr:
+        #     for m in matches:
+        #         wr.write(m)
 
 ==============================================================================================================================
 https://stackoverflow.com/questions/17546016/how-can-you-zip-or-unzip-from-the-script-using-only-windows-built-in-capabiliti
