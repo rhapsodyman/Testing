@@ -1,4 +1,6 @@
 
+
+https://github.com/mkorpela/pabotDemous/tree/master/suite - see resource files
 http://cx-oracle.readthedocs.io/en/latest/installation.html#quick-start-cx-oracle-installation
 
 https://stackoverflow.com/questions/15034151/copy-directory-contents-into-a-directory-with-python
