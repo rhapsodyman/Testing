@@ -129,3 +129,7 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://blog.codecentric.de/en/2016/01/robot-framework-tutorial-2016-remote-server-keywords-in-java/ - remote keywords
 * https://github.com/robotframework/RIDE/wiki/Keyword-Completion#libraries-not-available-locally-or-written-in-java - generate docs xml
 * https://stackoverflow.com/questions/27039016/how-to-create-a-custom-python-code-library-for-the-robot-framework
+
+**Python**
+* https://github.com/geekcomputers/Python
+* https://github.com/satwikkansal/wtfpython
