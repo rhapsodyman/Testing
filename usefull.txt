@@ -1,3 +1,22 @@
+==============================================================================
+pabot syncronization
+
+use command line option like pabot --pabotlib --processes 3 *robot
+
+from LoginForm import LoginForm
+from pabot import PabotLib
+
+
+class LoginHelper:
+
+    def show_login_form(self):
+        PabotLib().acquire_lock('wait for creds')
+
+        lf = LoginForm()
+        lf.show_main_window()
+
+        PabotLib().release_lock('wait for creds')
+==============================================================================
 
 
 https://github.com/mkorpela/pabotDemous/tree/master/suite - see resource files
