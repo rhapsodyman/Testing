@@ -1,3 +1,26 @@
+1. Passing command line works  --variable res_path:resources
+
+--variable res_path:C:\Python27\Lib\site-packages\my_package\resources  - also works
+Resource          ${res_path}/external.txt
+
+2. Specify --pythonpath C:\Python27\Lib\site-packages\my_package\resources  also works
+   and here user need to go to RIDE Tools - Preferences - Importing and paste path to resources
+
+
+def compute_resources():
+    name = 'my_package' # robot framework
+
+    dir_list = site.getsitepackages()
+
+    for dir in dir_list:
+        if "site-packages" in dir:
+            location = os.path.join(dir, name, 'resources')
+            return location
+========================================================================================================================
+
+
+
+
 
 http://qaru.site/questions/521184/converting-configparser-values-to-python-data-types
 ==============================================================================
