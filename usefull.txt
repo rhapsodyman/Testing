@@ -1,3 +1,10 @@
+   https://github.com/robotframework/robotframework/issues/2603
+   https://groups.google.com/forum/#!topic/robotframework-users/7-wK8l1s_N0
+   https://github.com/robotframework/robotframework/issues/2643   - see this one
+   
+   --removekeywords name:external.Keywordfromresources --flattenkeywords name:external.Keywordfromresources
+=========================================================================================================================================
+
 1. Passing command line works  --variable res_path:resources
 
 --variable res_path:C:\Python27\Lib\site-packages\my_package\resources  - also works
