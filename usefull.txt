@@ -1,3 +1,24 @@
+import xml.etree.cElementTree as ET;
+
+if __name__ == '__main__':
+
+    xml_file = 'config.xml'
+    main_config = ET.ElementTree(file=xml_file)
+    root = main_config.getroot()
+
+    env_config_path = main_config.find("config_path").text
+
+    env_config = ET.ElementTree(file=env_config_path)
+    env_config_root = env_config.getroot()
+
+    for child in env_config_root.getchildren():
+        root.append(child)
+
+    with open("updated.xml", "w") as f:
+        main_config.write(f)
+
+========================================================================================================================
+
    https://github.com/robotframework/robotframework/issues/2603
    https://groups.google.com/forum/#!topic/robotframework-users/7-wK8l1s_N0
    https://github.com/robotframework/robotframework/issues/2643   - see this one
