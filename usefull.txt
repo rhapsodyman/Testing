@@ -1,3 +1,79 @@
+   command can be just  rebot modified.xml
+   http://robot-framework.readthedocs.io/en/3.0/_modules/robot/rebot.html
+   
+   
+   import re
+from datetime import datetime as dt
+
+from robot.api import ExecutionResult, ResultVisitor
+
+
+class MergeSuites:
+
+    def __init__(self, inpath):
+        self.inpath = inpath
+
+    def process(self):
+        result = ExecutionResult(self.inpath)
+        result.visit(MyVisitor())
+        result.save('modified.xml')
+
+
+class MyVisitor(ResultVisitor):
+
+    def __init__(self):
+        self.merging_dictionary = {}
+        self.dateformat = '%Y%m%d %H:%M:%S.%f'
+
+    def start_suite(self, suite):
+
+        match = re.search(r'(.+)\$\$.+', suite.name)
+        if match and ' & ' not in suite.name:
+            common_name = match.group(1)
+            # print suite.name
+
+            if common_name not in self.merging_dictionary:
+                self.merging_dictionary[common_name] = suite
+                suite.name = common_name
+
+            else:
+                first_entry = self.merging_dictionary[common_name]
+
+                # copy tests from current suite to the one from dictionary
+                first_entry.tests.extend(suite.tests)
+
+                # starttime
+                main_starttime = dt.strptime(first_entry.starttime, self.dateformat)
+                current_starttime = dt.strptime(suite.starttime, self.dateformat)
+
+                if current_starttime < main_starttime:
+                    first_entry.starttime = suite.starttime
+
+                # endtime
+                main_endtime = dt.strptime(first_entry.endtime, self.dateformat)
+                current_endtime = dt.strptime(suite.endtime, self.dateformat)
+
+                if current_endtime > main_endtime:
+                    first_entry.endtime = suite.endtime
+
+                suite.tests = []
+
+    def end_suite(self, suite):
+        """Remove suites that are empty after removing tests."""
+        suite.suites = [s for s in suite.suites if s.test_count > 0]
+
+    # def start_test(self, test):
+    #     self.current_test = test.name
+    #     self._write("Starting Test: %s " % test.name)
+
+
+if __name__ == '__main__':
+    gen = MergeSuites('output.xml')
+    gen.process()
+
+
+========================================================================================================================
+
 import xml.etree.cElementTree as ET;
 
 if __name__ == '__main__':
