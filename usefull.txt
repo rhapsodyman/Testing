@@ -1,4 +1,20 @@
-   command can be just  rebot modified.xml
+  
+   REPORT
+   
+   Total statistics is incorrect when we execute in parallel (10 suites each ~40 seconds running in 10 processes - it shows 5 minutes - INCORRECT)
+   If we specify --suite abc*  - it shows start and end time as N/A (Using --prerebotmodifier gives same N/A)
+   
+   
+   
+   Problem with --prerebotmodifier is that .xml remains unchanged - so we need to use it in run, rerun and also in merge
+   but custom script can replace the .xml - so that merge with be simpler
+   
+   
+   Using a separate modifier -  and setting start and end to None - is not working - elapsed becomes N/A / N/A / 00:03:32.587  !!!!
+  
+  
+  ======================================================================================
+  command can be just  rebot modified.xml
    http://robot-framework.readthedocs.io/en/3.0/_modules/robot/rebot.html
    
    
