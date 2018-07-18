@@ -1,4 +1,95 @@
+
+https://gist.github.com/datagrok/dfe9604cb907523f4a2f
+
+from subprocess import Popen, PIPE
+import sys
+import os
+import signal
+
+# command = 'pabot --processes 3 processes_benchmark'
+
+command = 'python -m pabot.pabot --processes 3 processes_benchmark'
+
+process = Popen(command, shell=True, stdout=PIPE, stderr=PIPE)
+
+print 'Child pid is ' + str(process.pid)
+
+# stdout, stderr = process.communicate()
+
+
+while True:
+    try:
+        out = process.stdout.read(1)
+        if out == '' and not process.poll() is None:
+            break
+        if out != '':
+            sys.stdout.write(out)
+            sys.stdout.flush()
+    except KeyboardInterrupt:
+        pass
+
+    # process.terminate()
+    # os.kill(process.pid, signal.SIGTERM)
+    # os.kill(process.pid, signal.SIGTERM)
+
+print 'waiting to terminate'
+process.wait()
+
+print 'Finished'
+
+# print stdout
+
+
+
+======================================================================================================
+
+
+package process;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class TestProcess {
+
+	public static void main(String[] args) throws IOException, InterruptedException {
+
+		String command = "cmd /c pabot --processes 3 --outputdir D:\\Andrei\\PythonProjects\\src D:\\Andrei\\PythonProjects\\src\\processes_benchmark";
+
+		// Process process = new ProcessBuilder("processname").start();
+
+		Process p = Runtime.getRuntime().exec(command);
+		p.
+
+		BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+		StringBuilder sb = new StringBuilder();
+
+		new Thread(() -> {
+			String line = "";
+			try {
+				while ((line = reader.readLine()) != null) {
+					System.out.println(line);
+					sb.append(line + "\n");
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}).start();
+
+		p.waitFor();
+
+	}
+
+}
   
+   
+   
+   ======================================================================================
+     
+   
+   
    REPORT
    
    Total statistics is incorrect when we execute in parallel (10 suites each ~40 seconds running in 10 processes - it shows 5 minutes - INCORRECT)
