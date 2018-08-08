@@ -1,3 +1,29 @@
+from robot.api import logger
+from robot.libraries.BuiltIn import BuiltIn
+
+
+class CustomAsserts:
+    ROBOT_LIBRARY_SCOPE = 'GLOBAL'
+
+    def __init__(self):
+        pass
+
+    def should_be_equal_as_strings_with_logging(self, first, second, msg=None, values=True,
+                                                ignore_case=False):
+        builtin = BuiltIn()
+        builtin._log_types_at_level('INFO', first, second)
+
+        logger.write('First = ' + str(first))
+        logger.write('Second = ' + str(second))
+
+        BuiltIn().should_be_equal_as_strings(first, second, msg, values, ignore_case)
+
+
+if __name__ == '__main__':
+    reader = CustomAsserts()
+
+
+
 
 https://gist.github.com/datagrok/dfe9604cb907523f4a2f
 
@@ -182,80 +208,6 @@ if __name__ == '__main__':
 ========================================================================================================================
 
 
-import ConfigParser
-import re;
-import os;
-import xml.etree.cElementTree as ET;
-
-
-class ConfigReader:
-    ROBOT_LIBRARY_SCOPE = 'GLOBAL'
-
-    def __init__(self):
-        print 'Inside constructor'
-        self.pattern = re.compile(r'(\$\{(.+?)(\[[:\d-]+\])?\})')
-        self.config = None
-        # self.var_dict = None
-
-def resolve_value(tree, value):
-    tmp = value
-    pattern = re.compile(r'(\$\{(.+?)(\[[:\d-]+\])?\})')
-
-    for (match, first, second) in re.findall(pattern, value):
-        elem = tree.find('.//' + first.replace('.', '/'))
-        new_value = resolve_value(tree, elem.text)
-
-        # next substitute it
-        tmp = tmp.replace(match, new_value)
-    return tmp
-
-
-def printRecur(tree, root):
-    """Recursively prints the tree."""
-
-    if not root.getchildren() and root.text:
-        old_val = root.text
-
-        new_val = resolve_value(tree, old_val)
-
-        if new_val != old_val:
-            print 'resolved to ' + new_val
-            root.text = new_val
-
-    else:
-        for elem in root.getchildren():
-            printRecur(tree, elem)
-
-
-if __name__ == '__main__':
-
-    xml_file = 'config.xml'
-    main_config = ET.ElementTree(file=xml_file)
-    root = main_config.getroot()
-
-    env_config_path = main_config.find("config_path").text
-
-    env_config = ET.ElementTree(file=env_config_path)
-    env_config_root = env_config.getroot()
-
-    for child in env_config_root.getchildren():
-        root.append(child)
-
-    elem = main_config.find(".//appointment[@id='12']//state")
-    print elem.text
-
-    printRecur(main_config, root)
-
-    for state in root.iter('state'):
-        print state.text
-
-    # with open("updated.xml", "w") as f:
-    #     main_config.write(f)
-
-
-
-
-
 ========================================================================================================================
 
    https://github.com/robotframework/robotframework/issues/2603
@@ -359,36 +311,6 @@ https://stackoverflow.com/questions/22241420/execution-of-python-code-with-m-opt
 
 
 ====================================================================================================================================
-import re
-
-if __name__ == '__main__':
-
-    with open('D:/RobotframeworkRelated/robot.txt', 'r') as f:
-        content = f.read()
-        # matches = re.findall(r'\*\*\* .*? \*\*\*.*', content, re.DOTALL | re.MULTILINE)
-
-        matches = re.split(r'(\*\*\* .*? \*\*\*.*?\r?\n)', content, re.DOTALL | re.MULTILINE)
-
-        if matches[0] == '':
-            matches = matches[1:]
-
-        tc_index = -1
-        for ind in range(len(matches)):
-            if re.match(r'\*\*\* Test Cases \*\*\*', matches[ind]):
-                tc_index = ind + 1
-
-        print tc_index
-
-        tests = re.split(r'\r?\n(?=\S+?\s)', matches[tc_index])
-
-        for t in tests:
-            tname = re.search()
-
-        print  tests
-
-        # with open('write.txt', 'w') as wr:
-        #     for m in matches:
-        #         wr.write(m)
 
 ==============================================================================================================================
 https://stackoverflow.com/questions/17546016/how-can-you-zip-or-unzip-from-the-script-using-only-windows-built-in-capabiliti
