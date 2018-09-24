@@ -1,31 +1,15 @@
+https://medium.com/@bkaankuguoglu/how-to-send-soap-requests-in-python-using-zeep-9fd78adb5346
+https://stackoverflow.com/questions/206154/what-soap-client-libraries-exist-for-python-and-where-is-the-documentation-for
+https://stackoverflow.com/questions/18175489/sending-soap-request-using-python-requests
+
+
+
+
 https://github.com/Frameworkium/frameworkium-core/blob/master/src/main/java/com/frameworkium/core/common/reporting/jira/api/SearchIssues.java
 
 
 from robot.api import logger
 from robot.libraries.BuiltIn import BuiltIn
-
-
-class CustomAsserts:
-    ROBOT_LIBRARY_SCOPE = 'GLOBAL'
-
-    def __init__(self):
-        pass
-
-    def should_be_equal_as_strings_with_logging(self, first, second, msg=None, values=True,
-                                                ignore_case=False):
-        builtin = BuiltIn()
-        builtin._log_types_at_level('INFO', first, second)
-
-        logger.write('First = ' + str(first))
-        logger.write('Second = ' + str(second))
-
-        BuiltIn().should_be_equal_as_strings(first, second, msg, values, ignore_case)
-
-
-if __name__ == '__main__':
-    reader = CustomAsserts()
-
-
 
 
 https://gist.github.com/datagrok/dfe9604cb907523f4a2f
