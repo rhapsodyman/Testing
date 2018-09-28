@@ -1,3 +1,6 @@
+https://medium.com/@dtmilano/testing-alexa-skills-the-grail-quest-3beba82450bb
+https://forums.developer.amazon.com/questions/89288/programmatically-enable-skill-for-testing.html
+
 https://medium.com/@bkaankuguoglu/how-to-send-soap-requests-in-python-using-zeep-9fd78adb5346
 https://stackoverflow.com/questions/206154/what-soap-client-libraries-exist-for-python-and-where-is-the-documentation-for
 https://stackoverflow.com/questions/18175489/sending-soap-request-using-python-requests
