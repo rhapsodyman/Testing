@@ -1,0 +1,47 @@
+
+http://python-future.org/compatible_idioms.html
+
+
+from __future__ import division, print_function
+
+try:
+    import ConfigParser
+except:
+    import configparser as ConfigParser
+	
+	
+if sys.version_info[0] == 3:
+    str_types = (str,)
+    xrange = range
+    unicode = str
+else:
+    str_types = (basestring,)
+    xrange = xrange
+    unicode = unicode
+	
+
+	
+Also this can be done
+
+if sys.version_info[0] == 3:
+    import configparser as ConfigParser
+else:
+    import ConfigParser
+	
+	
+	
+Tkinter
+
+# if sys.version_info[0] == 3:
+#     from tkinter import *
+#     from tkinter.ttk import *
+# else:
+#     from Tkinter import *
+#     from ttk import *
+
+
+
+	
+https://github.com/robotframework/RIDE/issues/1703 - comment at the end
+
+https://github.com/robotframework/RIDE/issues/1719 - this seems latest response
