@@ -133,3 +133,6 @@ https://jsfiddle.net/ykv4L6n8/3/
 **Python**
 * https://github.com/geekcomputers/Python
 * https://github.com/satwikkansal/wtfpython
+
+**Appium**
+* https://github.com/appium/java-client/blob/master/docs/Page-objects.md
