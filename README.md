@@ -38,6 +38,7 @@
 * https://gist.github.com/smutnyleszek/809a69dd05e1d5f12d01
 * https://kreisfahrer.gitbooks.io/selenium-webdriver/content/otpravlenie_faila_upload.html
 * http://toolsqa.com/selenium-webdriver/how-to-download-files-using-selenium/
+* https://github.com/qaprosoft/carina/blob/87dbd0a1d7d742cf19cc1547eb0186b90fa6baf6/carina-webdriver/src/main/java/com/qaprosoft/carina/core/foundation/webdriver/DriverHelper.java
 
 
 **Selenium GRID**  
