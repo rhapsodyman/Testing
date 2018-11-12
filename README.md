@@ -133,6 +133,15 @@ https://jsfiddle.net/ykv4L6n8/3/
 **Python**
 * https://github.com/geekcomputers/Python
 * https://github.com/satwikkansal/wtfpython
+* https://github.com/pyaf/code_for_fun
 
 **Appium**
 * https://github.com/appium/java-client/blob/master/docs/Page-objects.md
+
+**Selenium python**
+* https://github.com/baijum/selenium-python - docs
+* https://github.com/seleniumbase/SeleniumBase - framework has a lot of utilities (seleniumbase/core/browser_launcher.py, seleniumbase/fixtures/page_actions.py)
+* https://github.com/SergeyPirogov/webdriver_manager
+* https://www.perfecto.io/platform/debug-with-devtunnel/selenium-in-the-cloud/ - run a browser test on mobile
+* https://github.com/luisxiaomai/robotframework-anywherelibrary
+* https://github.com/golemhq/golem
