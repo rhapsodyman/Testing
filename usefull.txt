@@ -1,3 +1,64 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
+from webium.controls.link import Link
+from webium.driver import get_driver
+from webium import BasePage, Find, Finds
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from typing import List, Optional
+from webium.controls.click import Clickable
+
+
+class MyLink(Clickable):
+    """
+    Implements logic to work with UI elements of type Link
+    """
+    def get_href(self):
+        return self.get_attribute('href')
+
+    def is_https(self):
+        return self.get_href().startswith("https:")
+
+class GooglePage(BasePage):
+    url = 'http://www.google.com'
+
+    text_field = Find(by=By.NAME, value='q')  # type: WebElement
+    button = Find(by=By.NAME, value='btnK')  # type: WebElement
+
+
+class ResultItem(WebElement):
+    link = Find(MyLink, By.XPATH, './/h3/..')  # type: MyLink
+
+
+class ResultsPage(BasePage):
+    stat = Find(by=By.ID, value='resultStats')  # type: WebElement
+    results = Finds(ResultItem, By.XPATH, "//div[@class='g']")  # type: List[ResultItem]
+
+
+
+if __name__ == '__main__':
+
+    driver = webdriver.Chrome('D:/Selenium/chromedriver_win32/chromedriver.exe')
+
+    home_page = GooglePage(driver=driver)
+    home_page.open()
+    home_page.text_field.send_keys('Page Object')
+    home_page.text_field.send_keys(Keys.ENTER)
+
+    # home_page.button.click()
+    results_page = ResultsPage(driver=driver)
+    print('Results summary: ' + results_page.stat.text)
+    for item in results_page.results:
+        # print(item.link.text)
+        print(item.link.get_href() + '\n')
+        print(item.link.is_https())
+
+    driver.quit()
+
+
+
+
+
 https://medium.com/@dtmilano/testing-alexa-skills-the-grail-quest-3beba82450bb
 https://forums.developer.amazon.com/questions/89288/programmatically-enable-skill-for-testing.html
 
