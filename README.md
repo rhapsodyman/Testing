@@ -138,6 +138,7 @@ https://jsfiddle.net/ykv4L6n8/3/
 
 **Appium**
 * https://github.com/appium/java-client/blob/master/docs/Page-objects.md
+* https://developers.perfectomobile.com/display/TT/Sending+Key+Events+to+your+Android+Device
 
 **Selenium python**
 * https://github.com/baijum/selenium-python - docs
