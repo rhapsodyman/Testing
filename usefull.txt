@@ -1,3 +1,11 @@
+
+https://github.com/robotframework/robotframework/issues/2757  ("For example, large lists are best handled in libraries using Python, preferably using modules implemented in C.")
+
+https://groups.google.com/forum/#!topic/robotframework-users/ncE9vw8C82M (" You should especially avoid for loops, Wait Untill Keyword Succeeds, and deeply nested keyword structures by moving such logic into libraries when possible.")
+
+
+
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from webium.controls.link import Link
