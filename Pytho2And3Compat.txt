@@ -1,3 +1,29 @@
+Text and binary formats in P2 and P3
+
+https://docs.python.org/dev/howto/pyporting.html#text-versus-binary-data
+
+In Python 2 you could use the "str" type for both text and binary data.
+
+In Python 3 the change is:
+"unicode" -> "str"
+old str -> bytes
+
+For text  - "unicode" in Python 2 and "str" in Python 3, 
+for binary - that’s "str/bytes" in Python 2 and "bytes" in Python 3
+
+
+if is_py2:
+    builtin_str = str
+    bytes = str
+    str = unicode
+    
+
+elif is_py3:
+    builtin_str = str
+    str = str
+    bytes = bytes
+=====================================================================================================================
+
 
 http://python-future.org/compatible_idioms.html
 
