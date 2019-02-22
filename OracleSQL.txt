@@ -11,3 +11,621 @@ MYDB =
 
 http://www.sql.ru/forum/734626/sintaksis-tnsnames-ora
 http://o7planning.org/web/fe/default/en/document/20948/guide-to-installing-and-configuring-pl-sql-developer
+
+
+
+
+ 
+-- create tables
+create table departments (
+ dept_id NUMBER NOT NULL PRIMARY KEY,
+ dept_name VARCHAR2(30)
+);
+
+
+CREATE  TABLE worker (
+    worker_id   NUMBER NOT NULL PRIMARY KEY,
+    worker_dept_id NUMBER,
+    worker_name     VARCHAR(20) NOT NULL,
+    worker_job      VARCHAR(10),
+    hire_date       DATE NOT NULL,
+    email           VARCHAR(50) NOT NULL,
+    CONSTRAINT worker_dept_fk FOREIGN KEY(worker_dept_id)
+    REFERENCES departments(dept_id)
+)
+/
+
+--alter table worker add constraint pk_ad primary key(worker_id);
+CREATE SEQUENCE worker_seq START WITH 1;
+
+CREATE OR REPLACE TRIGGER worker_trigger
+  BEFORE INSERT ON worker
+  FOR EACH ROW
+BEGIN
+  :new.worker_id := worker_seq.nextval;
+END;
+/
+
+commit;
+
+
+insert into departments values (1, 'IT');
+insert into departments values (2, 'NETWORK');
+
+insert into worker (worker_dept_id, worker_name, worker_job, hire_date, email, salary)  values (1, 'Andrey',  'QA', (sysdate - 100), 'malai281092@gmail.com', 4000);
+insert into worker (worker_dept_id, worker_name, worker_job, hire_date, email, salary)  values (1, 'Alex',  'QA', (sysdate - 200), 'test1gmail.com', 5000);
+
+
+select * from worker
+
+create table test as (select * from worker where worker_name = 'Andrey')
+
+
+-- ctas systax and columns
+-- types of indexes and usage
+
+-- pl sql - all (functions, procedures, types, logging)
+-- jobs creating and queries
+-- database  links creation
+
+
+
+
+
+
+-- 1. PL/SQL Anonymous block
+--Is a basic unit in PL/SQL, combines sql statements (DECLARE and EXCEPTION are optional)
+-- Blocks can be nested - inner can access outer block vars
+--View - DBMS Output (to see console messages)
+DECLARE
+    l_counter   NUMBER;
+BEGIN
+    l_counter := 1;
+    dbms_output.put_line('DONE');
+EXCEPTION
+    WHEN OTHERS THEN
+        NULL;
+END;
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- 2 Datatypes
+-- Scalar Types (Numeric, Character, Date Time & Interval, Boolean)
+   -- Numeric (NUMBER, PLS_INTEGER, BINARY_INTEGER, BINARY_FLOAT, BINARY_DOUBLE)
+   
+      -- NUMBER(PRECISION, SCALE)  -> NUMBER(4,2)  value 25.41 - OK, 125.41 - ERROR
+	  --                              NUMBER(5,-2) value 12345.678 -> 12300,  156.456 -> 200 (rounds)
+
+
+-- Asigning variables
+DECLARE
+  l_first NUMBER:=2;
+  l_second CONSTANT NUMBER DEFAULT 2.31;
+  
+  
+-- %TYPE (anchored type)
+DECLARE
+  l_num NUMBER(5,2) DEFAULT 2.21;
+  l_num_vtype l_num%TYPE:=1.123;
+  l_num_colype worker.worker_name%TYPE
+  
+
+--PLS_INTEGER - for integer values (is faster that NUMBER)  values between -2**31 to 2**31-1 (-2,147,483,648 to 2,147,483,647).
+
+-- Character datatypes
+-- CHAR (max = 32768 bytes) it a fixed width type (default size is 1)
+-- VARCHAR2 (max = 32768 bytes, max size table column = 4000 bytes)
+
+
+-- DATETIME datatypes
+	-- DATE (day, month, year, hours, minutes, seconds), 
+	--TIMESTAMP (day, month, year, hours, minutes, seconds, fractional seconds)
+	-- CURRENT_DATE - session date
+	-- SYSDATE - database server date
+	
+	
+-- BOOLEAN datatypes (TRUE, FALSE, NULL)
+DECLARE
+  l_boolean BOOLEAN;
+BEGIN
+  l_boolean:=TRUE;
+END;
+
+
+-- Composite datatypes (records, nested tables, Varrays, Associative arrays)
+
+-- RECORDS
+DECLARE
+  TYPE emp_rec IS RECORD (emp_name VARCHAR2(60),
+              dept_id departments.dept_id%type,
+			  location  varchar2(10) DEFAULT 'CA');
+			  
+  l_emprec emp_rec;
+BEGIN
+  l_emprec.emp_name:= 'John'
+  
+
+-- %ROWTYPE
+DECLARE
+  l_dept_rec departments%rowtype
+  
+  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+  
+-- 3. LOOPS
+--  Exit conditions  - EXIT; RETURN;
+-- Continue statements - CONTINUE;
+-- Loops can be nested
+
+-- Simple loop
+DECLARE
+    l_counter   NUMBER := 0;
+BEGIN
+    LOOP
+        dbms_output.put_line(l_counter);
+        l_counter := l_counter + 1;
+        EXIT WHEN l_counter > 5;
+    END LOOP;
+END;
+   
+-- FOR LOOP
+BEGIN
+    FOR l_val in 1..5 LOOP
+        dbms_output.put_line(l_val);
+    END LOOP;
+END;
+
+-- loops can be labeled
+<<myloop>>
+BEGIN
+    FOR l_val in 1..5 LOOP
+
+
+-- WHILE LOOP
+DECLARE
+  l_count NUMBER :=0;
+BEGIN
+    WHILE l_count < 5 LOOP
+        dbms_output.put_line(l_count);
+        l_count:= l_count + 1;
+    END LOOP;
+END;  
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+-- 4. Conditional statements
+-- We can use AND, OR and () in if statements
+DECLARE
+    l_count   NUMBER := 0;
+BEGIN
+    l_count:= dbms_random.value(-10,15);
+    IF l_count > 0 THEN
+        dbms_output.put_line('Greater that 0');
+    ELSIF l_count < 0 THEN
+        dbms_output.put_line('Less than 0');
+    ELSE
+        dbms_output.put_line('Equal to 0');
+    END IF;
+END;
+
+-- case statements
+-- simple case statement
+DECLARE
+    l_count   PLS_INTEGER := 0;
+BEGIN
+    l_count := dbms_random.value(1, 4);
+    CASE l_count
+        WHEN 1 THEN
+            dbms_output.put_line('1');
+        WHEN 2 THEN
+            dbms_output.put_line('2');
+        WHEN 3 THEN
+            dbms_output.put_line('3');
+        ELSE
+            dbms_output.put_line('UNKNOWN');
+    END CASE;
+END;
+
+-- searched case statement
+DECLARE
+    l_count   PLS_INTEGER := 0;
+BEGIN
+    l_count := dbms_random.value(1, 4);
+    CASE 
+        WHEN l_count = 1 THEN
+            dbms_output.put_line('1');
+        WHEN l_count = 2 THEN
+            dbms_output.put_line('2');
+        WHEN l_count = 3 THEN
+            dbms_output.put_line('3');
+        ELSE
+            dbms_output.put_line('UNKNOWN');
+    END CASE;
+END;
+
+-- 
+-- also there is a simple case expression (to assign case result to a variable)
+-- also there is a searched case expression (to assign case result to a variable)
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+-- 5. Cursors
+-- Cursor life cycle - OPEN - FETCH - CLOSE
+
+-- implicit cursors (can be used for update/ delete and for select statements which return exactly one row; 0 or > 1 rows - Exception)
+DECLARE
+    l_dept_name departments.dept_name%type;
+BEGIN
+    select dept_name 
+        into l_dept_name 
+        from departments where dept_id =1;
+    IF SQL%FOUND THEN
+     dbms_output.put_line(SQL%ROWCOUNT);
+     END IF;
+     dbms_output.put_line(l_dept_name);
+END;
+
+
+-- COMMIT (saves to databse permanent) and ROLLBACK (undoes changes)
+
+-- Explicit cursors
+-- One row
+DECLARE
+    l_dept_name   departments.dept_name%TYPE;
+    CURSOR cur_get_departments IS
+    SELECT
+        dept_name FROM departments WHERE dept_id = 1;
+BEGIN
+    OPEN cur_get_departments;
+    FETCH cur_get_departments INTO l_dept_name;
+    dbms_output.put_line(l_dept_name);
+    CLOSE cur_get_departments;
+END;
+
+-- Multiple rows
+DECLARE
+    CURSOR cur_get_departments IS
+    SELECT dept_id, dept_name FROM departments;
+    cur_get_departments_var   cur_get_departments%rowtype;
+BEGIN
+    OPEN cur_get_departments;
+    LOOP
+        FETCH cur_get_departments INTO cur_get_departments_var;
+        EXIT WHEN cur_get_departments%notfound;
+        dbms_output.put_line(cur_get_departments%ROWCOUNT || ' ' || cur_get_departments_var.dept_name);
+    END LOOP;
+    CLOSE cur_get_departments;
+END;
+
+-- cursor atributes
+	-- <cursor>%ISOPEN - to check if it is open
+	-- <cursor>%ROWCOUNT -  will update to reflect the number of values fetched (or updated ?)
+	
+-- we can also pass parameters to cursors
+
+-- Cursor for loop (can be explicit or implicit)
+
+-- Explicit cursor for loop
+DECLARE
+    CURSOR cur_get_departments IS
+    SELECT dept_id, dept_name FROM departments;
+    cur_get_departments_var   cur_get_departments%rowtype;
+BEGIN
+    FOR cur_get_departments_var IN cur_get_departments LOOP
+        dbms_output.put_line(cur_get_departments%ROWCOUNT || ' ' || cur_get_departments_var.dept_name);
+    END LOOP;
+END;
+
+--Implicit cursor for loop
+BEGIN
+    FOR cur_get_departments_var IN (SELECT dept_id, dept_name FROM departments) LOOP
+        dbms_output.put_line(cur_get_departments_var.dept_name);
+    END LOOP;
+END;
+
+-- Cursors can also be nested
+
+
+-- Ref Cursors or Cursor Variables (will skip it - http://www.oracletutorial.com/plsql-tutorial/plsql-cursor-variables/)
+-- Cursor expressions (will skip it)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+-- 6. Exceptions (Internally defined, predefind, user defined)
+	-- Internally defined: ORA-n systax
+	-- SQLCODE, SQLERRM - to get the code and error message
+	
+DECLARE
+    l_dept_name departments.dept_name%type;
+BEGIN
+    select dept_name into l_dept_name from departments where dept_id = 4;
+EXCEPTION
+ WHEN NO_DATA_FOUND THEN
+    dbms_output.put_line(SQLCODE || ' ' || SQLERRM);
+END;
+
+	
+-- User defined exceptions
+DECLARE
+    l_num PLS_INTEGER;
+    too_big EXCEPTION; -- we define user exception
+    PRAGMA EXCEPTION_INIT (too_big, -1426); -- asociate numeric overflow error code with our exception
+BEGIN
+    l_num:= 2147483648;
+EXCEPTION
+ WHEN too_big THEN
+    dbms_output.put_line(SQLCODE || '|' || SQLERRM);
+END;
+
+-- to raise an exception we use: raise too_big
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+-- 7. DEBUGING
+   -- dbms_output.put_line  (32768 bytes)  (use put - to skip end of line character)
+   -- dbms_output.enable (enables calls to other procedures)
+   -- dbms_utility.format_error_stack - formats error stack (2000 bytes) - gives error number and message
+   -- dbms_utility.format_backtrace - gives error number and the line number of error
+DECLARE
+    l_num   NUMBER := 0;
+BEGIN
+    l_num := l_num / l_num;
+EXCEPTION
+    WHEN OTHERS THEN
+        dbms_output.put_line(dbms_utility.format_error_stack);
+        dbms_output.put_line(dbms_utility.format_error_backtrace);
+END;
+
+
+-- GRANT DEBUG CONNECT SESSION TO andrey;
+-- GRANT DEBUG ANY PROCEDURE TO andrey;
+
+-- Tools - Preferences - Debugger - Start debugging option (need to set it to 'Step into' for anonymous blocks)
+-- To modify value in runtime - on Data tab (rigth click - Modify value)
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+-- 8. Procedures (named program unit) does not return a value
+
+-- GRANT CREATE PROCEDURE TO andrey;
+-- GRANT CREATE ANY PROCEDURE TO andrey;
+-- GRANT ALTER ANY PROCEDURE TO andrey;
+
+
+create or replace procedure modify_workers_current_date AS
+BEGIN
+   update worker set hire_date = sysdate - 500;
+   dbms_output.put_line('Rows updated ' || SQL%ROWCOUNT);
+   commit;
+EXCEPTION
+    WHEN OTHERS THEN
+        dbms_output.put_line(dbms_utility.format_error_stack);
+        dbms_output.put_line(dbms_utility.format_error_backtrace);
+        rollback;
+        raise;
+END modify_workers_current_date;
+/
+
+-- Tools - Preferences - Database - PL/SQL Compiler (we can set to ENABLE)
+-- or ALTER SESSION SET PLSQL_WARNINGS = 'ENABLE:ALL'
+
+
+-- Compile a procedure for debug - ALTER PROCEDURE <NAME> COMPILE DEBUG
+-- or click the procedure - click on gear icon - Compile for debug
+
+
+-- execute procedure (call/exec/execute)
+call modify_workers_current_date();
+exec modify_workers_current_date;
+execute modify_workers_current_date();
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+-- 8. Functions (returns a value - simple or complex)
+-- can be used in sql expressions
+
+-- Oracle provided functions
+   -- numeric functions - ROUND, CEIL, ABS
+   -- character functions - LPAD, LTRIM, UPPER
+   -- datatime - SYSDATE, TO_DATE, ADD_MONTHS   
+   
+create or replace function get_workers_count RETURN NUMBER AS
+ w_count NUMBER := 0;
+BEGIN
+   select count(1) into w_count from worker;
+   dbms_output.put_line('Count is ' || w_count);
+   RETURN w_count;
+EXCEPTION
+    WHEN OTHERS THEN
+        dbms_output.put_line(dbms_utility.format_error_stack);
+        dbms_output.put_line(dbms_utility.format_error_backtrace);
+        raise;
+END get_workers_count;
+/
+   
+   
+-- Execute a function
+--a 
+select get_workers_count from dual
+
+--b - with anonymous block
+DECLARE
+res NUMBER;
+BEGIN
+ res:=get_workers_count;
+ dbms_output.put_line('Count ' || res);
+END;
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+-- 9. Parameters in Procedures and Functions 
+-- modes of parameters - 
+	-- IN (default, read only parameter, passed by reference)
+	-- OUT (cannot pass literals or constants, passed by value)
+	-- INOUT (cannot pass literals or constants, passed by value) - 
+
+create or replace procedure modify_worker_hire_date(p_worker_id IN NUMBER, p_email OUT varchar2, p_status IN OUT NUMBER) AS
+BEGIN
+   update worker set hire_date = sysdate - 700 where worker_id = p_worker_id
+   RETURNING email into p_email; -- set to OUT parameter
+   dbms_output.put_line('Rows updated ' || SQL%ROWCOUNT);
+   p_status:=1; -- set to IN OUT parameter
+   commit;
+EXCEPTION
+    WHEN OTHERS THEN
+        dbms_output.put_line(dbms_utility.format_error_stack);
+        dbms_output.put_line(dbms_utility.format_error_backtrace);
+        rollback;
+        p_status:=0;
+END modify_worker_hire_date;
+/
+ 
+---- call 
+DECLARE
+l_status NUMBER:=-1;
+l_worker_id NUMBER:=21;
+l_email worker.email%type:='';
+BEGIN
+ modify_worker_hire_date(l_worker_id, l_email, l_status);
+ dbms_output.put_line('Status ' || l_status || ' Email ' || l_email);
+END;
+
+-- NOCOPY hint (used for out or inout params) - ask compiler to pass parameters by reference and not by value
+-- in case of an exception the values of out/inout parameters with NOCOPY can have a new value
+-- but those without NOCOPY hint will have the original value
+
+
+-- positional parameters notation l_value, l_value2
+-- named notation  p_value => l_value, p_value2 => l_value2
+-- also a mixed notation - where positional parameters go first, l_value, p_value2 => l_value2
+
+-- default values. Eg.  p_value IN NUMBER DEFAULT 1, p_value2 IN NUMBER DEFAULT 100
+-- calling with default values - same as in python
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+-- 10. Local Subprograms (nested procedures and functions) - will skip it
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+-- 11. Packages (logical grouping, global variables, session data, selective exposure)
+
+-- package structure
+	-- package specification - public apis, variables and objects (like an interface)
+	-- package body - implementations, private apis, variables and objects
+	
+-- contents of package - procedures; functions; cursors; types, variables and constants; records and collections; exception
+
+
+-- package specification
+CREATE OR REPLACE PACKAGE worker_man AS
+    g_test_email CONSTANT VARCHAR2(100) := 'test1gmail.com';
+    low_salary_ex EXCEPTION;
+    CURSOR gcur_get_dep_id (p_dept_name VARCHAR2) IS
+    SELECT dept_id FROM departments WHERE dept_name = p_dept_name;
+
+    FUNCTION calc_sum_salary (p_dept_id NUMBER) RETURN NUMBER;
+    PROCEDURE update_worker_hire_date (p_worker_id NUMBER, p_hire_date DATE);
+END worker_man;
+/
+
+--package body
+CREATE OR REPLACE PACKAGE BODY worker_man AS
+
+    FUNCTION calc_sum_salary (p_dept_id NUMBER) RETURN NUMBER IS
+        l_sal   NUMBER;
+    BEGIN
+        SELECT SUM(salary) INTO l_sal FROM worker WHERE worker_dept_id = p_dept_id;
+        RETURN l_sal;
+    END calc_sum_salary;
+
+    PROCEDURE update_worker_hire_date (p_worker_id NUMBER, p_hire_date DATE ) IS
+    BEGIN
+        UPDATE worker SET hire_date = p_hire_date WHERE worker_id = p_worker_id;
+        dbms_output.put_line('Rows updated ' || SQL%rowcount);
+        COMMIT;
+    END update_worker_hire_date;
+END worker_man;
+/
+
+--grant execute on worker_man to <user_name> (for user_name to be able to use it)
+
+-- execute
+select worker_man.calc_sum_salary(1) from dual
+
+
+BEGIN
+    worker_man.update_worker_hire_date(42, sysdate - 745);
+EXCEPTION
+    WHEN OTHERS THEN
+        dbms_output.put_line(dbms_utility.format_error_stack);
+        dbms_output.put_line(dbms_utility.format_error_backtrace);
+END;
+
+-- if you use variables on package level and there are open sessions that use it => then when you recompile the package - clients will get the error
+-- and databse will reset the package variable to default values (to avoid we can use a separate package to hold the state)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+-- 12. Calling functions from sql
+
+select get_dept_name(1) from dual;
+-- where they cannot appear - DEFAULT value of a column, CHECK constraint clause
+-- select statement - cannot alter system or session; cannot run a DML statement; no transaction statements
+
+-- deterministic functions - if function does not change package variables and database state => we can declare it like ... RETURN NUMBER DETERMINISTIC AS ...
+   -- this way it will execute only one time for each unique input value
+
+-- PARALLEL_ENABLE - functions that cannot read or modify the package and database state =>  .. RETURN NUMBER PARALLEL_ENABLE AS ...
+
+-- query degree for a table
+select degree from user_tables where table_name = 'WORKER'
+
+-- parallel hint - function will also execute in parallel
+select /*parallel(worker, 4)*/ worker_id, get_dept_name(worker_dept_id) from worker
+
+
+
+-- 13. Object oriented - https://www.tutorialspoint.com/plsql/plsql_object_oriented.htm
+
+
+
+-- 14 Create index and Explain plan
+CREATE INDEX worker_name_idx ON worker(worker_name)
+      TABLESPACE users
+      STORAGE (INITIAL 20K
+      NEXT 20k
+      PCTINCREASE 75);
+	  
+ EXPLAIN PLAN FOR select 1 from dual;
+ SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+ 
+ 
+ 
+ -- 15 used space
+  select owner, segment_name, partition_name,
+       segment_type, bytes / 1024/1024 "MB" 
+  from dba_segments 
+ where owner = 'ANDREY'
+ 
+ 
+ 
+ -- 15 Scheduled jobs
+GRANT CREATE ANY JOB TO andrey;
+GRANT EXECUTE ON DBMS_SCHEDULER TO andrey;
+GRANT MANAGE SCHEDULER TO andrey;
+
+-- see the jobs
+select * from all_scheduler_jobs where owner = 'ANDREY'
+select * from ALL_SCHEDULER_JOB_RUN_DETAILS where owner = 'ANDREY'
+
+-- enable/disable
+exec dbms_scheduler.enable('LOGGING_JOB');
+exec dbms_scheduler.disable('LOGGING_JOB');
