@@ -147,3 +147,11 @@ https://jsfiddle.net/ykv4L6n8/3/
 * https://www.perfecto.io/platform/debug-with-devtunnel/selenium-in-the-cloud/ - run a browser test on mobile
 * https://github.com/luisxiaomai/robotframework-anywherelibrary
 * https://github.com/golemhq/golem
+
+**Spring Cucumber**
+* https://www.baeldung.com/cucumber-spring-integration
+* https://github.com/cucumber/cucumber-jvm/tree/master/spring
+* https://thepracticaldeveloper.com/2018/03/31/cucumber-tests-spring-boot-dependency-injection/
+* http://automation-remarks.com/cucumber/
+* https://medium.com/@mlvandijk/managing-state-in-cucumber-jvm-using-spring-a795e9a1dd18
+* https://stackoverflow.com/questions/23564938/can-i-use-spring-to-autowire-controller-in-cucumber-test
