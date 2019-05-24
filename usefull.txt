@@ -1,3 +1,43 @@
+
+For setQueryTimeout - on timeout exception java.sql.SQLTimeoutException is thrown
+
+pool.shutdownNow() - calls thread.interrupt - which we can check by Thread.currentThread().isInterrupted()
+
+https://github.com/zero-88/robotframework-excel/blob/master/tests/acceptance/ExcelRobotTest.robot
+
+
+*** Settings ***
+Library           ExcelRobot
+
+*** Test Cases ***
+Write New Value
+    Set Log Level    DEBUG
+    ${sheetName}   Set Variable    sheet1
+    Open Excel To Write     E:\\testWrite.xlsx
+    Create Sheet            ${sheetName}
+    Write To Cell By Name   ${sheetName}     A1   abc
+    Write To Cell By Name   ${sheetName}     A2   34
+    Write To Cell By Name   ${sheetName}     A3   True
+    Write To Cell    ${sheetName}    ${5}    ${5}    Hello
+    Save Excel
+    
+
+Read Values
+    Set Log Level    DEBUG
+    ${sheetName}   Set Variable    sheet1
+    Open Excel   E:\\testWrite.xlsx
+    ${val}    Read Cell Data By Name   ${sheetName}     A1
+    ${val}    Read Cell Data By Name   ${sheetName}     A2
+    ${val}    Read Cell Data    ${sheetName}     0    0    
+
+
+========================================================================================================================
+
+
+
+
+
+
 https://www.perfecto.io/platform/debug-with-devtunnel/selenium-in-the-cloud/    - run a browser test on mobile (probably no appium is needed)
 
 seleniumbase/core/browser_launcher.py, seleniumbase/fixtures/page_actions.py
