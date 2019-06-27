@@ -162,6 +162,7 @@ https://jsfiddle.net/ykv4L6n8/3/
 
 
 **Cucumber Gradle**
+* https://stackoverflow.com/questions/21358466/gradle-to-execute-java-class-without-modifying-build-gradle - exec java
 * https://github.com/samueltbrown/gradle-cucumber-plugin - this is some old one and probably only FEATURE PARALLE
 * https://github.com/prashant-ramcharan/courgette-jvm - this one looks good
 * https://testifyqa.com/java-web-frameworks/part-7a-parallel-test-execution-gradle-courgette-jvm/
