@@ -159,3 +159,8 @@ https://jsfiddle.net/ykv4L6n8/3/
 **Docker**
 * https://docs.docker.com/get-started/
 * https://github.com/wsargent/docker-cheat-sheet
+
+
+**Cucumber Gradle**
+* https://github.com/samueltbrown/gradle-cucumber-plugin - this is some old one and probably only FEATURE PARALLE
+* https://github.com/prashant-ramcharan/courgette-jvm - this one looks good
