@@ -1,4 +1,39 @@
 
+public void insertRowsBatch(int number) {
+
+		String sql = "insert into worker (worker_dept_id, worker_name, worker_job, hire_date, email, salary)  "
+				+ "values (?, ?, ?, (sysdate - ?/1440), ?, ?)";
+
+		try (Connection connection = DriverManager.getConnection(url, username, password);
+				PreparedStatement statement = connection.prepareStatement(sql)) {
+
+			connection.setAutoCommit(true);
+
+			for (int i = 0; i < number; i++) {
+				statement.setInt(1, i % 2 == 0 ? 1 : 2);
+				statement.setString(2, RandomStringUtils.randomAlphabetic(5));
+				statement.setString(3, RandomStringUtils.randomAlphabetic(2));
+				statement.setInt(4, 20);
+				statement.setString(5, RandomStringUtils.randomAlphabetic(3) + "@mail");
+				statement.setInt(6, new Random().nextInt(10000));
+
+				statement.addBatch();
+				
+				if (i % 1000 == 0 || i == number) {
+					statement.executeBatch();
+//					System.out.println("Updated " + Arrays.toString(executeUpdate) + " rows");
+				}
+			}
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+
+
 For setQueryTimeout - on timeout exception java.sql.SQLTimeoutException is thrown
 
 pool.shutdownNow() - calls thread.interrupt - which we can check by Thread.currentThread().isInterrupted()
