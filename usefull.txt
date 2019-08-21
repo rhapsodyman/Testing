@@ -5,6 +5,8 @@ http://jsfiddle.net/35hkpj1q/  - my fiddle (pure JS remove row)
 
 https://jsfiddle.net/zo620y8v/  - vue JS table with checkboxes and row selection to delete
 
+https://github.com/GitHubTochkaDev/pagination-tutorial  - pagination tutorial
+
 ====================================================================================================================
 public void insertRowsBatch(int number) {
 
