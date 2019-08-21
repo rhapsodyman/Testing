@@ -1,4 +1,11 @@
+https://stackoverflow.com/questions/24750623/select-a-row-from-html-table-and-send-values-onclick-of-a-button
 
+http://jsfiddle.net/35hkpj1q/  - my fiddle (pure JS remove row)
+
+
+https://jsfiddle.net/zo620y8v/  - vue JS table with checkboxes and row selection to delete
+
+====================================================================================================================
 public void insertRowsBatch(int number) {
 
 		String sql = "insert into worker (worker_dept_id, worker_name, worker_job, hire_date, email, salary)  "
