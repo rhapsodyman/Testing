@@ -1,3 +1,11 @@
+
+Bootstrap forms
+https://www.jquery-az.com/bootstrap-4-form-explained-11-examples-online/
+
+
+
+
+
 https://stackoverflow.com/questions/24750623/select-a-row-from-html-table-and-send-values-onclick-of-a-button
 
 http://jsfiddle.net/35hkpj1q/  - my fiddle (pure JS remove row)
