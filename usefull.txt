@@ -1,4 +1,8 @@
 
+Good Oracle query examples-  https://livesql.oracle.com/
+
+
+
 Bootstrap forms
 https://www.jquery-az.com/bootstrap-4-form-explained-11-examples-online/
 
