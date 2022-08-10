@@ -11,6 +11,9 @@ https://www.jquery-az.com/bootstrap-4-form-explained-11-examples-online/
 https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitations.microsoft.com%2fredeem%2f%3ftenant%3d1b6d1f48-8893-4889-bdbf-1fb841bcae46%26user%3d88156822-2644-493f-9bb4-32e16ae89ab7%26ticket%3dIh2FzlzzDN8eUCFyaXJEo5YySSZSvB5DHFsm7ldRL9w%25253d%26ver%3d2.0
 
 
+https://join.slack.com/t/allied-courses/invite/enQtMzkzNjA2NTczMDM1Mi05N2Y1MGI0ODJjM2IwMWUwYTcyNTA5ZjdmNzM0MTNkMGU2ZDFlNzRiMDJmOWIwMjNhMWM2Mzc0ODQxNzYyMzAy?x=x-p3925375849456-3918313169137-3912538423157
+
+
 https://stackoverflow.com/questions/24750623/select-a-row-from-html-table-and-send-values-onclick-of-a-button
 
 http://jsfiddle.net/35hkpj1q/  - my fiddle (pure JS remove row)
