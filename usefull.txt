@@ -942,3 +942,95 @@ public class ProxyServerBasicAutorizationTest {
     }
 }
 И напоследок ложка дегтя, BrowserMob Proxy работает только с basic-аутентификацией и не предоставляет методов для работы с другими протоколами (Kerberos, NTLM и др.).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class Demo {
+
+    public static void main(String[] args) {
+
+        System.setProperty("webdriver.chrome.driver", "chromedriver-win32\\chromedriver.exe");
+
+        WebDriver driver = new ChromeDriver();
+        boolean isLocalRun = true;
+        try {
+
+            driver.get("https://google.com");
+
+
+            // based on https://stackoverflow.com/questions/16505333/get-the-data-of-uploaded-file-in-javascript
+            String script = """
+                    // create fileInput
+                    const fileInput = document.createElement("input");
+                    fileInput.type = "file";
+                    fileInput.id = "fileInput";
+                    document.getElementsByTagName('body')[0].appendChild(fileInput);
+                                        
+                    // create text output
+                    const fileContent = document.createElement("pre");
+                    fileContent.id = "fileContent";
+                    document.getElementsByTagName('body')[0].appendChild(fileContent);
+                                        
+                                        
+                    // add listener
+                    document.getElementById('fileInput').addEventListener('change', handleFileSelect, false);
+                                        
+                    function handleFileSelect(event) {
+                      const reader = new FileReader()
+                      reader.onload = handleFileLoad;
+                      reader.readAsText(event.target.files[0])
+                    }
+                                        
+                    function handleFileLoad(event) {
+                      console.log(event);
+                      document.getElementById('fileContent').textContent = event.target.result;
+                    }
+                                        
+                    """;
+
+            driver.switchTo().newWindow(WindowType.TAB);
+            ((JavascriptExecutor) driver).executeScript(script);
+
+            // send file
+            if (!isLocalRun) {
+                ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
+            }
+
+            driver.findElement(By.id("fileInput")).sendKeys("E:\\file.csv");
+
+            String fileContent = driver.findElement(By.id("fileContent")).getText();
+            System.out.println(fileContent);
+
+        } finally {
+            driver.quit();
+        }
+    }
+}
+
+
+
+
